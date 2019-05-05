@@ -5,10 +5,71 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
-/**
- *
- * @author fight
- */
+import java.util.ArrayList;
+import java.lang.reflect.Array;
+import br.ufrpe.GrekHotel.beans.*;;
+
 public class RepReservas {
-    
-}
+	 private ArrayList<Reserva> reservas;
+	 private static RepReservas instance;
+	 
+	 private RepReservas() {
+		 
+		 reservas = new ArrayList();
+	 }
+	 public static RepReservas getInstance(){
+			if (instance == null){
+				instance = new RepReservas(); 
+				
+			}
+			return instance;
+		}
+	
+	public void cadastrar(Reserva reserv){
+		if(reserva.getQuarto().getSituacao() == 1) {
+		if(!this.reservas.contains(reserv)){
+			
+				
+				reservas.add(reserv); 
+	}
+		}
+		}
+	
+
+	public Reserva procurar(Quarto quarto){
+           	for(Reserva i : reservas) {
+			if (i.getQuarto().equals(quarto)){
+				
+				return i;
+			}
+     
+	   	}
+	}
+
+	public Reserva procurar(Cliente hospede){
+           	for(Reserva j : reservas) {
+			if (j.getCliente().equals(hospede)){
+
+				return j;
+			}
+     
+	   	}
+	}
+	public void atualizar(Reserva desatualizado, Reserva Atualizado){
+
+
+	} 
+	public boolean remove(Reserva reserva){
+		boolean resultado = false;
+			 
+			 if(this.reservas.contains(reserva)){ 
+				
+				resultado = true;
+				reservas.remove(reserva);
+		}
+		return resultado;
+			
+		}
+      }
+
+
