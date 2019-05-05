@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.ufrpe.GrekHotel.Negocio;
 
 
@@ -12,10 +8,7 @@ import br.ufrpe.GrekHotel.beans.Conta;
 import br.ufrpe.GrekHotel.beans.Servico;
 import br.ufrpe.GrekHotel.beans.Visita;
 
-/**
- *
- * @author fight
- */
+
 public class ControladorCliente {
 
 	
@@ -41,20 +34,14 @@ public class ControladorCliente {
 	}
 
 	public void contratarServico(Cliente cliente, Servico servico) {
-				
-		
-		this.cliente.getDespesa();
-		
-	}
+    		
+		this.consultarDespesas(cliente).novaCompra(servico);
+		}
 	
 	
 	public Conta consultarDespesas (Cliente cliente) {
 		
-		this.cliente.getDespesa();
-		
-		return
-		
-		
-	}
+		return cliente.getDespesa();	
+		}
 
 }
