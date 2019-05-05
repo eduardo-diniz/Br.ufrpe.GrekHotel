@@ -34,16 +34,20 @@ public class ControladorAdm {
 
 		return instance;
 	}
+	
+	public ArrayList lista(){
+        return servico.lista();
+    }
 
-	public boolean cadastrarQuarto(Quarto quar) {
+	public void cadastrarQuarto(Quarto quar) {
 
-		return this.quarto.cadastrar(quar);
+		this.quarto.cadastrar(quar);
 
 	}
 
-	public boolean cadastrarServico(Servico serv) {
+	public void cadastrarServico(Servico serv) {
 
-		return this.servico.cadastrar(serv);
+		this.servico.cadastrar(serv);
 
 	}
 
@@ -58,18 +62,16 @@ public class ControladorAdm {
 		return this.servico.remove(servRem);
 
 	}
-
-	public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) {
-
-		// incompleto
-		this.quarto.atualizar(desatualizado, atualizado);
-
-	}
-
-	public void atualizarServico(Servico desatualizado, Servico atualizado) {
-		// incompleto
-
-		this.servico.atualizaz(desatualizado, atualizado);
-	}
-
 }
+	//public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) {
+
+		// incompleto
+		//this.quarto.atualizar(desatualizado, atualizado);
+
+	//}
+
+	//public void atualizarServico(Servico desatualizado, Servico atualizado) {
+		// incompleto
+
+		//this.servico.atualizar(desatualizado, atualizado);
+	//}

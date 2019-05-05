@@ -15,8 +15,6 @@ public class ControladorCliente {
 	private static ControladorCliente instance;
 
 	private ControladorCliente() {
-
-		this.servico = RepServicos.getInstance();
 		
 	}
 	
