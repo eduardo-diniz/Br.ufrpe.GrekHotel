@@ -37,25 +37,25 @@ public class ControladorAdm {
 
 	public boolean cadastrarQuarto(Quarto quar) {
 
-		this.quarto.cadastrar(quar);
+		return this.quarto.cadastrar(quar);
 
 	}
 
 	public boolean cadastrarServico(Servico serv) {
 
-		this.servico.cadastrar(serv);
+		return this.servico.cadastrar(serv);
 
 	}
 
 	public boolean removerQuarto(Quarto quartoRem) {
 
-		this.quarto.remover(quartoRem);
+		return this.quarto.remover(quartoRem);
 
 	}
 
 	public boolean removerServico(Servico servRem) {
 
-		this.servico.remover(servRem);
+		return this.servico.remove(servRem);
 
 	}
 
@@ -69,7 +69,7 @@ public class ControladorAdm {
 	public void atualizarServico(Servico desatualizado, Servico atualizado) {
 		// incompleto
 
-		this.servico.atualizar(desatualizado, atualizado);
+		this.servico.atualizaz(desatualizado, atualizado);
 	}
 
 }
