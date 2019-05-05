@@ -37,8 +37,8 @@ public class RepQuartos {
 
 			quartos.add(quar);
 		} else {
-			// Exceção
-			// System.out.println("Quarto não cadastrado");
+			// Exceï¿½ï¿½o
+			// System.out.println("Quarto nï¿½o cadastrado");
 
 		}
 	}
@@ -51,7 +51,7 @@ public class RepQuartos {
 				q = qua;
 
 			} else {
-				// exceção
+				// exceï¿½ï¿½o
 				// System.out.println();
 
 			}
@@ -59,6 +59,10 @@ public class RepQuartos {
 		}
 		return q;
 	}
+        
+        public ArrayList lista(){
+            return quartos;
+        }
 
 	public void atualizar(Quarto desatualizado, Quarto Atualizado) {
 
@@ -73,7 +77,7 @@ public class RepQuartos {
 			removido = true;
 			quartos.remove(quartoRem);
 		} else {
-			// exceção
+			// exceï¿½ï¿½o
 
 		}
 

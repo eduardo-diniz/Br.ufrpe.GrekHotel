@@ -9,6 +9,10 @@ package br.ufrpe.GrekHotel.beans;
  *
  * @author fight
  */
-public class Funcionario {
+public class Funcionario extends Usuario {
+
+    public Funcionario(String login, String senha) {
+        super(login, senha);
+    }
     
 }

@@ -27,7 +27,7 @@ public class Visita {
 	}
 
 
-	public String getQuarto() {
+	public Quarto getQuarto() {
 		return this.quarto;
 	}
 	
@@ -48,25 +48,27 @@ public class Visita {
 	}
 	
 	public void setConta(Conta conta) {
-		this.conta = conta;
+		this.despesa = conta;
 		
 	}
 	
-	public String getConta() {
-		return this.conta.toString();
+	public Conta getConta() {
+		return this.despesa;
 	}
 
 	public boolean equals(Object obj){
 	
-	boolean resultado = false;
+            boolean resultado = false;
 
-	if(obj instanceof Visita){
-		Visita a =(Visita) obj;
+            if(obj instanceof Visita){
+                    Visita a =(Visita) obj;
 
-		if(this.quarto.equals(obj.getQuarto()) && this.checkIn.equals(obj.getCheckIn()) && this.checkOut.equals(obj.getcheckOut()) && this.conta.equals(obj.getConta()){
-			resultado = true;
-		}
-		return resultado;
-	}
+                    if(this.quarto.equals(a.getQuarto()) && this.checkIn.equals(a.getCheckIn()) && this.checkOut.equals(a.getCheckOut()) && this.despesa.equals(a.getConta())){
+                            resultado = true;
+                    }
+
+            }
+            return resultado;
+        }
     
 }

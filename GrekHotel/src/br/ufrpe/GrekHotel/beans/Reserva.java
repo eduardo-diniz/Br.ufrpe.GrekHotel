@@ -13,7 +13,7 @@ public class Reserva {
 	private LocalDate checkOutPrevisto;
     	private Visita visita;
     
-    public Reserva(Quarto quarto, Cliente hospede, LocalDate checkInPrevisto, LocalDate checkOutPrevisto, Visita visita) {
+    public Reserva(Quarto quarto, Cliente hospede, LocalDate checkInPrevisto, LocalDate checkOutPrevisto) {
     	this.quarto = quarto;
     	this.hospede = hospede;
     	this.checkInPrevisto = checkInPrevisto;
@@ -26,33 +26,33 @@ public class Reserva {
     	
     }
     
-    public String getQuarto() {
+    public Quarto getQuarto() {
     	return this.quarto;
     }
     
     public void setCliente(Cliente cliente) {
-    	this.cliente = cliente;
+    	this.hospede = cliente;
     	
     }
     
-    public String getCliente() {
+    public Cliente getCliente() {
     	return this.hospede;
     }
     
-    public void setCheckIn(LocalDate checkIn) {
+    public void setCheckInPrevisto(LocalDate checkIn) {
     	this.checkInPrevisto = checkIn;
     }
     
-    public LocalDate getCheckIn() {
+    public LocalDate getCheckInPrevisto() {
     	
     	return this.checkInPrevisto;
     }
     
-    public void setCheckOut(LocalDate checkOut) {
+    public void setCheckOutPrevisto(LocalDate checkOut) {
     	this.checkOutPrevisto = checkOut;
     }
     
-    public LocalDate getCheckOut() {
+    public LocalDate getCheckOutPrevisto() {
     	return this.checkOutPrevisto;
     }
     
@@ -61,7 +61,7 @@ public class Reserva {
     	
     }
     
-    public String getVisita() {
+    public Visita getVisita() {
     	return this.visita;
     }
     public boolean equals(Object obj){
@@ -71,18 +71,18 @@ public class Reserva {
 	if(obj instanceof Reserva){
 		Reserva a = (Reserva) obj;
 
-		if(this.quarto.equals(obj.getQuarto()) && this.hospede.equals(obj.getHospede()) &&
-		 this.checkInPrevisto.equals(obj.getCheckInPrevisto()) && this.checkOutPrevisto.equals
-		 (obj.checkOutPrevisto) && this.visita.equals(obj.getVisita())){
+		if(this.quarto.equals(a.getQuarto()) && this.hospede.equals(a.getCliente()) &&
+		 this.checkInPrevisto.equals(a.getCheckInPrevisto()) && this.checkOutPrevisto.equals
+		 (a.getCheckOutPrevisto()) && this.visita.equals(a.getVisita())){
 			resultado = true;
 		}
-		return resultado;
+		
 	}
-
+        return resultado;
 	    
     }
     public String toString() {
     	return "Quarto reservado: " + this.getQuarto() + "\nCliente: " + this.getCliente() +"\nHora prevista: " +
-    			this.getCheckIn() + " - " + this.getCheckOut() + "\n Visitante: " + this.getVisita();
+    			this.getCheckInPrevisto() + " - " + this.getCheckOutPrevisto() + "\n Visitante: " + this.getVisita();
     }
 }

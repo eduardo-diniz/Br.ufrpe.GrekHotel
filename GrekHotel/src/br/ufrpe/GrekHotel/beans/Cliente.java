@@ -5,10 +5,68 @@
  */
 package br.ufrpe.GrekHotel.beans;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
  *
  * @author fight
  */
-public class Cliente {
+public class Cliente extends Usuario {
+    private String nome;
+    private int idade;
+    private long cpf;
+    private Conta despesa;
+    private ArrayList<Reserva> historico;
+    private ArrayList<Visita> historicoVisita;
     
+    public Cliente(String login, String senha, String nome, int idade, long cpf){
+        super(login, senha);
+        this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
+        historico = new ArrayList();
+        historicoVisita = new ArrayList();
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public long getCpf() {
+        return cpf;
+    }
+
+    public Conta getDespesa() {
+        return despesa;
+    }
+    
+    public void setDespesa(Conta despesa) {
+        this.despesa = despesa;
+    }
+    
+    public ArrayList<Reserva> getHistorico() {
+        return historico;
+    }
+
+    public ArrayList<Visita> getHistoricoVisita() {
+        return historicoVisita;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean resultado = false;
+        if(obj instanceof Cliente){
+            Cliente c = (Cliente) obj;
+            if(this.cpf == c.getCpf()){
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
 }

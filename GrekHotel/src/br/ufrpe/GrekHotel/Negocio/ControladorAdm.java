@@ -8,6 +8,7 @@ package br.ufrpe.GrekHotel.Negocio;
 import java.util.ArrayList;
 
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
+import br.ufrpe.GrekHotel.Dados.RepServicos;
 import br.ufrpe.GrekHotel.beans.*;
 /**
  *
@@ -16,17 +17,17 @@ import br.ufrpe.GrekHotel.beans.*;
 public class ControladorAdm {
 
 	private RepQuartos quarto;
-	private RepServico servico;
+	private RepServicos servico;
 	private static ControladorAdm instance;
 
 	private ControladorAdm() {
 
 		this.quarto = RepQuartos.getInstance();
-		this.servico = RepServico.getInstance();
+		this.servico = RepServicos.getInstance();
 
 	}
 
-	public ControladorAdm getInstance() {
+	public static ControladorAdm getInstance() {
 		if (instance == null) {
 			ControladorAdm.instance = new ControladorAdm();
 		}

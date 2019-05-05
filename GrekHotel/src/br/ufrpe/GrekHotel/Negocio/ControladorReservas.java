@@ -4,15 +4,21 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio;
-import java.time.LocalDate;
+import br.ufrpe.GrekHotel.Dados.RepQuartos;
+import java.time.LocalDateTime;
+import br.ufrpe.GrekHotel.beans.*;
+import br.ufrpe.GrekHotel.Dados.RepReservas;
+import java.util.ArrayList;
 
 public class ControladorReservas {
 
-private RepReserva reserva;
+private RepQuartos quartos;
+private RepReservas reserva;
 private static ControladorReservas instance;  
 
 private  ControladorReservas(){
-	this.reserva = RepReserva.getInstance();
+	this.reserva = RepReservas.getInstance();
+        this.quartos = RepQuartos.getInstance();
 
 }
 public static ControladorReservas getInstance(){
@@ -23,16 +29,20 @@ public static ControladorReservas getInstance(){
 }
 public void Reservar(Reserva reserva){ 
 	
-	this.RepReserva.cadastrar(reserva);
+	this.reserva.cadastrar(reserva);
 }
 
 public Reserva procurarReserva(Quarto quarto){
-	 this.RepReserva.procurar(quarto);
+	return this.reserva.procurar(quarto);
 }
 
 
 public Reserva procurarReserva(Cliente cliente){
-	 this.RepReserva.procurar(cliente);
+	return this.reserva.procurar(cliente);
+}
+
+public ArrayList listarQuartos(){
+    return quartos.lista();
 }
 
 public void atualizarReserva(Reserva desatualizado, Reserva atualizado){
@@ -41,7 +51,7 @@ public void atualizarReserva(Reserva desatualizado, Reserva atualizado){
 }
 
 public boolean cancelarReserva(Reserva reserva){
-this.RepReserva.remove(reserva);
+    return this.reserva.remove(reserva);
 	
 }
 public void checkIn(Reserva reserva){
