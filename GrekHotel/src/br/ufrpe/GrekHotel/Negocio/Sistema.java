@@ -13,7 +13,7 @@ import br.ufrpe.GrekHotel.beans.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Sistema {
+public class Sistema  {
 
  private Usuario usuario;
  private ControladorAdm ctrlAdm;

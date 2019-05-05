@@ -8,7 +8,7 @@ public class RepServicos {
 	private ArrayList<Servico> quartos;
 	private static RepServicos instance;
 
-	private RepServicos() {
+	private RepServicos()  {
 
 		quartos = new ArrayList();
 	}

@@ -14,7 +14,7 @@ import br.ufrpe.GrekHotel.beans.*;
  *
  * @author fight
  */
-public class ControladorAdm {
+public class ControladorAdm  {
 
 	private RepQuartos quarto;
 	private RepServicos servico;
