@@ -17,84 +17,159 @@ import java.util.Scanner;
 public class Principal {
     
     public static void main(String[] args) {
-        ControladorAdm controlAdm = ControladorAdm.getInstance();
-        ControladorUsuario controlUsuario = ControladorUsuario.getInstance();
-        ControladorReservas controlReservas = ControladorReservas.getInstance();
-        
-        
+        Sistema sistema = Sistema.getInstance();
         Scanner ler = new Scanner(System.in);
-        
-        
-        System.out.println("Login");
-        System.out.println("Login: ");
-        String login = ler.nextLine();
-        System.out.println("Senha: ");
-        String senha = ler.nextLine();
-        Usuario usuario = controlUsuario.efetuarLogin(login, senha);
-        if(usuario == null){
-            System.out.println("Usuario ou senha incorretos");
-        }
-        Funcionario f = null;
+        boolean status = true;
+        boolean entrou = false;
         Cliente c = null;
-        if(usuario instanceof Cliente){
-            System.out.println("Usuario é um cliente");
-            c = (Cliente) usuario;
-            
+        Funcionario f = null;
+        while(status == true){
+            while(entrou == false){
+                System.out.println("GrekHotel");
+                System.out.println("1 - Cadastrar-se");
+                System.out.println("2 - Entrar");
+                System.out.println("3 - Encerrar Sistema");
+                int opcao = ler.nextInt();
+                ler.nextLine();
+                if(opcao == 1){
+                    System.out.println("Login: ");
+                    String login = ler.nextLine();
+                    System.out.println("Senha: ");
+                    String senha = ler.nextLine();
+                    System.out.println("Nome: ");
+                    String nome = ler.nextLine();
+                    System.out.println("Idade: ");
+                    int idade = ler.nextInt();
+                    ler.nextLine();
+                    System.out.println("Cpf: ");
+                    long cpf = ler.nextLong();
+                    ler.nextLine();
+                    c = new Cliente(login, senha, nome, idade, cpf);
+                    sistema.cadastrarUsuario(c);
+                    entrou = true;
+                }
+                else if(opcao == 2){
+                    System.out.println("Login: ");
+                    String login = ler.nextLine();
+                    System.out.println("Senha: ");
+                    String senha = ler.nextLine();
+                    Usuario u = sistema.efetuarLogin(login, senha);
+                    if(u != null){
+                        if(u instanceof Cliente){
+                        c = (Cliente) u;
+                        }
+                        else if(u instanceof Funcionario){
+                            f = (Funcionario) u;
+                        }
+                        entrou = true;
+                    }
+                }
+                else if(opcao == 3){
+                    status = false;
+                }
+                else{
+                    System.out.println("Opcao invalida");
+                }
+            }
+            while(c != null){
+                if(sistema.procurarReserva(c) == null){
+                    System.out.println("1 - Fazer Reserva");
+                    System.out.println("2 - Sair");
+                    int opcao = ler.nextInt();
+                    ler.nextLine();
+                    if(opcao == 1){
+                        System.out.println(sistema.listarQuartos());
+                        System.out.println("Numero do Quarto: ");
+                        int numero = ler.nextInt();
+                        ler.nextLine();
+                        System.out.println("Data Prevista para Check-In");
+                        System.out.println("Ano: ");
+                        int ano = ler.nextInt();
+                        ler.nextLine();
+                        System.out.println("Mes: ");
+                        int mes = ler.nextInt();
+                        ler.nextLine();
+                        System.out.println("Dia: ");
+                        int dia = ler.nextInt();
+                        ler.nextLine();
+                        LocalDate checkInP = LocalDate.of(ano, mes, dia);
+                        System.out.println("Data Prevista para Check-Out");
+                        System.out.println("Ano: ");
+                        ano = ler.nextInt();
+                        ler.nextLine();
+                        System.out.println("Mes: ");
+                        mes = ler.nextInt();
+                        ler.nextLine();
+                        System.out.println("Dia: ");
+                        dia = ler.nextInt();
+                        ler.nextLine();
+                        LocalDate checkOutP = LocalDate.of(ano, mes, dia);
+                        Reserva reserva = new Reserva(sistema.procurarQuarto(numero), c, checkInP, checkOutP);
+                        sistema.Reservar(reserva);
+                    }
+                    else if(opcao == 2){
+                        c = null;
+                        entrou = false;
+                    }
+                }
+                else if(sistema.procurarReserva(c).getVisita() == null){
+                    System.out.println("1 - Cancelar Reserva");
+                    System.out.println("2 - Realizar Check-In");
+                    System.out.println("3 - Sair");
+                    int opcao = ler.nextInt();
+                    ler.nextLine();
+                    if(opcao == 1){
+                        sistema.cancelarReserva(sistema.procurarReserva(c));
+                    }
+                    else if(opcao == 2){
+                        sistema.checkIn(sistema.procurarReserva(c));
+                    }
+                    else if(opcao == 3){
+                        c = null;
+                        entrou = false;
+                    }
+                }
+                else if(sistema.procurarReserva(c).getVisita() != null){
+                    System.out.println("1 - Realizar Check-Out");
+                    System.out.println("2 - Sair");
+                    int opcao = ler.nextInt();
+                    ler.nextLine();
+                    if(opcao == 1){
+                        sistema.checkOut(sistema.procurarReserva(c));
+                    }
+                    else if(opcao == 2){
+                        c = null;
+                        entrou = false;
+                    }
+                }
+
+
+            }
+            while(f != null){
+                System.out.println("1 - Cadastrar Quarto");
+                System.out.println("2 - Sair");
+                int opcao = ler.nextInt();
+                ler.nextLine();
+
+                if(opcao == 1){
+                    System.out.println("Descricao: ");
+                    String descricao = ler.nextLine();
+                    System.out.println("Diaria: ");
+                    double diaria = ler.nextDouble();
+                    ler.nextLine();
+                    System.out.println("Numero do Quarto: ");
+                    int numero = ler.nextInt();
+                    ler.nextLine();
+                    Quarto quarto = new Quarto(descricao, diaria, numero);
+                    sistema.cadastrarQuarto(quarto);
+                }
+                else if(opcao == 2){
+                    f= null;
+                    entrou = false;
+                }
+
+
+            }
         }
-        else if(usuario instanceof Funcionario){
-            System.out.println("Usuario é um Funcionario");
-            f = (Funcionario) usuario;
-        }
-        if(f != null){
-            System.out.println("Cadastrar Quarto");
-            String descricao = ler.nextLine();
-            double diaria = ler.nextDouble();
-            ler.nextLine();
-            int num = ler.nextInt();
-            ler.nextLine();
-            Quarto novo = new Quarto(descricao, diaria, num);
-            controlAdm.cadastrarQuarto(novo);
-        }
-        
-        
-        
-        System.out.println("Cadastrar Cliente");
-        System.out.println("Login: ");
-        login = ler.nextLine();
-        System.out.println("Senha: ");
-        senha = ler.nextLine();
-        System.out.println("Nome: ");
-        String nome = ler.nextLine();
-        System.out.println("Idade: ");
-        int idade = ler.nextInt();
-        ler.nextLine();
-        System.out.println("Cpf: ");
-        long cpf = ler.nextLong();
-        ler.nextLine();
-        Cliente novo = new Cliente(login, senha, nome, idade, cpf);
-        if(!controlUsuario.cadastrarUsuario(novo)){
-            System.out.println("Não foi possivel cadastrar-se");
-        }
-        
-        System.out.println("Login");
-        System.out.println("Login: ");
-        login = ler.nextLine();
-        System.out.println("Senha: ");
-        senha = ler.nextLine();
-        usuario = controlUsuario.efetuarLogin(login, senha);
-        if(usuario == null){
-            System.out.println("Usuario ou senha incorretos");
-        }
-        
-        if(usuario instanceof Cliente){
-            System.out.println("Usuario é um cliente");
-            c = (Cliente) usuario;
-        }
-        System.out.println("Fazer reserva");
-        ArrayList<Quarto> quartos = controlReservas.listarQuartos();
-        Quarto quarto = quartos.get(0);
-        Reserva reserva = new Reserva(quarto, c, LocalDate.now(), LocalDate.of(2019,6,10));
-        controlReservas.Reservar(reserva);
-        
     }
 }

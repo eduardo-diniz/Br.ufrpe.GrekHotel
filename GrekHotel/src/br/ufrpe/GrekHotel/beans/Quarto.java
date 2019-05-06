@@ -29,8 +29,7 @@ public class Quarto {
 
 	@Override
 	public String toString() {
-		return "Quarto [descricao=" + descricao + ", diaria=" + diaria + ", numero=" + numero + ", situacao=" + situacao
-				+ "]";
+		return descricao + ", diaria=" + diaria + ", numero=" + numero + "]";
 	}
 
 	public String getDescricao() {

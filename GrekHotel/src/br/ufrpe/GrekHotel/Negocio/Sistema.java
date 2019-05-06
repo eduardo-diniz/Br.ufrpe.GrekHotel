@@ -85,6 +85,10 @@ public class Sistema  {
 
  }
 
+ public Quarto procurarQuarto(int numero){
+     return this.ctrlReservas.procurarQuarto(numero);
+ }
+ 
  public boolean cancelarReserva(Reserva reserva) {
 
   return this.ctrlReservas.cancelarReserva(reserva);

@@ -45,6 +45,10 @@ public ArrayList listarQuartos(){
     return quartos.lista();
 }
 
+public Quarto procurarQuarto(int numero){
+    return quartos.procurar(numero);
+}
+
 public void atualizarReserva(Reserva desatualizado, Reserva atualizado){
 	
 	
@@ -55,7 +59,9 @@ public boolean cancelarReserva(Reserva reserva){
 	
 }
 public void checkIn(Reserva reserva){
-     reserva.getVisita().setCheckIn(LocalDateTime.now());
+    Conta despesa = new Conta(reserva.getQuarto());
+    reserva.getCliente().setDespesa(despesa);
+     reserva.setVisita(new Visita(reserva.getQuarto(), LocalDateTime.now(), despesa));
 
 }
 

@@ -28,7 +28,7 @@ public class Conta {
 	public void novaCompra(Servico compra) {
 
 		compras.add(compra);
-		// Falta atribuir o valor do serviço no valor total
+		this.valorTotal += compra.getCusto();
 
 	}
 
