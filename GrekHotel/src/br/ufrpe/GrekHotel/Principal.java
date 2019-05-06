@@ -65,6 +65,7 @@ public class Principal {
                     }
                 }
                 else if(opcao == 3){
+                    entrou = true;
                     status = false;
                 }
                 else{
