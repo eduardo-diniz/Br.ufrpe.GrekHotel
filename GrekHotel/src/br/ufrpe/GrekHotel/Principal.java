@@ -79,7 +79,12 @@ public class Principal {
                     int opcao = ler.nextInt();
                     ler.nextLine();
                     if(opcao == 1){
-                        System.out.println(sistema.listarQuartos());
+                        ArrayList<Quarto> quartos = sistema.listarQuartos();
+                        for(Quarto q: quartos){
+                            if(q.getSituacao() == 1){
+                                System.out.println(q);
+                            }                         
+                        }
                         System.out.println("Numero do Quarto: ");
                         int numero = ler.nextInt();
                         ler.nextLine();
@@ -148,7 +153,8 @@ public class Principal {
             }
             while(f != null){
                 System.out.println("1 - Cadastrar Quarto");
-                System.out.println("2 - Sair");
+                System.out.println("2 - Cadastrar Funcionario");
+                System.out.println("3 - Sair");
                 int opcao = ler.nextInt();
                 ler.nextLine();
 
@@ -165,6 +171,14 @@ public class Principal {
                     sistema.cadastrarQuarto(quarto);
                 }
                 else if(opcao == 2){
+                    System.out.println("Login: ");
+                    String login = ler.nextLine();
+                    System.out.println("Senha: ");
+                    String senha = ler.nextLine();
+                    Funcionario newF = new Funcionario(login, senha);
+                    sistema.cadastrarUsuario(newF);
+                }
+                else if(opcao == 3){
                     f= null;
                     entrou = false;
                 }

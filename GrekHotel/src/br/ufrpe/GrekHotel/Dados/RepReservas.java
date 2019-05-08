@@ -27,7 +27,7 @@ public class RepReservas {
 	public void cadastrar(Reserva reserv){
             if(reserv.getQuarto().getSituacao() == 1) {
 		if(!this.reservas.contains(reserv)){
-	
+                    reserv.getQuarto().setSituacao(2);
                     reservas.add(reserv); 
                 }
             }
@@ -68,6 +68,7 @@ public class RepReservas {
 
                    resultado = true;
                    reservas.remove(reserva);
+                   reserva.getQuarto().setSituacao(1);
             }
             return resultado;
 
