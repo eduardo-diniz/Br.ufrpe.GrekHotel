@@ -6,7 +6,7 @@
 package br.ufrpe.GrekHotel.Negocio;
 
 import br.ufrpe.GrekHotel.Dados.RepUsuarios;
-import br.ufrpe.GrekHotel.beans.Usuario;
+import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 
 /**
  *

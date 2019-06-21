@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio;
+import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Conta;
+import br.ufrpe.GrekHotel.Negocio.beans.Visita;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import java.time.LocalDateTime;
-import br.ufrpe.GrekHotel.beans.*;
 import br.ufrpe.GrekHotel.Dados.RepReservas;
 import java.util.ArrayList;
 

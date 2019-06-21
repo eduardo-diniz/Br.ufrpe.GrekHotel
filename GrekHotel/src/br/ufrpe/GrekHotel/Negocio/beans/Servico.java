@@ -1,4 +1,4 @@
-package br.ufrpe.GrekHotel.beans;
+package br.ufrpe.GrekHotel.Negocio.beans;
 
 
 public class Servico {

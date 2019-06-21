@@ -9,8 +9,12 @@ package br.ufrpe.GrekHotel.Negocio;
  *
  * @author fight
  */
-import br.ufrpe.GrekHotel.beans.*;
-import java.time.LocalDateTime;
+import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
+import br.ufrpe.GrekHotel.Negocio.beans.Servico;
+import br.ufrpe.GrekHotel.Negocio.beans.Conta;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import java.util.ArrayList;
 
 public class Sistema  {

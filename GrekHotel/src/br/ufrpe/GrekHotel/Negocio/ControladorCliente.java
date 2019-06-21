@@ -3,10 +3,10 @@ package br.ufrpe.GrekHotel.Negocio;
 
 
 import br.ufrpe.GrekHotel.Dados.RepServicos;
-import br.ufrpe.GrekHotel.beans.Cliente;
-import br.ufrpe.GrekHotel.beans.Conta;
-import br.ufrpe.GrekHotel.beans.Servico;
-import br.ufrpe.GrekHotel.beans.Visita;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
+import br.ufrpe.GrekHotel.Negocio.beans.Conta;
+import br.ufrpe.GrekHotel.Negocio.beans.Servico;
+import br.ufrpe.GrekHotel.Negocio.beans.Visita;
 
 
 

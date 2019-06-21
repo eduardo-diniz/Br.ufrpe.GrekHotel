@@ -1,8 +1,8 @@
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import java.util.ArrayList;
 
-import br.ufrpe.GrekHotel.beans.*;
 
 public class RepServicos {
 	private ArrayList<Servico> quartos;

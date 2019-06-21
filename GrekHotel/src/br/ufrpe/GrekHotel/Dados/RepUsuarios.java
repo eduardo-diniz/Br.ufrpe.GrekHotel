@@ -5,8 +5,8 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
-import br.ufrpe.GrekHotel.beans.Funcionario;
-import br.ufrpe.GrekHotel.beans.Usuario;
+import br.ufrpe.GrekHotel.Negocio.beans.Funcionario;
+import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 import java.util.ArrayList;
 
 /**

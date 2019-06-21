@@ -5,8 +5,11 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import java.util.ArrayList;
-import br.ufrpe.GrekHotel.beans.*;;
+;
 
 public class RepReservas {
         private ArrayList<Reserva> reservas;

@@ -5,11 +5,12 @@
  */
 package br.ufrpe.GrekHotel.Negocio;
 
+import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import java.util.ArrayList;
 
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import br.ufrpe.GrekHotel.Dados.RepServicos;
-import br.ufrpe.GrekHotel.beans.*;
 /**
  *
  * @author fight
