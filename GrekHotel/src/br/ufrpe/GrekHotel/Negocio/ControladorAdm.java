@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import br.ufrpe.GrekHotel.Dados.RepServicos;
+import br.ufrpe.GrekHotel.Excecoes.*;
 /**
  *
  * @author fight
@@ -40,28 +41,20 @@ public class ControladorAdm  {
         return servico.lista();
     }
 
-	public void cadastrarQuarto(Quarto quar) {
-
+	public void cadastrarQuarto(Quarto quar) throws AQException{
 		this.quarto.cadastrar(quar);
-
 	}
 
-	public void cadastrarServico(Servico serv) {
-
+	public void cadastrarServico(Servico serv) throws ASException{
 		this.servico.cadastrar(serv);
-
 	}
 
-	public boolean removerQuarto(Quarto quartoRem) {
-
+	public boolean removerQuarto(Quarto quartoRem) throws RQException{
 		return this.quarto.remover(quartoRem);
-
 	}
 
-	public boolean removerServico(Servico servRem) {
-
+	public boolean removerServico(Servico servRem) throws RSException{
 		return this.servico.remove(servRem);
-
 	}
 }
 	//public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) {
