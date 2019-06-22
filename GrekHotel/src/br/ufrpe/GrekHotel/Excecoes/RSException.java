@@ -10,18 +10,8 @@ package br.ufrpe.GrekHotel.Excecoes;
  * @author Gabriel
  */
 public class RSException extends Exception{
-    
-    private String motivo;
-    
+
     public RSException(){
         super("Erro ao remover serviço");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

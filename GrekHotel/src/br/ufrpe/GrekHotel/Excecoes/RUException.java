@@ -10,18 +10,8 @@ package br.ufrpe.GrekHotel.Excecoes;
  * @author Gabriel
  */
 public class RUException extends Exception{
-    
-    private String motivo;
-    
+
     public RUException(){
         super("Erro ao remover usuario");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

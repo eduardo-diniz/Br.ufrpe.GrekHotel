@@ -39,7 +39,6 @@ public class RepQuartos {
 			quartos.add(quar);
 		} else {
                     AQException aqe = new AQException();
-                    aqe.setMotivo("quarto já existe");
                     throw aqe;
 		}
 	}
@@ -74,7 +73,6 @@ public class RepQuartos {
 			quartos.remove(quartoRem);
 		} else {
 			RQException rqe = new RQException();
-                        rqe.setMotivo("quarto não existe");
                         throw rqe;
 		}
 

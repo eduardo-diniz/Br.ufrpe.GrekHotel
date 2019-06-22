@@ -10,18 +10,8 @@ package br.ufrpe.GrekHotel.Excecoes;
  * @author Gabriel
  */
 public class AUException extends Exception{
-    
-    private String motivo;
-    
+
     public AUException(){
         super("Erro ao adicionar usuario");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

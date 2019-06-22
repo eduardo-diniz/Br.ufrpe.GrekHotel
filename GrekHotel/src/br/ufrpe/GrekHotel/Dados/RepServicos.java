@@ -32,7 +32,6 @@ public class RepServicos {
 
 		}else{
                     ASException ase = new ASException();
-                    ase.setMotivo("serviço já existe");
                     throw ase;
                 }
 	}
@@ -58,7 +57,6 @@ public class RepServicos {
 			quartos.remove(servico);
 		} else{
                     RSException rse = new RSException();
-                    rse.setMotivo("serviço não existe");
                     throw rse;
                 }
 		return resultado;

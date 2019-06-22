@@ -11,17 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class RQException extends Exception{
     
-    private String motivo;
-    
     public RQException(){
         super("Erro ao remover quarto");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

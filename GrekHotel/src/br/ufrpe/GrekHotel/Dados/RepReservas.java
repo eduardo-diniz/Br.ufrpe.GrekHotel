@@ -34,13 +34,11 @@ public class RepReservas {
                     reserv.getQuarto().setSituacao(2);
                     reservas.add(reserv); 
                 }else{
-                    ARException are = new ARException();
-                    are.setMotivo("quarto não existe");
+                    ARException are = new ARException("reserva já existe");
                     throw are;
                 }
             }else{
-                ARException are = new ARException();
-                are.setMotivo("quarto já reservado");
+                ARException are = new ARException("quarto ocupado");
                 throw are;
             }
         }
@@ -82,7 +80,7 @@ public class RepReservas {
                    reserva.getQuarto().setSituacao(1);
             }else{
                 RRException rre = new RRException();
-                rre.setMotivo("reserva inexistente");
+                throw rre;
             }
             return resultado;
 
