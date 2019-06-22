@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import java.util.ArrayList;
 
@@ -32,32 +33,27 @@ public class RepQuartos {
 		return instance;
 	}
 
-	public void cadastrar(Quarto quar) {
+	public void cadastrar(Quarto quar) throws AQException{
 		if (!this.quartos.contains(quar)) {
 
 			quartos.add(quar);
 		} else {
-			// Exce��o
-			// System.out.println("Quarto n�o cadastrado");
-
+                    AQException aqe = new AQException();
+                    aqe.setMotivo("quarto já existe");
+                    throw aqe;
 		}
 	}
 
-	public Quarto procurar(int numero) {
-		Quarto q = null;
-		for (Quarto qua : quartos) {
-			if (qua.getNumero() == (numero)) {
+	public Quarto procurar(int numero){
+            Quarto q = null;
+            for (Quarto qua : quartos) {
+		if (qua.getNumero() == (numero)) {
 
-				q = qua;
+			q = qua;
 
-			} else {
-				// exce��o
-				// System.out.println();
-
-			}
-
-		}
-		return q;
+                    }
+                }
+            return q;
 	}
         
         public ArrayList lista(){
@@ -68,7 +64,7 @@ public class RepQuartos {
 
 	}
 
-	public boolean remover(Quarto quartoRem) {
+	public boolean remover(Quarto quartoRem) throws RQException{
 
 		boolean removido = false;
 
@@ -77,8 +73,9 @@ public class RepQuartos {
 			removido = true;
 			quartos.remove(quartoRem);
 		} else {
-			// exce��o
-
+			RQException rqe = new RQException();
+                        rqe.setMotivo("quarto não existe");
+                        throw rqe;
 		}
 
 		return removido;
