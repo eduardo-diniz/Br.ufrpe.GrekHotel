@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio;
+
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Conta;

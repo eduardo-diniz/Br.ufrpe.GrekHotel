@@ -1,5 +1,6 @@
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import java.util.ArrayList;
 
@@ -25,11 +26,15 @@ public class RepServicos {
 		return quartos;
 	}
 
-	public void cadastrar(Servico servico) {
+	public void cadastrar(Servico servico) throws ASException{
 		if (!this.quartos.contains(servico)) {
 			quartos.add(servico);
 
-		}
+		}else{
+                    ASException ase = new ASException();
+                    ase.setMotivo("serviço já existe");
+                    throw ase;
+                }
 	}
 
 	public Servico procurar(String descricao) {
@@ -44,14 +49,18 @@ public class RepServicos {
 		return resultado;
 	}
 
-	public boolean remove(Servico servico) {
+	public boolean remove(Servico servico) throws RSException {
 		boolean resultado = false;
 
 		if (this.quartos.contains(servico)) {
 
 			resultado = true;
 			quartos.remove(servico);
-		}
+		} else{
+                    RSException rse = new RSException();
+                    rse.setMotivo("serviço não existe");
+                    throw rse;
+                }
 		return resultado;
 
 	}

@@ -72,7 +72,7 @@ public class RepReservas {
 
 
 	} 
-	public boolean remove(Reserva reserva){
+	public boolean remove(Reserva reserva)throws RRException{
             boolean resultado = false;
 
             if(this.reservas.contains(reserva)){ 
@@ -80,6 +80,9 @@ public class RepReservas {
                    resultado = true;
                    reservas.remove(reserva);
                    reserva.getQuarto().setSituacao(1);
+            }else{
+                RRException rre = new RRException();
+                rre.setMotivo("reserva inexistente");
             }
             return resultado;
 
