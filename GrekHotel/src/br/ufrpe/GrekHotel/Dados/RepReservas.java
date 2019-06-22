@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
@@ -27,12 +28,20 @@ public class RepReservas {
             return instance;
         }
 	
-	public void cadastrar(Reserva reserv){
+	public void cadastrar(Reserva reserv) throws ARException{
             if(reserv.getQuarto().getSituacao() == 1) {
 		if(!this.reservas.contains(reserv)){
                     reserv.getQuarto().setSituacao(2);
                     reservas.add(reserv); 
+                }else{
+                    ARException are = new ARException();
+                    are.setMotivo("quarto não existe");
+                    throw are;
                 }
+            }else{
+                ARException are = new ARException();
+                are.setMotivo("quarto já reservado");
+                throw are;
             }
         }
 	
@@ -44,9 +53,8 @@ public class RepReservas {
 
                         encontrado = i;
                 }
-
             }
-            return encontrado;
+            return encontrado;  
 	}
 
 	public Reserva procurar(Cliente hospede){
