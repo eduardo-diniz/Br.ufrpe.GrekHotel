@@ -34,16 +34,9 @@ public class ControladorTelaCadastro {
     void handle(ActionEvent event) {
 
         if (event.getSource().equals(btnCadastroFeito)) {
-
-            /*try {
-            
-            if(inputNome.equals("")){
-                
-            }
-
-            } catch () {
-
-            }*/
+           //Quando o cadastro estiver feito e for voltar para a tela principal
+           //GrekHotel.changeScreem("TelaUser");
+           
         }
 
         if (event.getSource().equals(btnHome)) {

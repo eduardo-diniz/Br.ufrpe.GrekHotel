@@ -9,7 +9,7 @@ package br.ufrpe.GrekHotel.GUI;
  *
  * @author Eduar
  */
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -33,11 +33,15 @@ public class ControladorTelaUser {
 
     public void initialize() {
         
-        
+     //o botao que direciona para a tela cadastrar deve chamar o seguinte metodo
+    //GrekHotel.changeScreem("TelaCadastro");
+    
     }
 
    
+    
        
+    
         
     
 }
