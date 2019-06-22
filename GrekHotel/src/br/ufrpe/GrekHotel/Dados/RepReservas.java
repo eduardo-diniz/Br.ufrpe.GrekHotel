@@ -28,17 +28,17 @@ public class RepReservas {
             return instance;
         }
 	
-	public void cadastrar(Reserva reserv) throws ARException{
+	public void cadastrar(Reserva reserv) throws CRException{
             if(reserv.getQuarto().getSituacao() == 1) {
 		if(!this.reservas.contains(reserv)){
                     reserv.getQuarto().setSituacao(2);
                     reservas.add(reserv); 
                 }else{
-                    ARException are = new ARException("reserva já existe");
+                    CRException are = new CRException("reserva já existe");
                     throw are;
                 }
             }else{
-                ARException are = new ARException("quarto ocupado");
+                CRException are = new CRException("quarto ocupado");
                 throw are;
             }
         }
@@ -66,9 +66,17 @@ public class RepReservas {
             }
             return encontrado;
 	}
-	public void atualizar(Reserva desatualizado, Reserva Atualizado){
-
-
+	public void atualizar(Reserva desatualizado, Reserva atualizado) throws ARException{
+            if(reservas.contains(desatualizado) && !reservas.contains(atualizado)){
+                reservas.set(reservas.indexOf(desatualizado), atualizado);
+            }else if(reservas.contains(atualizado)){
+                ARException are = new ARException("quarto já reservado");
+                throw are;
+               
+            }else{
+                ARException are = new ARException("reserva antiga não existe");
+                throw are;
+            }
 	} 
 	public boolean remove(Reserva reserva)throws RRException{
             boolean resultado = false;
@@ -79,7 +87,7 @@ public class RepReservas {
                    reservas.remove(reserva);
                    reserva.getQuarto().setSituacao(1);
             }else{
-                RRException rre = new RRException();
+                RRException rre = new RRException("reserva não existe");
                 throw rre;
             }
             return resultado;

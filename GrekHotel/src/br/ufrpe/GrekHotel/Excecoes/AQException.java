@@ -11,8 +11,8 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class AQException extends Exception{
     
-    public AQException(){
-        super("Erro ao adicionar quarto");
+    public AQException(String msg){
+        super(msg);
     }
 
 }

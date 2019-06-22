@@ -11,7 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class RSException extends Exception{
 
-    public RSException(){
-        super("Erro ao remover serviço");
+    public RSException(String msg){
+        super(msg);
     }
 }

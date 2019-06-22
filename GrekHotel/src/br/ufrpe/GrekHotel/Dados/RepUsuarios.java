@@ -29,13 +29,13 @@ public class RepUsuarios {
         }
         return instance;
     }
-    public boolean cadastrar(Usuario u) throws AUException{
+    public boolean cadastrar(Usuario u) throws CUException{
         boolean resultado = false;
         if(!usuarios.contains(u)){
             usuarios.add(u);
             resultado = true;
         }else{
-            AUException aue = new AUException();
+            CUException aue = new CUException("usuario já cadastrado");
             throw aue;
         }
         return resultado;
@@ -55,9 +55,22 @@ public class RepUsuarios {
             usuarios.remove(u);
             resultado = true;
         }else{
-            RUException rue = new RUException();
+            RUException rue = new RUException("usuario não existe");
             throw rue;
         }
         return resultado;
     }
+    
+    public void atualizar(Usuario desatualizado, Usuario atualizado) throws AUException{
+            if(!usuarios.contains(atualizado) && usuarios.contains(desatualizado)){
+                usuarios.set(usuarios.indexOf(desatualizado), atualizado);
+            }else if(usuarios.contains(atualizado)){
+                AUException aue = new AUException("usuario já existe");
+                throw aue;
+            }else{
+                AUException aue = new AUException("usuario antigo não existe");
+                throw aue;
+            }
+            
+	}
 }

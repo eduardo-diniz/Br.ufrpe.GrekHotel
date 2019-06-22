@@ -11,7 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class RUException extends Exception{
 
-    public RUException(){
-        super("Erro ao remover usuario");
+    public RUException(String msg){
+        super(msg);
     }
 }

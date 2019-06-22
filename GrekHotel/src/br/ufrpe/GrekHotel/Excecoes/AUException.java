@@ -10,8 +10,9 @@ package br.ufrpe.GrekHotel.Excecoes;
  * @author Gabriel
  */
 public class AUException extends Exception{
-
-    public AUException(){
-        super("Erro ao adicionar usuario");
+    
+    public AUException(String msg){
+        super(msg);
     }
+
 }

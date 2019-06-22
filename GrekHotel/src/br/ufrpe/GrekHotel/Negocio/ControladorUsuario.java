@@ -28,7 +28,7 @@ public class ControladorUsuario {
         return instance;
     }
     
-    public boolean cadastrarUsuario(Usuario u) throws AUException{
+    public boolean cadastrarUsuario(Usuario u) throws CUException{
             return usuarios.cadastrar(u);
  
     }
@@ -41,6 +41,10 @@ public class ControladorUsuario {
         
         return usuarios.remover(u);
     
+    }
+    
+    public void atualizarUsuario(Usuario desatualizado, Usuario atualizado) throws AUException{
+        usuarios.atualizar(desatualizado, atualizado);
     }
     
 }

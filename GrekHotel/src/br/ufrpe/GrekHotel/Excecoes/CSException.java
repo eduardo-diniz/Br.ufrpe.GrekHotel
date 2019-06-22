@@ -9,10 +9,9 @@ package br.ufrpe.GrekHotel.Excecoes;
  *
  * @author Gabriel
  */
-public class ASException extends Exception{
+public class CSException extends Exception{
     
-    public ASException(String msg){
+    public CSException(String msg){
         super(msg);
     }
-
 }

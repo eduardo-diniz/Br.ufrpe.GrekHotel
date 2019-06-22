@@ -33,7 +33,7 @@ public static ControladorReservas getInstance(){
 	}
 	return instance;
 }
-public void Reservar(Reserva reserva) throws ARException{ 
+public void Reservar(Reserva reserva) throws CRException{ 
 	this.reserva.cadastrar(reserva);
     }
 
@@ -54,8 +54,8 @@ public Quarto procurarQuarto(int numero){
     return quartos.procurar(numero);
 }
 
-public void atualizarReserva(Reserva desatualizado, Reserva atualizado){
-	
+public void atualizarReserva(Reserva desatualizado, Reserva atualizado) throws ARException{
+	reserva.atualizar(desatualizado, atualizado);
 	
 }
 

@@ -33,12 +33,12 @@ public class RepQuartos {
 		return instance;
 	}
 
-	public void cadastrar(Quarto quar) throws AQException{
+	public void cadastrar(Quarto quar) throws CQException{
 		if (!this.quartos.contains(quar)) {
 
 			quartos.add(quar);
 		} else {
-                    AQException aqe = new AQException();
+                    CQException aqe = new CQException("quarto já cadastrado");
                     throw aqe;
 		}
 	}
@@ -59,8 +59,17 @@ public class RepQuartos {
             return quartos;
         }
 
-	public void atualizar(Quarto desatualizado, Quarto Atualizado) {
-
+	public void atualizar(Quarto desatualizado, Quarto atualizado) throws AQException{
+            if(!quartos.contains(atualizado) && quartos.contains(desatualizado)){
+                quartos.set(quartos.indexOf(desatualizado), atualizado);
+            }else if(quartos.contains(atualizado)){
+                    AQException aqe = new AQException("o quarto novo já existe");
+                    throw aqe;
+            }else{
+                AQException aqe = new AQException("o quarto antigo não existe");
+                    throw aqe;
+            }
+            
 	}
 
 	public boolean remover(Quarto quartoRem) throws RQException{
@@ -72,7 +81,7 @@ public class RepQuartos {
 			removido = true;
 			quartos.remove(quartoRem);
 		} else {
-			RQException rqe = new RQException();
+			RQException rqe = new RQException("quarto não cadastrado");
                         throw rqe;
 		}
 
