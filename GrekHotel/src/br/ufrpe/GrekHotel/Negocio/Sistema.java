@@ -9,6 +9,14 @@ package br.ufrpe.GrekHotel.Negocio;
  *
  * @author fight
  */
+import br.ufrpe.GrekHotel.Excecoes.CQException;
+import br.ufrpe.GrekHotel.Excecoes.CRException;
+import br.ufrpe.GrekHotel.Excecoes.CSException;
+import br.ufrpe.GrekHotel.Excecoes.CUException;
+import br.ufrpe.GrekHotel.Excecoes.RQException;
+import br.ufrpe.GrekHotel.Excecoes.RRException;
+import br.ufrpe.GrekHotel.Excecoes.RSException;
+import br.ufrpe.GrekHotel.Excecoes.RUException;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
@@ -49,29 +57,29 @@ public class Sistema  {
   return ctrlAdm.lista();
  }
 
- public void cadastrarQuarto(Quarto quar) {
+ public void cadastrarQuarto(Quarto quar) throws CQException {
   this.ctrlAdm.cadastrarQuarto(quar);
  }
 
- public void cadastrarServico(Servico serv) {
+ public void cadastrarServico(Servico serv) throws CSException {
 
   this.ctrlAdm.cadastrarServico(serv);
 
  }
 
- public boolean removerQuarto(Quarto quartoRem) {
+ public boolean removerQuarto(Quarto quartoRem) throws RQException {
 
   return this.ctrlAdm.removerQuarto(quartoRem);
 
  }
 
- public boolean removerServico(Servico servRem) {
+ public boolean removerServico(Servico servRem) throws RSException {
 
   return this.ctrlAdm.removerServico(servRem);
 
  }
 
- public void Reservar(Reserva reserva) {
+ public void Reservar(Reserva reserva) throws CRException {
 
   this.ctrlReservas.Reservar(reserva);
 
@@ -93,7 +101,7 @@ public class Sistema  {
      return this.ctrlReservas.procurarQuarto(numero);
  }
  
- public boolean cancelarReserva(Reserva reserva) {
+ public boolean cancelarReserva(Reserva reserva) throws RRException {
 
   return this.ctrlReservas.cancelarReserva(reserva);
 
@@ -111,7 +119,7 @@ public class Sistema  {
 
  }
 
- public boolean cadastrarUsuario(Usuario u) {
+ public boolean cadastrarUsuario(Usuario u) throws CUException {
   
   return ctrlUsuario.cadastrarUsuario(u);
   
@@ -123,7 +131,7 @@ public class Sistema  {
   
  }
 
- public boolean removerUsuario(Usuario u) {
+ public boolean removerUsuario(Usuario u) throws RUException {
   
   return ctrlUsuario.removerUsuario(u);
   

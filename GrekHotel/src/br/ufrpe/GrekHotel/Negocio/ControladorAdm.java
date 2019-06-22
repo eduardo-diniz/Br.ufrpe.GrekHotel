@@ -41,11 +41,11 @@ public class ControladorAdm  {
         return servico.lista();
     }
 
-	public void cadastrarQuarto(Quarto quar) throws AQException{
+	public void cadastrarQuarto(Quarto quar) throws CQException{
 		this.quarto.cadastrar(quar);
 	}
 
-	public void cadastrarServico(Servico serv) throws ASException{
+	public void cadastrarServico(Servico serv) throws CSException{
 		this.servico.cadastrar(serv);
 	}
 
@@ -56,16 +56,17 @@ public class ControladorAdm  {
 	public boolean removerServico(Servico servRem) throws RSException{
 		return this.servico.remove(servRem);
 	}
+
+	public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) throws AQException {
+
+		
+		this.quarto.atualizar(desatualizado, atualizado);
+
+	}
+
+	public void atualizarServico(Servico desatualizado, Servico atualizado) throws ASException {
+		
+
+		this.servico.atualizar(desatualizado, atualizado);
+	}
 }
-	//public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) {
-
-		// incompleto
-		//this.quarto.atualizar(desatualizado, atualizado);
-
-	//}
-
-	//public void atualizarServico(Servico desatualizado, Servico atualizado) {
-		// incompleto
-
-		//this.servico.atualizar(desatualizado, atualizado);
-	//}
