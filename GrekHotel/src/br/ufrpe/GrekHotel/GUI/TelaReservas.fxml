@@ -59,7 +59,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="392.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="560.0" layoutY="311.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="HOME" />
+            <Button fx:id="btnHome" layoutX="560.0" layoutY="311.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="HOME" />
             <ImageView fitHeight="110.0" fitWidth="167.0" layoutX="27.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagens/9-hotel-mercy-chambre-club-03.jpg" />
@@ -92,8 +92,8 @@
             </Label>
             <ComboBox layoutX="44.0" layoutY="257.0" prefHeight="25.0" prefWidth="182.0" promptText="Selecione seu quarto" />
             <DatePicker layoutX="275.0" layoutY="257.0" promptText="Check in" />
-            <DatePicker layoutX="275.0" layoutY="298.0" promptText="Check in" />
-            <Button layoutX="478.0" layoutY="267.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" text="Reservar" />
+            <DatePicker layoutX="275.0" layoutY="298.0" promptText="Check out" />
+            <Button fx:id="btnReservar" layoutX="478.0" layoutY="267.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" text="Reservar" />
             <Label layoutX="27.0" layoutY="157.0" prefHeight="69.0" prefWidth="165.0" text="Simples, confortável e econômico pro seu bolso." textAlignment="CENTER" wrapText="true" />
             <Label layoutX="238.0" layoutY="157.0" prefHeight="69.0" prefWidth="165.0" text="Aproveite a hospedagem em um quarto que tem a clássico jeitinho do Grek Hotel" textAlignment="CENTER" wrapText="true" />
             <Label layoutX="447.0" layoutY="157.0" prefHeight="69.0" prefWidth="165.0" text="Aprecie a experiência no nosso melhor quarto, aqui tudo remeterá a perfeição." textAlignment="CENTER" wrapText="true" />

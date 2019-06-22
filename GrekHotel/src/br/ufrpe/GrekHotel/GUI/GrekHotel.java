@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author fight
  */
-public class GreekHotel extends Application {
+public class GrekHotel extends Application {
 
     private static Stage stage;
     private static Scene userScene;
@@ -35,7 +35,7 @@ public class GreekHotel extends Application {
         Parent fxmlCadastro = FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
         cadastroScene = new Scene(fxmlCadastro, 840, 640);
 
-        Parent fxmlReservas = FXMLLoader.load(getClass().getResource(".fxml"));
+        Parent fxmlReservas = FXMLLoader.load(getClass().getResource("TelaReservas.fxml"));
         reservaScene = new Scene(fxmlUser, 840, 640);
 
         Parent fxmlAdm = FXMLLoader.load(getClass().getResource(".fxml"));
@@ -51,7 +51,7 @@ public class GreekHotel extends Application {
 
     public static void changeScreem(String scr) {
         switch (scr) {
-            case "main":
+            case "TelaUser":
                 stage.setScene(userScene);
                 break;
             case "TelaCadastro":
@@ -73,7 +73,8 @@ public class GreekHotel extends Application {
      
         launch();
     }
-    
+
+       
        
 
 }

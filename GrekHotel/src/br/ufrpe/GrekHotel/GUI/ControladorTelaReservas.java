@@ -5,10 +5,18 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
 /**
  *
- * @author Eduar
+ * @author Eduardo
  */
 public class ControladorTelaReservas {
-    
+   
+    @FXML
+    private Button btnHome;
+
+    @FXML
+    private Button btnReservar;
 }
