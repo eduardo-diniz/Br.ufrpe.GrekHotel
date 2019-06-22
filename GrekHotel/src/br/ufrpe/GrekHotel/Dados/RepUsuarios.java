@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.Dados;
 
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Funcionario;
 import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 import java.util.ArrayList;
@@ -28,11 +29,14 @@ public class RepUsuarios {
         }
         return instance;
     }
-    public boolean cadastrar(Usuario u){
+    public boolean cadastrar(Usuario u) throws AUException{
         boolean resultado = false;
         if(!usuarios.contains(u)){
             usuarios.add(u);
             resultado = true;
+        }else{
+            AUException aue = new AUException();
+            aue.setMotivo("usuario já cadastrado");
         }
         return resultado;
     }
@@ -45,11 +49,14 @@ public class RepUsuarios {
         }
         return encontrado;
     }
-    public boolean remover(Usuario u){
+    public boolean remover(Usuario u)throws RUException{
         boolean resultado = false;
         if(usuarios.contains(u)){
             usuarios.remove(u);
             resultado = true;
+        }else{
+            RUException rue = new RUException();
+            rue.setMotivo("usuario não existe");
         }
         return resultado;
     }

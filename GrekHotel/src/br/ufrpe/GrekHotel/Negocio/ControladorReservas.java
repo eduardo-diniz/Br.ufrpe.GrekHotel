@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio;
+
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Conta;
@@ -31,10 +33,9 @@ public static ControladorReservas getInstance(){
 	}
 	return instance;
 }
-public void Reservar(Reserva reserva){ 
-	
+public void Reservar(Reserva reserva) throws ARException{ 
 	this.reserva.cadastrar(reserva);
-}
+    }
 
 public Reserva procurarReserva(Quarto quarto){
 	return this.reserva.procurar(quarto);
@@ -58,9 +59,9 @@ public void atualizarReserva(Reserva desatualizado, Reserva atualizado){
 	
 }
 
-public boolean cancelarReserva(Reserva reserva){
-    return this.reserva.remove(reserva);
-	
+public boolean cancelarReserva(Reserva reserva) throws RRException {
+        return this.reserva.remove(reserva);
+
 }
 public void checkIn(Reserva reserva){
     Conta despesa = new Conta(reserva.getQuarto());

@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.Negocio;
 
+import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Dados.RepUsuarios;
 import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 
@@ -27,16 +28,19 @@ public class ControladorUsuario {
         return instance;
     }
     
-    public boolean cadastrarUsuario(Usuario u){
-        return usuarios.cadastrar(u);
+    public boolean cadastrarUsuario(Usuario u) throws AUException{
+            return usuarios.cadastrar(u);
+ 
     }
     
     public Usuario efetuarLogin(String login, String senha){
         return usuarios.procurar(login, senha);
     }
     
-    public boolean removerUsuario(Usuario u){
+    public boolean removerUsuario(Usuario u) throws RUException{
+        
         return usuarios.remover(u);
+    
     }
     
 }
