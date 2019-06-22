@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorTelaUser">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -75,7 +75,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnCadastrar" layoutX="265.0" layoutY="215.0" mnemonicParsing="false" onAction="#handle" prefHeight="36.0" prefWidth="68.0" text="Cadastrar" />
+            <Button fx:id="btnCadastrar" layoutX="265.0" layoutY="215.0" mnemonicParsing="false" onAction="#telaCadastro" prefHeight="36.0" prefWidth="68.0" text="Cadastrar" />
             <Button fx:id="btnLogin" layoutX="388.0" layoutY="215.0" mnemonicParsing="false" onAction="#handle" prefHeight="36.0" prefWidth="52.0" text="Entrar" />
             <Label layoutX="268.0" layoutY="39.0" prefHeight="46.0" prefWidth="105.0" text="Bem vindo">
                <font>
