@@ -1,4 +1,3 @@
-
 package br.ufrpe.GrekHotel.GUI;
 
 /**
@@ -31,12 +30,15 @@ public class ControladorTelaCadastro {
     private TextField inputSenhaCadastro;
 
     @FXML
+    private TextField inputIdade;
+
+    @FXML
     void handle(ActionEvent event) {
 
         if (event.getSource().equals(btnCadastroFeito)) {
-           //Quando o cadastro estiver feito e for voltar para a tela principal
-           //GrekHotel.changeScreem("TelaUser");
-           
+            //Quando o cadastro estiver feito e for voltar para a tela principal
+            //GrekHotel.changeScreem("TelaUser");
+
         }
 
         if (event.getSource().equals(btnHome)) {
