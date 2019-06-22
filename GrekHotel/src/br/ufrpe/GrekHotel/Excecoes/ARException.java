@@ -11,18 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class ARException extends Exception{
     
-    private String motivo;
-    
-    public ARException(){
-        super("Erro ao reservar quarto");
+    public ARException(String msg){
+        super(msg);
     }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
-    }
-    
 }

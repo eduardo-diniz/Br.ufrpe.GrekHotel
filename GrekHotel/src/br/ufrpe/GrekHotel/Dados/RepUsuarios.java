@@ -36,7 +36,7 @@ public class RepUsuarios {
             resultado = true;
         }else{
             AUException aue = new AUException();
-            aue.setMotivo("usuario já cadastrado");
+            throw aue;
         }
         return resultado;
     }
@@ -56,7 +56,7 @@ public class RepUsuarios {
             resultado = true;
         }else{
             RUException rue = new RUException();
-            rue.setMotivo("usuario não existe");
+            throw rue;
         }
         return resultado;
     }

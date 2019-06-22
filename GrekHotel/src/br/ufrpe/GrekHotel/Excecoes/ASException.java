@@ -11,17 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class ASException extends Exception{
     
-    private String motivo;
-    
     public ASException(){
         super("Erro ao adicionar serviço");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

@@ -11,17 +11,7 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class RRException extends Exception{
     
-    private String motivo;
-    
     public RRException(){
         super("Erro ao remover reserva");
-    }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
     }
 }

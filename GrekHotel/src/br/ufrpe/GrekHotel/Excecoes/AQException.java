@@ -11,17 +11,8 @@ package br.ufrpe.GrekHotel.Excecoes;
  */
 public class AQException extends Exception{
     
-    private String motivo;
-    
     public AQException(){
         super("Erro ao adicionar quarto");
     }
-    
-    public String getMotivo(){
-        return this.motivo;
-    }
-    
-    public void setMotivo(String motivo){
-        this.motivo = motivo;
-    }
+
 }
