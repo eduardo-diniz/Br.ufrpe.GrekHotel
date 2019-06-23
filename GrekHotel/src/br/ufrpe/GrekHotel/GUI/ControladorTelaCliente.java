@@ -123,18 +123,4 @@ public class ControladorTelaCliente {
             alerta.show();
         }
     }
-
-    @FXML
-    public void sair() {
-        fachada.setUsuario(null);
-        GrekHotel.changeScreem("TelaUser");
-    }
-
-    @FXML
-    public void contratarServico() {
-        if (tblServicos.getSelectionModel().getSelectedItem() != null) {
-            fachada.contratarServico((Cliente) fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
-        }
-    }
-
 }
