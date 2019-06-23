@@ -10,13 +10,16 @@ package br.ufrpe.GrekHotel.GUI;
  * @author Eduar
  */
 
+import br.ufrpe.GrekHotel.Negocio.Sistema;
+import br.ufrpe.GrekHotel.Negocio.beans.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class ControladorTelaUser {
-
+    Sistema fachada = Sistema.getInstance();
+ 
     @FXML
     private PasswordField inputSenha;
 
@@ -37,7 +40,32 @@ public class ControladorTelaUser {
     //GrekHotel.changeScreem("TelaCadastro");
     
     }
+    
+    public void login(){
+        
+         if(!inputLogin.getText().equals("") && inputSenha.getText().equals("")){
+             Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
+                    if(local != null){
+                        if(local instanceof Cliente){
+                          GrekHotel.changeScreem("TelaCliente");
+                            
+                        }else if(local instanceof Funcionario){
+                             GrekHotel.changeScreem("TelaAdm");
+                        }
+                        
+                }else{
+                    // informações do usuario invalidas Gabriel
+                }
+         }else{
+             // textfield vazias Gabriel
+         }
+    }
 
+    public void mudancaTelaCadastrar(){
+        
+        GrekHotel.changeScreem("TelaCadastro");
+        
+    }
    
     
        
