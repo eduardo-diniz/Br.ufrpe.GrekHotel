@@ -42,7 +42,7 @@ public class ControladorTelaCliente {
     private Button btnQuartos;
 
     @FXML
-    private TableView<?> tblCliente;
+    private TableView<Visita> tblCliente;
 
     @FXML
     private TableColumn<Visita, Quarto> colQuartosCliente;
@@ -125,8 +125,16 @@ public class ControladorTelaCliente {
     }
 
     @FXML
-    void handle(ActionEvent event) {
+    public void sair() {
+        fachada.setUsuario(null);
+        GrekHotel.changeScreem("TelaUser");
+    }
 
+    @FXML
+    public void contratarServico() {
+        if (tblServicos.getSelectionModel().getSelectedItem() != null) {
+            fachada.contratarServico((Cliente) fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
+        }
     }
 
 }
