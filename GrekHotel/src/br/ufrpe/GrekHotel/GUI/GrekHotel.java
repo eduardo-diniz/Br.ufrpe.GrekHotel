@@ -24,6 +24,9 @@ public class GrekHotel extends Application {
     private static Scene reservaScene;
     private static Scene admScene;
     private static Scene clienteScene;
+    private static Scene admReservaScene;
+    private static Scene admInicialScene;
+    private static Scene admFuncScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -39,10 +42,20 @@ public class GrekHotel extends Application {
         reservaScene = new Scene(fxmlReservas, 1080, 610);
 
         Parent fxmlAdm = FXMLLoader.load(getClass().getResource("TelaAdm.fxml"));
-        admScene = new Scene(fxmlAdm,1080, 610);
+        admScene = new Scene(fxmlAdm, 1080, 610);
 
-        /*Parent fxmlCliente = FXMLLoader.load(getClass().getResource(".fxml"));
-        clienteScene = new Scene(fxmlUser, 840, 640);*/
+        Parent fxmlCliente = FXMLLoader.load(getClass().getResource("TelaCliente.fxml"));
+        clienteScene = new Scene(fxmlCliente, 1080, 610);
+
+        Parent fxmladmReservaScene = FXMLLoader.load(getClass().getResource("TelaReservaAdm.fxml"));
+        admReservaScene = new Scene(fxmladmReservaScene, 1080, 610);
+
+        Parent fxmltelaAdmInicial = FXMLLoader.load(getClass().getResource("TelaAdmInicial.fxml"));
+        admInicialScene = new Scene(fxmltelaAdmInicial, 1080, 610);
+        
+        /*Parent fxmltelaFuncAdm = FXMLLoader.load(getClass().getResource("TelaFuncAdm.fxml"));
+        admFuncScene = new Scene(fxmltelaFuncAdm, 1080, 610);*/
+        
         primaryStage.setScene(userScene);
         primaryStage.show();
 
@@ -64,6 +77,16 @@ public class GrekHotel extends Application {
                 break;
             case "TelaCliente":
                 stage.setScene(clienteScene);
+                break;
+            case "TelaReservaAdm":
+                stage.setScene(admReservaScene);
+                break;
+            case "TelaAdmInicial":
+                stage.setScene(admInicialScene);
+                break;
+            case "TelaFuncAdm":
+                stage.setScene(admFuncScene);
+            
 
         }
     }

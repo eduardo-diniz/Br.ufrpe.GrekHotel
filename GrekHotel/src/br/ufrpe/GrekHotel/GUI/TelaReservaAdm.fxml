@@ -59,10 +59,12 @@
          <children>
             <TableView fx:id="tblDisponibilidadeAdm" layoutX="38.0" layoutY="45.0" prefHeight="297.0" prefWidth="309.0">
               <columns>
-                <TableColumn fx:id="tblQuartos" prefWidth="98.0" text="Quartos" />
-                <TableColumn fx:id="tblDisponiveis" prefWidth="101.0" text="Disponíveis" />
-                  <TableColumn fx:id="tblOcupados" minWidth="0.0" prefWidth="109.0" text="Ocupados" />
+                <TableColumn fx:id="colQuartos" prefWidth="98.0" text="Quartos" />
+                <TableColumn fx:id="colSituação" prefWidth="101.0" text="Situação" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
             <ImageView fitHeight="162.0" fitWidth="162.0" layoutX="815.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -84,19 +86,12 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tblReservasAdm" layoutX="390.0" layoutY="43.0" prefHeight="297.0" prefWidth="371.0">
+            <TableView fx:id="tblReservasAdm" layoutX="390.0" layoutY="43.0" prefHeight="297.0" prefWidth="495.0">
                <columns>
-                  <TableColumn fx:id="tblQuartosAlugados" prefWidth="93.0" sortable="false" text="Quartos" />
-                  <TableColumn fx:id="tblCliente" minWidth="0.0" prefWidth="151.0" text="Reservado por:" />
-                  <TableColumn fx:id="tblChecksColuna" prefWidth="126.0" text="check in - checkout" />
-               </columns>
-            </TableView>
-            <TableView layoutX="96.0" layoutY="383.0" prefHeight="215.0" prefWidth="560.0">
-               <columns>
-                  <TableColumn prefWidth="111.0" text="Quartos" />
-                  <TableColumn prefWidth="151.0" text="Rerservado por:" />
-                  <TableColumn minWidth="0.0" prefWidth="141.0" text="Serviços utilizados" />
-                  <TableColumn prefWidth="156.0" text="Débito do cliente" />
+                  <TableColumn fx:id="colQuartosReservado" prefWidth="93.0" sortable="false" text="Quartos" />
+                  <TableColumn fx:id="colNomeCliente" minWidth="0.0" prefWidth="151.0" text="Reservado por:" />
+                  <TableColumn fx:id="colCheckIn" prefWidth="126.0" text="check in" />
+                  <TableColumn fx:id="colCheckOut" prefWidth="126.0" text="checkout" />
                </columns>
             </TableView>
             <Label layoutX="268.0" layoutY="345.0" prefHeight="38.0" prefWidth="201.0" text="Acompanhamento financeiro:">
