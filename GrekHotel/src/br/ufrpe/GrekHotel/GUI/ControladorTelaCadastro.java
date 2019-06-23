@@ -47,7 +47,7 @@ public class ControladorTelaCadastro {
     @FXML
     public void cadastar() throws CUException {
         try {
-            if (!inputLoginCadastro.getText().equals("") && inputSenhaCadastro.getText().equals("") && inputNome.getText().equals("") && inputIdade.getText().equals("") && inputCPF.getText().equals("")) {
+            if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
                 Cliente atual;
                 atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
 
