@@ -22,7 +22,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Eduardo
  */
 public class ControladorTelaAdm {
-    
+
     @FXML
     private TextField fieldNumQuarto;
 
@@ -70,10 +70,16 @@ public class ControladorTelaAdm {
 
     @FXML
     private TextField fieldValorServico;
-    
+
+    @FXML
+    private Button btnCadQuarto;
+
+    @FXML
+    private Button btnCadServico;
+
     private Sistema s;
-    
-        public void initialize() {
+
+    public void initialize() {
 
         s = Sistema.getInstance();
 
@@ -82,16 +88,12 @@ public class ControladorTelaAdm {
         colDescricaoCadQuarto.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tblCadQuarto.setItems(FXCollections.observableArrayList(s.listarQuartos()));
         tblCadQuarto.refresh();
-        
+
         colCadServico.setCellValueFactory((new PropertyValueFactory<>("descricao")));
         colCadValor.setCellValueFactory((new PropertyValueFactory<>("custo")));
         tblCadQuarto.setItems(FXCollections.observableArrayList(s.listarServicos()));
         tblCadServico.refresh();
 
     }
-    
-    
-    
 
-    
 }

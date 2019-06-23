@@ -30,16 +30,16 @@ public class GrekHotel extends Application {
         stage = primaryStage;
 
         Parent fxmlUser = FXMLLoader.load(getClass().getResource("TelaUser.fxml"));
-        userScene = new Scene(fxmlUser, 840, 640);
+        userScene = new Scene(fxmlUser, 1080, 610);
 
         Parent fxmlCadastro = FXMLLoader.load(getClass().getResource("TelaCadastro.fxml"));
-        cadastroScene = new Scene(fxmlCadastro, 840, 640);
+        cadastroScene = new Scene(fxmlCadastro, 1080, 610);
 
         Parent fxmlReservas = FXMLLoader.load(getClass().getResource("TelaReservas.fxml"));
-        reservaScene = new Scene(fxmlReservas, 840, 640);
+        reservaScene = new Scene(fxmlReservas, 1080, 610);
 
         Parent fxmlAdm = FXMLLoader.load(getClass().getResource("TelaAdm.fxml"));
-        admScene = new Scene(fxmlAdm, 840, 640);
+        admScene = new Scene(fxmlAdm,1080, 610);
 
         /*Parent fxmlCliente = FXMLLoader.load(getClass().getResource(".fxml"));
         clienteScene = new Scene(fxmlUser, 840, 640);*/
