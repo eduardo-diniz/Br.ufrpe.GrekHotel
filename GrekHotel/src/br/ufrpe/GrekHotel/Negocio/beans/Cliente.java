@@ -6,7 +6,6 @@
 package br.ufrpe.GrekHotel.Negocio.beans;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  *
@@ -69,4 +68,10 @@ public class Cliente extends Usuario {
         }
         return resultado;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
 }

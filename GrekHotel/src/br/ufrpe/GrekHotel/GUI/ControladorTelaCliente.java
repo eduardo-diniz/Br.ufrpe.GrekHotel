@@ -30,6 +30,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ControladorTelaCliente {
 
     @FXML
+    private Button btnContratarServico;
+    @FXML
     private Button btnSair;
 
     @FXML
@@ -74,15 +76,17 @@ public class ControladorTelaCliente {
     @FXML
     private Button btnImprimirDespesas;
 
-    private Sistema s;
+    private Sistema fachada;
 
     public void initialize() {
 
-        s = Sistema.getInstance();
+        fachada = Sistema.getInstance();
+        txtBemVindo.setText("Olá, " + fachada.getUsuario() + "bem vindxs");
+
         //Tabela de Serviços
         colValorservico.setCellValueFactory(new PropertyValueFactory<>("custo"));
         colServico.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        tblServicos.setItems(FXCollections.observableArrayList(s.listarServicos()));
+        tblServicos.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         tblServicos.refresh();
 
         //Tabela de Informações sobre a Visita
@@ -97,8 +101,21 @@ public class ControladorTelaCliente {
         colDespesasServico.setCellValueFactory(new PropertyValueFactory<>("compras"));
         colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("valorTotal")));
 
-        tblDespesas.setItems(FXCollections.observableArrayList(s.listarQuartos()));
+        tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
 
+    }
+    public void telaQuartos(){
+      GrekHotel.changeScreem("TelaReservas");
+    
+        }
+    public void sair(){
+           fachada.setUsuario(null);
+           GrekHotel.changeScreem("TelaUser");
+    }
+    public void contratarServico(){
+        if(tblServicos.getSelectionModel().getSelectedItem() != null){
+                fachada.contratarServico((Cliente)fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
+        }
     }
 
     @FXML
