@@ -57,41 +57,43 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="181.0" fitWidth="157.0" layoutX="454.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="90.0" fitWidth="92.0" layoutX="292.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@imagens/header-account-image-line-512.png" />
+                  <Image url="@../../../../../../../../../Downloads/emptyf.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="btnSair" layoutX="498.0" layoutY="243.0" mnemonicParsing="false" onAction="#handle" prefHeight="32.0" prefWidth="76.0" text="Sair" />
-            <Label fx:id="txtBemVindo" layoutX="14.0" layoutY="14.0" prefHeight="61.0" prefWidth="230.0" text="Olá, _________, bem vind@!">
+            <Button fx:id="btnSair" layoutX="945.0" layoutY="523.0" mnemonicParsing="false" onAction="#handle" prefHeight="32.0" prefWidth="76.0" text="Sair" />
+            <Label fx:id="txtBemVindo" layoutX="44.0" layoutY="54.0" prefHeight="61.0" prefWidth="230.0" text="Olá, _________, bem vind@!">
                <font>
                   <Font name="Nyala" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="256.0" prefHeight="42.0" prefWidth="157.0" text="Conheça nossos quartos">
+            <Label layoutX="37.0" layoutY="426.0" prefHeight="32.0" prefWidth="157.0" text="Conheça nossos quartos">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnQuartos" layoutX="77.0" layoutY="298.0" mnemonicParsing="false" onAction="#handle" prefHeight="42.0" prefWidth="76.0" text="Quartos" />
-            <Label layoutX="233.0" layoutY="256.0" prefHeight="42.0" prefWidth="157.0" text="Conheça nossos serviços">
+            <Button fx:id="btnQuartos" layoutX="78.0" layoutY="467.0" mnemonicParsing="false" onAction="#handle" prefHeight="42.0" prefWidth="76.0" text="Quartos" />
+            <Label layoutX="669.0" layoutY="102.0" prefHeight="42.0" prefWidth="157.0" text="Conheça nossos serviços">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnServicos" layoutX="273.0" layoutY="298.0" mnemonicParsing="false" onAction="#handle" prefHeight="42.0" prefWidth="76.0" text="Serviços" />
-            <TableView fx:id="tblCliente" layoutX="10.0" layoutY="81.0" prefHeight="175.0" prefWidth="406.0">
+            <TableView fx:id="tblCliente" layoutX="10.0" layoutY="211.0" prefHeight="175.0" prefWidth="524.0">
               <columns>
-                <TableColumn fx:id="tblQuartosCliente" prefWidth="110.0" sortable="false" text="Quartos" />
-                <TableColumn fx:id="tblDatasCliente" prefWidth="115.0" sortable="false" text="Datas de chek ins" />
-                  <TableColumn fx:id="tblValoresCliente" prefWidth="180.0" sortable="false" text="Valor gasto na hospedagem" />
+                <TableColumn fx:id="colQuartosCliente" prefWidth="110.0" sortable="false" text="Quartos" />
+                <TableColumn fx:id="colValoresCliente" prefWidth="175.0" sortable="false" text="Valor gasto na hospedagem" />
+                  <TableColumn fx:id="colDatasClienteIn" prefWidth="127.0" sortable="false" text="Check-in" />
+                  <TableColumn fx:id="colDatasClienteOut" prefWidth="111.0" sortable="false" text="Check-out" />
               </columns>
             </TableView>
-            <Label layoutX="491.0" layoutY="212.0" text="Setor do cliente">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
+            <TableView fx:id="tblServicos" layoutX="605.0" layoutY="176.0" prefHeight="297.0" prefWidth="284.0">
+              <columns>
+                <TableColumn fx:id="colServico" prefWidth="144.0" text="Serviço" />
+                <TableColumn fx:id="colValorservico" prefWidth="139.0" text="Valor" />
+              </columns>
+            </TableView>
+            <Button layoutX="902.0" layoutY="249.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Contratar Serviço" />
       </children>
     </AnchorPane>
   </children>
