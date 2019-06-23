@@ -14,6 +14,7 @@ import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -83,16 +84,29 @@ public class ControladorTelaReservas {
              lblDescrQrto.setText(tblQuartos.getSelectionModel().getSelectedItem().getDescricao());
         lblNomeQrto.setText("Quarto nº" + tblQuartos.getSelectionModel().getSelectedItem().getNumero()); 
          }else{
-             //alert
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Selecione um quarto");
+            alerta.show();
          }
           
     }
      
-     public void reservar() throws CRException{
+     public void reservar(){
          if(tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null){
-             fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue() , dataCheckOut.getValue() ));
+             try{
+                fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue() , dataCheckOut.getValue() ));
+             }catch(CRException a){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("erro ao reservar quarto");
+                alerta.setContentText(a.getMessage());
+                alerta.show();
+             }
+                 
          }else{
-             //alert
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos não preenchidos");
+            alerta.setContentText("preencha todos os campos");
+            alerta.show();
          }
                   
      }

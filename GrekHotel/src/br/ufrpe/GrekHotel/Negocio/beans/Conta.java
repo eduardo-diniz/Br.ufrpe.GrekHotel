@@ -43,5 +43,4 @@ public class Conta {
 	public double getValorTotal() {
 		return valorTotal;
 	}
-
 }

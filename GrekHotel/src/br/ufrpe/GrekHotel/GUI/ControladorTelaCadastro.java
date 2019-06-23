@@ -9,6 +9,7 @@ import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -45,20 +46,31 @@ public class ControladorTelaCadastro {
     
     
     @FXML
-    public void cadastar() throws CUException {
+    public void cadastar(){
         try {
             if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
                 Cliente atual;
                 atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
 
                 fachada.cadastrarUsuario(atual);
+            }else{
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("preencha todos os campos");
+                    alerta.setHeaderText("Erro ao cadastrar usuario");
+                    alerta.show();
             }
 
         } catch (CUException a) {
-            //exception
-
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao cadastrar usuario");
+            alerta.show();
+            
         } catch (NumberFormatException a) {
-            //exception number
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("digite numeros em idade e CPF");
+            alerta.setHeaderText("Erro ao cadastrar usuario");
+            alerta.show();
 
         }
 

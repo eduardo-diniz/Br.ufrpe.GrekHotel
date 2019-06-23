@@ -28,4 +28,16 @@ public abstract class Usuario {
         return senha;
     }
     
+    public boolean equals(Object obj){
+        boolean resultado = false;
+        
+        if(obj instanceof Usuario){
+            Usuario u = (Usuario) obj;
+            if (u.getLogin().equals(this.getLogin())){
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
+    
 }

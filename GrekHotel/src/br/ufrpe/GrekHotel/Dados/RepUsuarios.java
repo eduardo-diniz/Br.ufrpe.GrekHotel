@@ -35,7 +35,7 @@ public class RepUsuarios {
             usuarios.add(u);
             resultado = true;
         }else{
-            CUException aue = new CUException("usuario já cadastrado");
+            CUException aue = new CUException("login já está sendo utilizado");
             throw aue;
         }
         return resultado;

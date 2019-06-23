@@ -13,6 +13,7 @@ package br.ufrpe.GrekHotel.GUI;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -55,10 +56,16 @@ public class ControladorTelaUser {
                         }
                         
                 }else{
-                    // informações do usuario invalidas Gabriel
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("login ou senha inválidos");
+                    alerta.setHeaderText("falha no login");
+                    alerta.show();
                 }
          }else{
-             // textfield vazias Gabriel
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setContentText("campos vazios");
+                alerta.setHeaderText("falha no login");
+                alerta.show();
          }
     }
 

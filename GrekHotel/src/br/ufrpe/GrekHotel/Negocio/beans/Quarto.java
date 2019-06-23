@@ -66,7 +66,7 @@ public class Quarto {
 
 		if (obj instanceof Quarto) {
 			Quarto q = (Quarto) obj;
-			if (this.numero == q.numero) {
+			if (this.getNumero() == q.getNumero()) {
 
 				igual = true;
 			}

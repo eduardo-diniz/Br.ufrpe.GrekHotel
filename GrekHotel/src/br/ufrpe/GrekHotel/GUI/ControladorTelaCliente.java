@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -115,6 +116,11 @@ public class ControladorTelaCliente {
     public void contratarServico(){
         if(tblServicos.getSelectionModel().getSelectedItem() != null){
                 fachada.contratarServico((Cliente)fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
+        }else{
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("selecione um serviço na tabela");
+            alerta.setHeaderText("falha na escolha de serviço");
+            alerta.show();
         }
     }
 
