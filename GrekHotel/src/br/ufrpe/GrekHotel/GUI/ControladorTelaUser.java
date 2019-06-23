@@ -42,22 +42,23 @@ public class ControladorTelaUser {
     }
     @FXML
     public void handle(){
-        
-         if(!inputLogin.getText().equals("") && !inputSenha.getText().equals("")){
+         if(!inputLogin.getText().equals("") && !inputSenha.getText().equals("")){          
              Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
                     if(local != null){
-                        if(local instanceof Cliente){
+                        if(local instanceof Cliente){   
                           GrekHotel.changeScreem("TelaCliente");
-                            
+                           System.out.println("entroucliente");   
                         }else if(local instanceof Funcionario){
-                             GrekHotel.changeScreem("TelaAdm");
-                             System.out.println("entrou");
+                             GrekHotel.changeScreem("TelaAdmInicial");
+                             System.out.println("entroufuncionario");
                         }
                         
                 }else{
+                        System.out.println("erro21");
                     // informações do usuario invalidas Gabriel
                 }
          }else{
+             System.out.println("erro31");
              // textfield vazias Gabriel
          }
     }
