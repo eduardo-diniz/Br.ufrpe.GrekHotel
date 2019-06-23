@@ -4,12 +4,17 @@ package br.ufrpe.GrekHotel.GUI;
  *
  * @author Eduardo
  */
+import br.ufrpe.GrekHotel.Excecoes.CUException;
+import br.ufrpe.GrekHotel.Negocio.Sistema;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ControladorTelaCadastro {
+        Sistema fachada = Sistema.getInstance();
+
 
     @FXML
     private Button btnHome;
@@ -31,20 +36,33 @@ public class ControladorTelaCadastro {
 
     @FXML
     private TextField inputIdade;
-
-    @FXML
-    void handle(ActionEvent event) {
-
-        if (event.getSource().equals(btnCadastroFeito)) {
-            //Quando o cadastro estiver feito e for voltar para a tela principal
-            //GrekHotel.changeScreem("TelaUser");
-
+    
+    public void cadastar() throws CUException{
+        try{
+            if(!inputLoginCadastro.getText().equals("") && inputSenhaCadastro.getText().equals("") &&  inputNome.getText().equals("") && inputIdade.getText().equals("") && inputCPF.getText().equals("") ){
+            Cliente atual;
+        atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()) );
+        
+        fachada.cadastrarUsuario(atual);
         }
-
-        if (event.getSource().equals(btnHome)) {
-
+            
+        }catch(CUException a){
+            //exception
+            
+        }catch(NumberFormatException a){
+            //exception number
+            
         }
-
+            
+        
+        
+        
     }
-
+    
+    public void telaHome(){
+          GrekHotel.changeScreem("TelaHome");
+        
+    }
+    
 }
+
