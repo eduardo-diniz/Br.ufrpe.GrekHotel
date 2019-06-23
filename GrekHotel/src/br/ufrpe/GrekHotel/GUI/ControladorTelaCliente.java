@@ -11,7 +11,9 @@ import br.ufrpe.GrekHotel.Negocio.beans.Conta;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
+import br.ufrpe.GrekHotel.Negocio.beans.Visita;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,16 +42,16 @@ public class ControladorTelaCliente {
     private TableView<?> tblCliente;
 
     @FXML
-    private TableColumn<Quarto, Integer> colQuartosCliente;
+    private TableColumn<Visita, Quarto> colQuartosCliente;
 
     @FXML
-    private TableColumn<Conta, Double> colValoresCliente;
+    private TableColumn<Visita, Conta> colValoresCliente;
 
     @FXML
-    private TableColumn<Reserva, LocalDate> colDatasClienteIn;
+    private TableColumn<Visita, LocalDate> colDatasClienteIn;
 
     @FXML
-    private TableColumn<Reserva, LocalDate> colDatasClienteOut;
+    private TableColumn<Visita, LocalDate> colDatasClienteOut;
 
     @FXML
     private TableView<Servico> tblServicos;
@@ -59,6 +61,18 @@ public class ControladorTelaCliente {
 
     @FXML
     private TableColumn<Servico, Double> colValorservico;
+
+    @FXML
+    private TableView<Conta> tblDespesas;
+
+    @FXML
+    private TableColumn<Conta, ArrayList<Servico>> colDespesasServico;
+
+    @FXML
+    private TableColumn<Conta, Double> colDespesasValor;
+
+    @FXML
+    private Button btnImprimirDespesas;
 
     private Sistema s;
 
@@ -71,13 +85,19 @@ public class ControladorTelaCliente {
         tblServicos.setItems(FXCollections.observableArrayList(s.listarServicos()));
         tblServicos.refresh();
 
-        //Tabela de Informações sobre a hospedagem
-        colQuartosCliente.setCellValueFactory(new PropertyValueFactory<>("numero"));
-        colValoresCliente.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
-        colDatasClienteIn.setCellValueFactory((new PropertyValueFactory<>("checkInPrevisto")));
-        colDatasClienteOut.setCellValueFactory(new PropertyValueFactory<>("checkOutPrevisto"));
-       // tblServicos.setItems(FXCollections.observableArrayList(s.);
+        //Tabela de Informações sobre a Visita
+        colQuartosCliente.setCellValueFactory(new PropertyValueFactory<>("quarto"));
+        colValoresCliente.setCellValueFactory(new PropertyValueFactory<>("despesa"));
+        colDatasClienteIn.setCellValueFactory((new PropertyValueFactory<>("checkIn")));
+        colDatasClienteOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
+        // tblServicos.setItems(FXCollections.observableArrayList(s.);
         tblServicos.refresh();
+
+        //Tabela de informações sobre a despesa
+        colDespesasServico.setCellValueFactory(new PropertyValueFactory<>("compras"));
+        colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("valorTotal")));
+
+        tblDespesas.setItems(FXCollections.observableArrayList(s.listarQuartos()));
 
     }
 
