@@ -105,35 +105,25 @@ public class ControladorTelaCliente {
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
 
     }
-    public void telaQuartos(){
-      GrekHotel.changeScreem("TelaReservas");
-    
-        }
-    public void sair(){
-           fachada.setUsuario(null);
-           GrekHotel.changeScreem("TelaUser");
-    }
-    public void contratarServico(){
-        if(tblServicos.getSelectionModel().getSelectedItem() != null){
-                fachada.contratarServico((Cliente)fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
-        }else{
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("selecione um serviço na tabela");
-            alerta.setHeaderText("falha na escolha de serviço");
-            alerta.show();
-        }
+
+    public void telaQuartos() {
+        GrekHotel.changeScreem("TelaReservas");
+
     }
 
-    @FXML
     public void sair() {
         fachada.setUsuario(null);
         GrekHotel.changeScreem("TelaUser");
     }
 
-    @FXML
     public void contratarServico() {
         if (tblServicos.getSelectionModel().getSelectedItem() != null) {
             fachada.contratarServico((Cliente) fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("selecione um serviço na tabela");
+            alerta.setHeaderText("falha na escolha de serviço");
+            alerta.show();
         }
     }
 
