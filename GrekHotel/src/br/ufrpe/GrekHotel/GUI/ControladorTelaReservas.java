@@ -11,14 +11,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import sun.security.jca.GetInstance;
 
 /**
  *
@@ -26,7 +24,6 @@ import sun.security.jca.GetInstance;
  */
 public class ControladorTelaReservas {
 
- 
     @FXML
     private Button btnHome;
 
@@ -48,7 +45,7 @@ public class ControladorTelaReservas {
     @FXML
     private Label lblDescrQrto;
 //não vai usar
-   /* @FXML
+    /* @FXML
     private ComboBox<?> boxQuartosUser;*/
 
     @FXML
@@ -62,10 +59,9 @@ public class ControladorTelaReservas {
 
     @FXML
     private Button btnVerQrt;
-    
-    
-Sistema s = Sistema.getInstance();
-    
+
+    Sistema s = Sistema.getInstance();
+
     public void initialize() {
 
         s = Sistema.getInstance();
@@ -74,14 +70,13 @@ Sistema s = Sistema.getInstance();
         colQuarto.setCellValueFactory(new PropertyValueFactory<>("numero"));
         tblQuartos.setItems(FXCollections.observableArrayList(s.listarQuartos()));
         tblQuartos.refresh();
-        
 
     }
 
     @FXML
     void handle(ActionEvent event) {
 
-      /*  if (event.getSource().equals(boxQuartosUser)) {
+        /*  if (event.getSource().equals(boxQuartosUser)) {
 
             lblValorDiaria.setText("R$: " + boxQuartosUser.getValue().getDiaria());
         }
@@ -92,7 +87,6 @@ Sistema s = Sistema.getInstance();
              
              
          }*/
-
     }
 
 }
