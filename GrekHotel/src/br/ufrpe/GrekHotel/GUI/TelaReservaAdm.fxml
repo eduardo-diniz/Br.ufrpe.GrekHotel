@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="636.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="610.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="tblDisponibilidadeAdm" layoutX="38.0" layoutY="45.0" prefHeight="297.0" prefWidth="309.0">
+              <columns>
+                <TableColumn fx:id="tblQuartos" prefWidth="98.0" text="Quartos" />
+                <TableColumn fx:id="tblDisponiveis" prefWidth="101.0" text="Disponíveis" />
+                  <TableColumn fx:id="tblOcupados" minWidth="0.0" prefWidth="109.0" text="Ocupados" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="162.0" fitWidth="162.0" layoutX="815.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Documents/NetBeansProjects/Br.ufrpe.GrekHotel/GrekHotel/src/br/ufrpe/GrekHotel/GUI/imagens/ImagemAdm.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="64.0" layoutY="14.0" prefHeight="38.0" prefWidth="243.0" text="Veja a disponibilidade dos quartos:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnHome" layoutX="859.0" layoutY="373.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Home">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="490.0" layoutY="14.0" prefHeight="38.0" prefWidth="194.0" text="Veja as reservas dos quartos:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblReservasAdm" layoutX="390.0" layoutY="43.0" prefHeight="297.0" prefWidth="371.0">
+               <columns>
+                  <TableColumn fx:id="tblQuartosAlugados" prefWidth="93.0" sortable="false" text="Quartos" />
+                  <TableColumn fx:id="tblCliente" minWidth="0.0" prefWidth="151.0" text="Reservado por:" />
+                  <TableColumn fx:id="tblChecksColuna" prefWidth="126.0" text="check in - checkout" />
+               </columns>
+            </TableView>
+            <TableView layoutX="96.0" layoutY="383.0" prefHeight="215.0" prefWidth="560.0">
+               <columns>
+                  <TableColumn prefWidth="111.0" text="Quartos" />
+                  <TableColumn prefWidth="151.0" text="Rerservado por:" />
+                  <TableColumn minWidth="0.0" prefWidth="141.0" text="Serviços utilizados" />
+                  <TableColumn prefWidth="156.0" text="Débito do cliente" />
+               </columns>
+            </TableView>
+            <Label layoutX="268.0" layoutY="345.0" prefHeight="38.0" prefWidth="201.0" text="Acompanhamento financeiro:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAttPg" layoutX="822.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="148.0" text="Atualizar Página">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
