@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -9,12 +8,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="685.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
@@ -60,46 +60,33 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1085.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnHome" layoutX="986.0" layoutY="483.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="HOME" />
-            <ImageView fitHeight="110.0" fitWidth="167.0" layoutX="197.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnHome" layoutX="47.0" layoutY="53.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="HOME" />
+            <ImageView fx:id="imgQrto" fitHeight="110.0" fitWidth="167.0" layoutX="475.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagens/9-hotel-mercy-chambre-club-03.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="110.0" fitWidth="150.0" layoutX="415.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagens/LISFPDI_rooms_full_superiorroom.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="110.0" fitWidth="174.0" layoutX="612.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagens/hotel.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="238.0" layoutY="185.0" text="Quarto Básico">
+            <Label fx:id="lblNomeQrto" layoutX="500.0" layoutY="308.0" text="Nome do Quarto">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="439.0" layoutY="185.0" text="Quarto Clássico">
+            <DatePicker fx:id="dataCheckIn" layoutX="682.0" layoutY="382.0" promptText="Check in" />
+            <DatePicker fx:id="dataCheckOut" layoutX="682.0" layoutY="423.0" promptText="Check out" />
+            <Button fx:id="btnReservar" layoutX="913.0" layoutY="400.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" text="Reservar" />
+            <Label fx:id="lblDescrQrto" layoutX="475.0" layoutY="480.0" prefHeight="69.0" prefWidth="165.0" text="Simples, confortável e econômico pro seu bolso." textAlignment="CENTER" wrapText="true" />
+            <TableView fx:id="tblQuartos" layoutX="24.0" layoutY="284.0" prefHeight="330.0" prefWidth="304.0">
+              <columns>
+                <TableColumn fx:id="colQuarto" prefWidth="147.0" text="Quarto" />
+                <TableColumn fx:id="colValor" prefWidth="156.0" text="Valor" />
+              </columns>
+            </TableView>
+            <Label layoutX="442.0" layoutY="179.0" text="Reservas de Quarto">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="658.0" layoutY="185.0" text="Quarto Luxo">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <DatePicker layoutX="701.0" layoutY="429.0" promptText="Check in" />
-            <DatePicker layoutX="701.0" layoutY="470.0" promptText="Check out" />
-            <Button fx:id="btnReservar" layoutX="904.0" layoutY="439.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="82.0" text="Reservar" />
-            <Label layoutX="197.0" layoutY="327.0" prefHeight="69.0" prefWidth="165.0" text="Simples, confortável e econômico pro seu bolso." textAlignment="CENTER" wrapText="true" />
-            <Label layoutX="408.0" layoutY="327.0" prefHeight="69.0" prefWidth="165.0" text="Aproveite a hospedagem em um quarto que tem a clássico jeitinho do Grek Hotel" textAlignment="CENTER" wrapText="true" />
-            <Label layoutX="617.0" layoutY="327.0" prefHeight="69.0" prefWidth="165.0" text="Aprecie a experiência no nosso melhor quarto, aqui tudo remeterá a perfeição." textAlignment="CENTER" wrapText="true" />
-            <ComboBox fx:id="boxQuartosUser" layoutX="197.0" layoutY="427.0" onAction="#handle" prefWidth="150.0" />
-            <Text layoutX="425.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço :" wrappingWidth="43.0" />
-            <Label layoutX="482.0" layoutY="433.0" prefHeight="17.0" prefWidth="67.0" />
+            <Button fx:id="btnVerQrt" layoutX="345.0" layoutY="388.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Ver Quarto" />
       </children>
     </AnchorPane>
   </children>

@@ -14,6 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import sun.security.jca.GetInstance;
 
 /**
@@ -22,18 +26,15 @@ import sun.security.jca.GetInstance;
  */
 public class ControladorTelaReservas {
 
+ 
     @FXML
     private Button btnHome;
 
     @FXML
-    private Button btnReservar;
+    private ImageView imgQrto;
 
     @FXML
-    private Label lblValorDiaria;
-    @FXML
-    private ComboBox<Quarto> boxQuartosUser;
-
-    private Sistema s;
+    private Label lblNomeQrto;
 
     @FXML
     private DatePicker dataCheckIn;
@@ -41,18 +42,46 @@ public class ControladorTelaReservas {
     @FXML
     private DatePicker dataCheckOut;
 
+    @FXML
+    private Button btnReservar;
+
+    @FXML
+    private Label lblDescrQrto;
+//não vai usar
+   /* @FXML
+    private ComboBox<?> boxQuartosUser;*/
+
+    @FXML
+    private TableView<Quarto> tblQuartos;
+
+    @FXML
+    private TableColumn<Quarto, Integer> colQuarto;
+
+    @FXML
+    private TableColumn<Quarto, Double> colValor;
+
+    @FXML
+    private Button btnVerQrt;
+    
+    
+Sistema s = Sistema.getInstance();
+    
     public void initialize() {
 
         s = Sistema.getInstance();
 
-        boxQuartosUser.setItems(FXCollections.observableArrayList(s.listarQuartos()));
+        colValor.setCellValueFactory((new PropertyValueFactory<>("diaria")));
+        colQuarto.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        tblQuartos.setItems(FXCollections.observableArrayList(s.listarQuartos()));
+        tblQuartos.refresh();
+        
 
     }
 
     @FXML
     void handle(ActionEvent event) {
 
-        if (event.getSource().equals(boxQuartosUser)) {
+      /*  if (event.getSource().equals(boxQuartosUser)) {
 
             lblValorDiaria.setText("R$: " + boxQuartosUser.getValue().getDiaria());
         }
@@ -62,7 +91,7 @@ public class ControladorTelaReservas {
              
              
              
-         }
+         }*/
 
     }
 
