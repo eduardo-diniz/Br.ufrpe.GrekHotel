@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="611.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdm">
+  <children>
+    <MenuBar prefHeight="23.0" prefWidth="643.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="593.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField fx:id="fieldNumQuarto" layoutX="122.0" layoutY="135.0" promptText="01" />
+            <TextField fx:id="fieldDiaria" layoutX="123.0" layoutY="190.0" promptText="320" />
+            <Label layoutX="129.0" layoutY="81.0" text="Cadastrar Quarto">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="135.0" text="Numero:" />
+            <Label layoutX="60.0" layoutY="190.0" text="Diaria:" />
+            <Label layoutX="50.0" layoutY="256.0" text="Descrição:" />
+            <TextArea fx:id="areaDescrQuarto" layoutX="122.0" layoutY="232.0" prefHeight="97.0" prefWidth="167.0" promptText="Quarto com TV+Netflix, Cama De Casal, Banheira, E inclui 15 mil RIOTPOINTS" />
+            <TableView fx:id="tblCadQuarto" layoutX="25.0" layoutY="359.0" prefHeight="200.0" prefWidth="305.0">
+              <columns>
+                <TableColumn fx:id="colNumeroCadQuarto" prefWidth="78.0" text="Numero" />
+                <TableColumn fx:id="colDiariaCadQuarto" prefWidth="79.0" text="Diaria" />
+                  <TableColumn fx:id="colDescricaoCadQuarto" prefWidth="147.0" text="Descricao" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnRemoverQuarto" layoutX="360.0" layoutY="476.0" mnemonicParsing="false" text="Remover Quarto" />
+            <Button fx:id="btnAtualizarQuarto" layoutX="358.0" layoutY="412.0" mnemonicParsing="false" text="Atualizar Quarto" />
+            <Button fx:id="btnAtualizarServico" layoutX="714.0" layoutY="412.0" mnemonicParsing="false" text="Atualizar Serviço" />
+            <Button fx:id="btnRemoverServico" layoutX="715.0" layoutY="476.0" mnemonicParsing="false" text="Remover Servico" />
+            <TableView fx:id="tblCadServico" layoutX="829.0" layoutY="359.0" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="colCadServico" prefWidth="102.0" text="Serviço" />
+                <TableColumn fx:id="colCadValor" prefWidth="97.0" text="Valor" />
+              </columns>
+            </TableView>
+            <TextField fx:id="fieldServico" layoutX="839.0" layoutY="173.0" promptText="Massagem" />
+            <TextField fx:id="fieldValorServico" layoutX="839.0" layoutY="228.0" promptText="100" />
+            <Label layoutX="781.0" layoutY="177.0" text="Serviço" />
+            <Label layoutX="734.0" layoutY="232.0" text="Valor do Serviço" />
+            <Label layoutX="845.0" layoutY="122.0" text="Cadastrar Serviço">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
