@@ -10,13 +10,11 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="685.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaReservas">
+<VBox prefHeight="685.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaReservas">
   <children>
       <ListView prefHeight="0.0" prefWidth="640.0" />
     <MenuBar prefHeight="40.0" prefWidth="1041.0" VBox.vgrow="NEVER">
@@ -61,11 +59,6 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1085.0" VBox.vgrow="ALWAYS">
       <children>
             <Button fx:id="btnHome" layoutX="47.0" layoutY="53.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="HOME" />
-            <ImageView fx:id="imgQrto" fitHeight="110.0" fitWidth="167.0" layoutX="475.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagens/9-hotel-mercy-chambre-club-03.jpg" />
-               </image>
-            </ImageView>
             <Label fx:id="lblNomeQrto" layoutX="500.0" layoutY="308.0" text="Nome do Quarto">
                <font>
                   <Font name="System Bold" size="14.0" />
