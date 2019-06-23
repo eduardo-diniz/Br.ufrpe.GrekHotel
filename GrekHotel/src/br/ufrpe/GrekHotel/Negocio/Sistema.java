@@ -48,6 +48,13 @@ public class Sistema  {
   }
   return instance;
  }
+ public Usuario getUsuario() {
+        return usuario;
+ }
+
+ public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+ }
 
  public ArrayList listarQuartos() {
   return ctrlReservas.listarQuartos();
@@ -126,8 +133,8 @@ public class Sistema  {
  }
 
  public Usuario efetuarLogin(String login, String senha) {
-  
-  return ctrlUsuario.efetuarLogin(login, senha);
+        usuario = ctrlUsuario.efetuarLogin(login, senha);
+         return usuario;
   
  }
 

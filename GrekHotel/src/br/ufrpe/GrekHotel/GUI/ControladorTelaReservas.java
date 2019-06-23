@@ -5,8 +5,12 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import br.ufrpe.GrekHotel.Excecoes.CRException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
+import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -44,7 +49,7 @@ public class ControladorTelaReservas {
 
     @FXML
     private Label lblDescrQrto;
-//não vai usar
+    //não vai usar
     /* @FXML
     private ComboBox<?> boxQuartosUser;*/
 
@@ -60,19 +65,43 @@ public class ControladorTelaReservas {
     @FXML
     private Button btnVerQrt;
 
-    Sistema s = Sistema.getInstance();
+    Sistema fachada = Sistema.getInstance();
 
     public void initialize() {
 
-        s = Sistema.getInstance();
+        fachada = Sistema.getInstance();
 
         colValor.setCellValueFactory((new PropertyValueFactory<>("diaria")));
         colQuarto.setCellValueFactory(new PropertyValueFactory<>("numero"));
-        tblQuartos.setItems(FXCollections.observableArrayList(s.listarQuartos()));
+        tblQuartos.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
         tblQuartos.refresh();
 
     }
-
+     public void verQuarto(){
+      //imgQrto.setImage( new Image(getClass().getResourceAsStream("endereço da imagem")));
+         if(tblQuartos.getSelectionModel().getSelectedItem() != null){
+             lblDescrQrto.setText(tblQuartos.getSelectionModel().getSelectedItem().getDescricao());
+        lblNomeQrto.setText("Quarto nº" + tblQuartos.getSelectionModel().getSelectedItem().getNumero()); 
+         }else{
+             //alert
+         }
+          
+    }
+     
+     public void reservar() throws CRException{
+         if(tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null){
+             fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue() , dataCheckOut.getValue() ));
+         }else{
+             //alert
+         }
+                  
+     }
+    
+    
+    public void telaHome(){
+        GrekHotel.changeScreem("TelaHome");
+        
+    }
     @FXML
     void handle(ActionEvent event) {
 
