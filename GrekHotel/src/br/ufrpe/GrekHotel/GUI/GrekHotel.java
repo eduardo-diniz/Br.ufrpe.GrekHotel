@@ -36,14 +36,13 @@ public class GrekHotel extends Application {
         cadastroScene = new Scene(fxmlCadastro, 840, 640);
 
         Parent fxmlReservas = FXMLLoader.load(getClass().getResource("TelaReservas.fxml"));
-        reservaScene = new Scene(fxmlUser, 840, 640);
+        reservaScene = new Scene(fxmlReservas, 840, 640);
 
-        Parent fxmlAdm = FXMLLoader.load(getClass().getResource(".fxml"));
-        admScene = new Scene(fxmlUser, 840, 640);
+        Parent fxmlAdm = FXMLLoader.load(getClass().getResource("TelaAdm.fxml"));
+        admScene = new Scene(fxmlAdm, 840, 640);
 
-        Parent fxmlCliente = FXMLLoader.load(getClass().getResource(".fxml"));
-        clienteScene = new Scene(fxmlUser, 840, 640);
-
+        /*Parent fxmlCliente = FXMLLoader.load(getClass().getResource(".fxml"));
+        clienteScene = new Scene(fxmlUser, 840, 640);*/
         primaryStage.setScene(userScene);
         primaryStage.show();
 
@@ -65,16 +64,13 @@ public class GrekHotel extends Application {
                 break;
             case "TelaCliente":
                 stage.setScene(clienteScene);
-                
+
         }
     }
 
     public static void main(String[] args) {
-     
+
         launch();
     }
-
-       
-       
 
 }

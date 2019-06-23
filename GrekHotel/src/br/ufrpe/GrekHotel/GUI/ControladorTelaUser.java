@@ -43,7 +43,7 @@ public class ControladorTelaUser {
     @FXML
     public void handle(){
         
-         if(!inputLogin.getText().equals("") && inputSenha.getText().equals("")){
+         if(!inputLogin.getText().equals("") && !inputSenha.getText().equals("")){
              Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
                     if(local != null){
                         if(local instanceof Cliente){
@@ -51,6 +51,7 @@ public class ControladorTelaUser {
                             
                         }else if(local instanceof Funcionario){
                              GrekHotel.changeScreem("TelaAdm");
+                             System.out.println("entrou");
                         }
                         
                 }else{
