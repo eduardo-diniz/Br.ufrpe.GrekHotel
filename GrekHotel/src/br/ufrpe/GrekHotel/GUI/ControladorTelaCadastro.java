@@ -13,8 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ControladorTelaCadastro {
-        Sistema fachada = Sistema.getInstance();
 
+    Sistema fachada = Sistema.getInstance();
 
     @FXML
     private Button btnHome;
@@ -36,33 +36,37 @@ public class ControladorTelaCadastro {
 
     @FXML
     private TextField inputIdade;
-    
-    public void cadastar() throws CUException{
-        try{
-            if(!inputLoginCadastro.getText().equals("") && inputSenhaCadastro.getText().equals("") &&  inputNome.getText().equals("") && inputIdade.getText().equals("") && inputCPF.getText().equals("") ){
-            Cliente atual;
-        atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()) );
-        
-        fachada.cadastrarUsuario(atual);
-        }
-            
-        }catch(CUException a){
-            //exception
-            
-        }catch(NumberFormatException a){
-            //exception number
-            
-        }
-            
-        
-        
-        
-    }
-    
-    public void telaHome(){
-          GrekHotel.changeScreem("TelaHome");
-        
-    }
-    
-}
 
+    @FXML
+    private Button btnCadastrar;
+
+    @FXML
+    private Button btnLogin;
+    
+    
+    @FXML
+    public void cadastar() throws CUException {
+        try {
+            if (!inputLoginCadastro.getText().equals("") && inputSenhaCadastro.getText().equals("") && inputNome.getText().equals("") && inputIdade.getText().equals("") && inputCPF.getText().equals("")) {
+                Cliente atual;
+                atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
+
+                fachada.cadastrarUsuario(atual);
+            }
+
+        } catch (CUException a) {
+            //exception
+
+        } catch (NumberFormatException a) {
+            //exception number
+
+        }
+
+    }
+
+    public void telaHome() {
+        GrekHotel.changeScreem("TelaHome");
+
+    }
+
+}

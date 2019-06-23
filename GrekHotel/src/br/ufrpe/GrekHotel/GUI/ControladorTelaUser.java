@@ -40,8 +40,8 @@ public class ControladorTelaUser {
     //GrekHotel.changeScreem("TelaCadastro");
     
     }
-    
-    public void login(){
+    @FXML
+    public void handle(){
         
          if(!inputLogin.getText().equals("") && inputSenha.getText().equals("")){
              Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
@@ -61,7 +61,8 @@ public class ControladorTelaUser {
          }
     }
 
-    public void mudancaTelaCadastrar(){
+    @FXML
+    public void telaCadastro(){
         
         GrekHotel.changeScreem("TelaCadastro");
         
