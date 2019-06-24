@@ -100,11 +100,8 @@ public class ControladorTelaAdm {
     }
     public void cadastrarQuarto() throws CQException{
         Quarto atual;
-        System.out.println("ok1");
         try{
-             System.out.println("ok2");
             if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
-              System.out.println("ok3");
                 atual = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
              fachada.cadastrarQuarto(atual);
                 System.out.println(atual);
@@ -126,10 +123,15 @@ public class ControladorTelaAdm {
             }
             
         }catch(CQException a){
-            //Gabriel
-            
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao cadastrar quarto");
+            alerta.show();
         }catch(NumberFormatException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("digite números válidos em diária e número");
+            alerta.setHeaderText("Erro ao cadastrar quarto");
+            alerta.show();
         }
          
     }
@@ -153,7 +155,10 @@ public class ControladorTelaAdm {
         
            
        }catch(RQException a){
-       //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao remover quarto");
+            alerta.show();
        }
     }
     public void atualizarQuarto() throws AQException{
@@ -178,16 +183,23 @@ public class ControladorTelaAdm {
             }
            }else{
                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("Item nao selecionado");
-                alerta.setHeaderText("Erro ao remover quarto");
-                alerta.show();
+               alerta.setContentText("Item nao selecionado");
+               alerta.setHeaderText("Erro ao remover quarto");
+               alerta.show();
                
            }
         
         }catch(AQException a){
-        //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao atualizar quarto");
+            alerta.show();
+            
         }catch(NumberFormatException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("digite números válidos em diária e número");
+            alerta.setHeaderText("Erro ao atualizar quarto");
+            alerta.show();
         }  
     }
     public void cadastrarServico() throws CSException{
@@ -211,10 +223,16 @@ public class ControladorTelaAdm {
             }
             
         }catch(CSException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao cadastrar serviço");
+            alerta.show();
             
         }catch(NumberFormatException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("digite números válidos em diária e númer");
+            alerta.setHeaderText("Erro ao cadastrar serviço");
+            alerta.show();
             
         }
         
@@ -236,7 +254,10 @@ public class ControladorTelaAdm {
             }
             
         }catch(RSException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao remover quarto");
+            alerta.show();
         }
         
         
@@ -255,25 +276,31 @@ public class ControladorTelaAdm {
                       alerta.setContentText("Serviço atualizado com sucesso!");
                       alerta.show();
                 }else{
-                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Preencha todos os campos");
-                alerta.setHeaderText("Erro ao cadastrar serviço");
+                alerta.setHeaderText("Erro ao atualizar serviço");
                 alerta.show();
                       
                     }
                 }else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
-                alerta.setHeaderText("Erro ao remover quarto");
+                alerta.setHeaderText("Erro ao atualizar serviço");
                 alerta.show();
                 
                     }
             
         }catch(ASException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao atualizar serviço");
+            alerta.show();
             
         }catch(NumberFormatException a){
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("digite um número válido em valor");
+            alerta.setHeaderText("Erro ao cadastrar serviço");
+            alerta.show();
             
         }
         
