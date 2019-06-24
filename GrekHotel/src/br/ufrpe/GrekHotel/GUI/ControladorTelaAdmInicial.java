@@ -35,13 +35,13 @@ public class ControladorTelaAdmInicial {
 
     public void telaquartoservico() {
 
-        GrekHotel.changeScreem("TelaQuartoServicos");
+        GrekHotel.changeScreem("TelaAdm");
 
     }
 
     public void telaVerificarReservas() {
 
-        GrekHotel.changeScreem("TelaVerificarReservas");
+        GrekHotel.changeScreem("TelaReservaAdm");
 
     }
 
