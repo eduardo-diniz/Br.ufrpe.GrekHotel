@@ -57,8 +57,10 @@ public class GrekHotel extends Application {
         Parent fxmltelaAdmInicial = FXMLLoader.load(getClass().getResource("TelaAdmInicial.fxml"));
         admInicialScene = new Scene(fxmltelaAdmInicial, 1080, 610);
 
-        /*Parent fxmltelaFuncAdm = FXMLLoader.load(getClass().getResource("TelaFuncAdm.fxml"));
-        admFuncScene = new Scene(fxmltelaFuncAdm, 1080, 610);*/
+        Parent fxmltelaAdmFunc = FXMLLoader.load(getClass().getResource("TelaAdmFunc.fxml"));
+        admFuncScene = new Scene(fxmltelaAdmFunc, 1080, 610);
+        
+        
         Sistema fachada = Sistema.getInstance();
         primaryStage.setScene(userScene);
         primaryStage.show();
