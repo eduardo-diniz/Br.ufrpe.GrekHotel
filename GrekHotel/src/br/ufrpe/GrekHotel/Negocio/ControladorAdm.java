@@ -8,65 +8,68 @@ package br.ufrpe.GrekHotel.Negocio;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import java.util.ArrayList;
-
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import br.ufrpe.GrekHotel.Dados.RepServicos;
 import br.ufrpe.GrekHotel.Excecoes.*;
+
 /**
  *
  * @author fight
  */
-public class ControladorAdm  {
+public class ControladorAdm {
 
-	private RepQuartos quarto;
-	private RepServicos servico;
-	private static ControladorAdm instance;
+    private RepQuartos quarto;
+    private RepServicos servico;
+    private static ControladorAdm instance;
 
-	private ControladorAdm() {
+    private ControladorAdm() {
 
-		this.quarto = RepQuartos.getInstance();
-		this.servico = RepServicos.getInstance();
+        this.quarto = RepQuartos.getInstance();
+        this.servico = RepServicos.getInstance();
 
-	}
+    }
 
-	public static ControladorAdm getInstance() {
-		if (instance == null) {
-			ControladorAdm.instance = new ControladorAdm();
-		}
+    public static ControladorAdm getInstance() {
+        if (instance == null) {
+            ControladorAdm.instance = new ControladorAdm();
+        }
 
-		return instance;
-	}
-	
-	public ArrayList lista(){
+        return instance;
+    }
+
+    public ArrayList lista() {
         return servico.lista();
     }
 
-	public void cadastrarQuarto(Quarto quar) throws CQException{
-		this.quarto.cadastrar(quar);
-	}
+    public void cadastrarQuarto(Quarto quar) throws CQException {
+        this.quarto.cadastrar(quar);
+    }
 
-	public void cadastrarServico(Servico serv) throws CSException{
-		this.servico.cadastrar(serv);
-	}
+    public void cadastrarServico(Servico serv) throws CSException {
+        this.servico.cadastrar(serv);
+    }
 
-	public boolean removerQuarto(Quarto quartoRem) throws RQException{
-		return this.quarto.remover(quartoRem);
-	}
+    public boolean removerQuarto(Quarto quartoRem) throws RQException {
+        return this.quarto.remover(quartoRem);
+    }
 
-	public boolean removerServico(Servico servRem) throws RSException{
-		return this.servico.remove(servRem);
-	}
+    public void removerServico(Servico servRem) throws RSException {
+        this.servico.remove(servRem);
+    }
 
-	public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) throws AQException {
+    public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) throws AQException {
 
-		
-		this.quarto.atualizar(desatualizado, atualizado);
+        this.quarto.atualizar(desatualizado, atualizado);
 
-	}
+    }
 
-	public void atualizarServico(Servico desatualizado, Servico atualizado) throws ASException {
-		
+    public void atualizarServico(Servico desatualizado, Servico atualizado) throws ASException {
 
-		this.servico.atualizar(desatualizado, atualizado);
-	}
+        this.servico.atualizar(desatualizado, atualizado);
+    }
+
+    public void salvar() {
+        quarto.salvar();
+        servico.salvar();
+    }
 }

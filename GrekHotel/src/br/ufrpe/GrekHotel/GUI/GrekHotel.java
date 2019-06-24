@@ -5,8 +5,10 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import br.ufrpe.GrekHotel.Negocio.Sistema;
 import java.util.ArrayList;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,7 +33,7 @@ public class GrekHotel extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        
+
         primaryStage.setTitle("GREK HOTEL");
 
         Parent fxmlUser = FXMLLoader.load(getClass().getResource("TelaUser.fxml"));
@@ -54,12 +56,20 @@ public class GrekHotel extends Application {
 
         Parent fxmltelaAdmInicial = FXMLLoader.load(getClass().getResource("TelaAdmInicial.fxml"));
         admInicialScene = new Scene(fxmltelaAdmInicial, 1080, 610);
-        
+
         /*Parent fxmltelaFuncAdm = FXMLLoader.load(getClass().getResource("TelaFuncAdm.fxml"));
         admFuncScene = new Scene(fxmltelaFuncAdm, 1080, 610);*/
-        
+        Sistema fachada = Sistema.getInstance();
         primaryStage.setScene(userScene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(((event) -> {
+            event.consume();
+            fachada.salvar();
+            fachada.salvar();
+            primaryStage.close();
+            Platform.exit();
+            System.exit(0);
+        }));
 
     }
 
@@ -88,7 +98,6 @@ public class GrekHotel extends Application {
                 break;
             case "TelaFuncAdm":
                 stage.setScene(admFuncScene);
-            
 
         }
     }

@@ -32,8 +32,6 @@ public class RepUsuarios {
     private ObjectInputStream ois;
 
     private RepUsuarios() {
-        //usuarios = new ArrayList();
-        //usuarios.add(new Funcionario("admin", "admin"));
         f = new File("Usuarios Database");
         if (!f.exists()) {
             try {
@@ -56,16 +54,14 @@ public class RepUsuarios {
         return instance;
     }
 
-    public boolean cadastrar(Usuario u) throws CUException {
-        boolean resultado = false;
+    public void cadastrar(Usuario u) throws CUException {
         if (!usuarios.contains(u)) {
             usuarios.add(u);
-            resultado = true;
+            salvar();
         } else {
             CUException aue = new CUException("login já está sendo utilizado");
             throw aue;
         }
-        return resultado;
     }
 
     public Usuario procurar(String login, String senha) {
@@ -78,21 +74,20 @@ public class RepUsuarios {
         return encontrado;
     }
 
-    public boolean remover(Usuario u) throws RUException {
-        boolean resultado = false;
+    public void remover(Usuario u) throws RUException {
         if (usuarios.contains(u)) {
             usuarios.remove(u);
-            resultado = true;
+            salvar();
         } else {
             RUException rue = new RUException("usuario não existe");
             throw rue;
         }
-        return resultado;
     }
 
     public void atualizar(Usuario desatualizado, Usuario atualizado) throws AUException {
         if (!usuarios.contains(atualizado) && usuarios.contains(desatualizado)) {
             usuarios.set(usuarios.indexOf(desatualizado), atualizado);
+            salvar();
         } else if (usuarios.contains(atualizado)) {
             AUException aue = new AUException("usuario já existe");
             throw aue;
@@ -120,20 +115,21 @@ public class RepUsuarios {
 
         }
     }
-    public void salvar(){
-        try{
+
+    public void salvar() {
+        try {
             InicializeOutStreams();
             oos.writeObject(usuarios);
             oos.flush();
-            oos.close();    
+            oos.close();
             fos.flush();
             fos.close();
-        }catch(IOException e){
-            
+        } catch (IOException e) {
+
         }
     }
 
-    private void carregar(){
+    private void carregar() {
         try {
             usuarios = new ArrayList();
             f = new File("Usuarios Database");
@@ -141,10 +137,10 @@ public class RepUsuarios {
             usuarios.addAll((ArrayList<Usuario>) ois.readObject());
             ois.close();
             fis.close();
-            
+
         } catch (ClassNotFoundException e) {
 
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
     }

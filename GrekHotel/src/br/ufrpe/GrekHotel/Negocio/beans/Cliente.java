@@ -12,14 +12,15 @@ import java.util.ArrayList;
  * @author fight
  */
 public class Cliente extends Usuario {
+
     private String nome;
     private int idade;
     private long cpf;
     private Conta despesa;
     private ArrayList<Reserva> historico;
     private ArrayList<Visita> historicoVisita;
-    
-    public Cliente(String login, String senha, String nome, int idade, long cpf){
+
+    public Cliente(String login, String senha, String nome, int idade, long cpf) {
         super(login, senha);
         this.nome = nome;
         this.idade = idade;
@@ -27,7 +28,6 @@ public class Cliente extends Usuario {
         historico = new ArrayList();
         historicoVisita = new ArrayList();
     }
-
 
     public String getNome() {
         return nome;
@@ -44,11 +44,11 @@ public class Cliente extends Usuario {
     public Conta getDespesa() {
         return despesa;
     }
-    
+
     public void setDespesa(Conta despesa) {
         this.despesa = despesa;
     }
-    
+
     public ArrayList<Reserva> getHistorico() {
         return historico;
     }
@@ -56,14 +56,13 @@ public class Cliente extends Usuario {
     public ArrayList<Visita> getHistoricoVisita() {
         return historicoVisita;
     }
-    
 
     @Override
     public boolean equals(Object obj) {
         boolean resultado = false;
-        if(obj instanceof Cliente){
+        if (obj instanceof Cliente) {
             Cliente c = (Cliente) obj;
-            if(this.cpf == c.getCpf()){
+            if (this.cpf == c.getCpf()) {
                 resultado = true;
             }
         }
@@ -74,5 +73,5 @@ public class Cliente extends Usuario {
     public String toString() {
         return nome;
     }
-    
+
 }

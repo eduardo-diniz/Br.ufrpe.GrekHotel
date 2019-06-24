@@ -43,18 +43,14 @@ public class ControladorTelaReservaAdm {
 
     @FXML
     private TableColumn<Reserva, LocalDate> colCheckIn;
-    
+
     @FXML
     private TableColumn<Reserva, LocalDate> colCheckOut;
 
     @FXML
     private Button btnAttPg;
-    
-    
-    
+
     public void initialize() {
-
-
 
     }
 

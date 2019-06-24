@@ -6,11 +6,7 @@
 package br.ufrpe.GrekHotel.Negocio;
 
 import br.ufrpe.GrekHotel.Excecoes.*;
-import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
-import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
-import br.ufrpe.GrekHotel.Negocio.beans.Conta;
-import br.ufrpe.GrekHotel.Negocio.beans.Visita;
-import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
+import br.ufrpe.GrekHotel.Negocio.beans.*;
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import java.time.LocalDateTime;
 import br.ufrpe.GrekHotel.Dados.RepReservas;
@@ -18,61 +14,66 @@ import java.util.ArrayList;
 
 public class ControladorReservas {
 
-private RepQuartos quartos;
-private RepReservas reserva;
-private static ControladorReservas instance;  
+    private RepQuartos quartos;
+    private RepReservas reserva;
+    private static ControladorReservas instance;
 
-private  ControladorReservas(){
-	this.reserva = RepReservas.getInstance();
+    private ControladorReservas() {
+        this.reserva = RepReservas.getInstance();
         this.quartos = RepQuartos.getInstance();
 
-}
-public static ControladorReservas getInstance(){
-	if (instance == null){
-		instance = new ControladorReservas(); 
-	}
-	return instance;
-}
-public void Reservar(Reserva reserva) throws CRException{ 
-	this.reserva.cadastrar(reserva);
     }
 
-public Reserva procurarReserva(Quarto quarto){
-	return this.reserva.procurar(quarto);
-}
+    public static ControladorReservas getInstance() {
+        if (instance == null) {
+            instance = new ControladorReservas();
+        }
+        return instance;
+    }
 
+    public void Reservar(Reserva reserva) throws CRException {
+        this.reserva.cadastrar(reserva);
+    }
 
-public Reserva procurarReserva(Cliente cliente){
-	return this.reserva.procurar(cliente);
-}
+    public Reserva procurarReserva(Quarto quarto) {
+        return this.reserva.procurar(quarto);
+    }
 
-public ArrayList listarQuartos(){
-    return quartos.lista();
-}
+    public Reserva procurarReserva(Cliente cliente) {
+        return this.reserva.procurar(cliente);
+    }
 
-public Quarto procurarQuarto(int numero){
-    return quartos.procurar(numero);
-}
+    public ArrayList listarQuartos() {
+        return quartos.lista();
+    }
 
-public void atualizarReserva(Reserva desatualizado, Reserva atualizado) throws ARException{
-	reserva.atualizar(desatualizado, atualizado);
-	
-}
+    public Quarto procurarQuarto(int numero) {
+        return quartos.procurar(numero);
+    }
 
-public boolean cancelarReserva(Reserva reserva) throws RRException {
-        return this.reserva.remove(reserva);
+    public void atualizarReserva(Reserva desatualizado, Reserva atualizado) throws ARException {
+        reserva.atualizar(desatualizado, atualizado);
 
-}
-public void checkIn(Reserva reserva){
-    Conta despesa = new Conta(reserva.getQuarto());
-    reserva.getCliente().setDespesa(despesa);
-     reserva.setVisita(new Visita(reserva.getQuarto(), LocalDateTime.now(), despesa));
+    }
 
-}
+    public void cancelarReserva(Reserva reserva) throws RRException {
+        this.reserva.remove(reserva);
 
-public void checkOut(Reserva reserva){
-	reserva.getVisita().setCheckOut(LocalDateTime.now());
-	
-}
+    }
 
+    public void checkIn(Reserva reserva) {
+        Conta despesa = new Conta(reserva.getQuarto());
+        reserva.getCliente().setDespesa(despesa);
+        reserva.setVisita(new Visita(reserva.getQuarto(), LocalDateTime.now(), despesa));
+
+    }
+
+    public void checkOut(Reserva reserva) {
+        reserva.getVisita().setCheckOut(LocalDateTime.now());
+
+    }
+
+    public void salvar() {
+        reserva.salvar();
+    }
 }

@@ -32,8 +32,6 @@ public class RepQuartos {
     private ObjectInputStream ois;
 
     private RepQuartos() {
-
-        //this.quartos = new ArrayList<Quarto>();
         f = new File("Quartos Database");
         if (!f.exists()) {
             try {
@@ -43,10 +41,9 @@ public class RepQuartos {
             } catch (IOException e) {
 
             }
-        }else {
+        } else {
             carregar();
         }
-
     }
 
     public static RepQuartos getInstance() {
@@ -61,6 +58,7 @@ public class RepQuartos {
         if (!this.quartos.contains(quar)) {
 
             quartos.add(quar);
+            salvar();
         } else {
             CQException aqe = new CQException("quarto já cadastrado");
             throw aqe;
@@ -86,6 +84,7 @@ public class RepQuartos {
     public void atualizar(Quarto desatualizado, Quarto atualizado) throws AQException {
         if (!quartos.contains(atualizado) && quartos.contains(desatualizado)) {
             quartos.set(quartos.indexOf(desatualizado), atualizado);
+            salvar();
         } else if (quartos.contains(atualizado)) {
             AQException aqe = new AQException("o quarto novo já existe");
             throw aqe;
@@ -104,6 +103,7 @@ public class RepQuartos {
 
             removido = true;
             quartos.remove(quartoRem);
+            salvar();
         } else {
             RQException rqe = new RQException("quarto não cadastrado");
             throw rqe;
@@ -112,37 +112,39 @@ public class RepQuartos {
         return removido;
 
     }
+
     private void InicializeOutStreams() {
         try {
-            fos = new FileOutputStream(f,false);
+            fos = new FileOutputStream(f, false);
             oos = new ObjectOutputStream(fos);
         } catch (IOException e) {
 
         }
     }
-    private void InicializeInStreams(){
-        try{
+
+    private void InicializeInStreams() {
+        try {
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-        }catch(IOException e){
-            
-        }
-    }
-    
-    public void salvar(){
-        try{
-            InicializeOutStreams();
-            oos.writeObject(quartos);
-            oos.flush();
-            oos.close();    
-            fos.flush();
-            fos.close();
-        }catch(IOException e){
-            
+        } catch (IOException e) {
+
         }
     }
 
-    private void carregar(){
+    public void salvar() {
+        try {
+            InicializeOutStreams();
+            oos.writeObject(quartos);
+            oos.flush();
+            oos.close();
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+
+        }
+    }
+
+    private void carregar() {
         try {
             quartos = new ArrayList();
             f = new File("Quartos Database");
@@ -150,10 +152,10 @@ public class RepQuartos {
             quartos.addAll((ArrayList<Quarto>) ois.readObject());
             ois.close();
             fis.close();
-            
+
         } catch (ClassNotFoundException e) {
 
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
     }

@@ -22,8 +22,6 @@ public class RepServicos {
     private ObjectInputStream ois;
 
     private RepServicos() {
-
-        //servicos = new ArrayList();
         f = new File("Servicos Database");
         if (!f.exists()) {
             try {
@@ -33,7 +31,7 @@ public class RepServicos {
             } catch (IOException e) {
 
             }
-        }else {
+        } else {
             carregar();
         }
     }
@@ -53,6 +51,7 @@ public class RepServicos {
     public void cadastrar(Servico servico) throws CSException {
         if (!this.servicos.contains(servico)) {
             servicos.add(servico);
+            salvar();
 
         } else {
             CSException ase = new CSException("serviço já cadastrado");
@@ -72,24 +71,22 @@ public class RepServicos {
         return resultado;
     }
 
-    public boolean remove(Servico servico) throws RSException {
-        boolean resultado = false;
+    public void remove(Servico servico) throws RSException {
 
         if (this.servicos.contains(servico)) {
-
-            resultado = true;
             servicos.remove(servico);
+            salvar();
         } else {
             RSException rse = new RSException("serviço não cadastrado");
             throw rse;
         }
-        return resultado;
 
     }
 
     public void atualizar(Servico desatualizado, Servico atualizado) throws ASException {
         if (!servicos.contains(atualizado) && servicos.contains(desatualizado)) {
             servicos.set(servicos.indexOf(desatualizado), atualizado);
+            salvar();
         } else if (servicos.contains(atualizado)) {
             ASException ase = new ASException("serviço novo já existe");
             throw ase;
@@ -99,37 +96,39 @@ public class RepServicos {
         }
 
     }
-    
+
     private void InicializeOutStreams() {
         try {
-            fos = new FileOutputStream(f,false);
+            fos = new FileOutputStream(f, false);
             oos = new ObjectOutputStream(fos);
         } catch (IOException e) {
 
         }
     }
-    private void InicializeInStreams(){
-        try{
+
+    private void InicializeInStreams() {
+        try {
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-        }catch(IOException e){
-            
-        }
-    }
-    public void salvar(){
-        try{
-            InicializeOutStreams();
-            oos.writeObject(servicos);
-            oos.flush();
-            oos.close();    
-            fos.flush();
-            fos.close();
-        }catch(IOException e){
-            
+        } catch (IOException e) {
+
         }
     }
 
-    private void carregar(){
+    public void salvar() {
+        try {
+            InicializeOutStreams();
+            oos.writeObject(servicos);
+            oos.flush();
+            oos.close();
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+
+        }
+    }
+
+    private void carregar() {
         try {
             servicos = new ArrayList();
             f = new File("Servicos Database");
@@ -137,10 +136,10 @@ public class RepServicos {
             servicos.addAll((ArrayList<Servico>) ois.readObject());
             ois.close();
             fis.close();
-            
+
         } catch (ClassNotFoundException e) {
 
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
     }

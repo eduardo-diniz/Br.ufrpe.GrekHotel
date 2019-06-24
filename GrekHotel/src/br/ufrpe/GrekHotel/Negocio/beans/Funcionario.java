@@ -10,15 +10,17 @@ package br.ufrpe.GrekHotel.Negocio.beans;
  * @author fight
  */
 public class Funcionario extends Usuario {
+
     private String nome;
 
     public Funcionario(String login, String senha, String nome) {
         super(login, senha);
         this.nome = nome;
     }
+
     @Override
     public String toString() {
         return nome;
     }
-    
+
 }

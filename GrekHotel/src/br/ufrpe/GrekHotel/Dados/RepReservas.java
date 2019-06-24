@@ -31,8 +31,6 @@ public class RepReservas {
     private ObjectInputStream ois;
 
     private RepReservas() {
-
-        //reservas = new ArrayList();
         f = new File("Reservas Database");
         if (!f.exists()) {
             try {
@@ -42,7 +40,7 @@ public class RepReservas {
             } catch (IOException e) {
 
             }
-        }else {
+        } else {
             carregar();
         }
     }
@@ -60,6 +58,7 @@ public class RepReservas {
             if (!this.reservas.contains(reserv)) {
                 reserv.getQuarto().setSituacao(2);
                 reservas.add(reserv);
+                salvar();
             } else {
                 CRException are = new CRException("reserva já existe");
                 throw are;
@@ -96,6 +95,7 @@ public class RepReservas {
     public void atualizar(Reserva desatualizado, Reserva atualizado) throws ARException {
         if (reservas.contains(desatualizado) && !reservas.contains(atualizado)) {
             reservas.set(reservas.indexOf(desatualizado), atualizado);
+            salvar();
         } else if (reservas.contains(atualizado)) {
             ARException are = new ARException("quarto já reservado");
             throw are;
@@ -106,52 +106,51 @@ public class RepReservas {
         }
     }
 
-    public boolean remove(Reserva reserva) throws RRException {
-        boolean resultado = false;
+    public void remove(Reserva reserva) throws RRException {
 
         if (this.reservas.contains(reserva)) {
-
-            resultado = true;
             reservas.remove(reserva);
             reserva.getQuarto().setSituacao(1);
+            salvar();
         } else {
             RRException rre = new RRException("reserva não existe");
             throw rre;
         }
-        return resultado;
 
     }
-    
+
     private void InicializeOutStreams() {
         try {
-            fos = new FileOutputStream(f,false);
+            fos = new FileOutputStream(f, false);
             oos = new ObjectOutputStream(fos);
         } catch (IOException e) {
 
         }
     }
-    private void InicializeInStreams(){
-        try{
+
+    private void InicializeInStreams() {
+        try {
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-        }catch(IOException e){
-            
-        }
-    }
-    public void salvar(){
-        try{
-            InicializeOutStreams();
-            oos.writeObject(reservas);
-            oos.flush();
-            oos.close();    
-            fos.flush();
-            fos.close();
-        }catch(IOException e){
-            
+        } catch (IOException e) {
+
         }
     }
 
-    private void carregar(){
+    public void salvar() {
+        try {
+            InicializeOutStreams();
+            oos.writeObject(reservas);
+            oos.flush();
+            oos.close();
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+
+        }
+    }
+
+    private void carregar() {
         try {
             reservas = new ArrayList();
             f = new File("Reservas Database");
@@ -159,10 +158,10 @@ public class RepReservas {
             reservas.addAll((ArrayList<Reserva>) ois.readObject());
             ois.close();
             fis.close();
-            
+
         } catch (ClassNotFoundException e) {
 
-        }catch(IOException e){
+        } catch (IOException e) {
 
         }
     }

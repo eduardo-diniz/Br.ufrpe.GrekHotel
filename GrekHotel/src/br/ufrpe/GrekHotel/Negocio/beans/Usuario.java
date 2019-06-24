@@ -11,16 +11,15 @@ import java.io.Serializable;
  *
  * @author fight
  */
-public abstract class Usuario implements Serializable{
-   private String login;
-   private String senha;
+public abstract class Usuario implements Serializable {
+
+    private String login;
+    private String senha;
 
     public Usuario(String login, String senha) {
         this.login = login;
         this.senha = senha;
     }
-   
-   
 
     public String getLogin() {
         return login;
@@ -29,17 +28,22 @@ public abstract class Usuario implements Serializable{
     public String getSenha() {
         return senha;
     }
-    
-    public boolean equals(Object obj){
+
+    public boolean equals(Object obj) {
         boolean resultado = false;
-        
-        if(obj instanceof Usuario){
-            Usuario u = (Usuario) obj;
-            if (u.getLogin().equals(this.getLogin())){
+
+        if (obj instanceof Cliente) {
+            Usuario u = (Cliente) obj;
+            if (u.getLogin().equals(this.getLogin())) {
+                resultado = true;
+            }
+        } else if (obj instanceof Funcionario) {
+            Usuario u = (Funcionario) obj;
+            if (u.getLogin().equals(this.getLogin())) {
                 resultado = true;
             }
         }
         return resultado;
     }
-    
+
 }

@@ -9,150 +9,145 @@ package br.ufrpe.GrekHotel.Negocio;
  *
  * @author fight
  */
-import br.ufrpe.GrekHotel.Excecoes.CQException;
-import br.ufrpe.GrekHotel.Excecoes.CRException;
-import br.ufrpe.GrekHotel.Excecoes.CSException;
-import br.ufrpe.GrekHotel.Excecoes.CUException;
-import br.ufrpe.GrekHotel.Excecoes.RQException;
-import br.ufrpe.GrekHotel.Excecoes.RRException;
-import br.ufrpe.GrekHotel.Excecoes.RSException;
-import br.ufrpe.GrekHotel.Excecoes.RUException;
-import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
-import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
-import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
-import br.ufrpe.GrekHotel.Negocio.beans.Servico;
-import br.ufrpe.GrekHotel.Negocio.beans.Conta;
-import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
+import br.ufrpe.GrekHotel.Excecoes.*;
+import br.ufrpe.GrekHotel.Negocio.beans.*;
 import java.util.ArrayList;
 
-public class Sistema  {
+public class Sistema {
 
- private Usuario usuario;
- private ControladorAdm ctrlAdm;
- private ControladorCliente ctrlCliente;
- private ControladorReservas ctrlReservas;
- private ControladorUsuario ctrlUsuario;
- private static Sistema instance;
+    private Usuario usuario;
+    private ControladorAdm ctrlAdm;
+    private ControladorCliente ctrlCliente;
+    private ControladorReservas ctrlReservas;
+    private ControladorUsuario ctrlUsuario;
+    private static Sistema instance;
 
- private Sistema() {
+    private Sistema() {
 
-  this.ctrlAdm = ControladorAdm.getInstance();
-  this.ctrlCliente = ControladorCliente.getInstance();
-  this.ctrlReservas = ControladorReservas.getInstance();
-  this.ctrlUsuario = ControladorUsuario.getInstance();
- }
+        this.ctrlAdm = ControladorAdm.getInstance();
+        this.ctrlCliente = ControladorCliente.getInstance();
+        this.ctrlReservas = ControladorReservas.getInstance();
+        this.ctrlUsuario = ControladorUsuario.getInstance();
+    }
 
- public static Sistema getInstance() {
-  if (instance == null) {
-   instance = new Sistema();
-  }
-  return instance;
- }
- public Usuario getUsuario() {
+    public static Sistema getInstance() {
+        if (instance == null) {
+            instance = new Sistema();
+        }
+        return instance;
+    }
+
+    public Usuario getUsuario() {
         return usuario;
- }
+    }
 
- public void setUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
- }
+    }
 
- public ArrayList listarQuartos() {
-  return ctrlReservas.listarQuartos();
- }
+    public ArrayList listarQuartos() {
+        return ctrlReservas.listarQuartos();
+    }
 
- public ArrayList listarServicos() {
-  return ctrlAdm.lista();
- }
+    public ArrayList listarServicos() {
+        return ctrlAdm.lista();
+    }
 
- public void cadastrarQuarto(Quarto quar) throws CQException {
-  this.ctrlAdm.cadastrarQuarto(quar);
- }
+    public void cadastrarQuarto(Quarto quar) throws CQException {
+        this.ctrlAdm.cadastrarQuarto(quar);
+    }
 
- public void cadastrarServico(Servico serv) throws CSException {
+    public void cadastrarServico(Servico serv) throws CSException {
 
-  this.ctrlAdm.cadastrarServico(serv);
+        this.ctrlAdm.cadastrarServico(serv);
 
- }
+    }
 
- public boolean removerQuarto(Quarto quartoRem) throws RQException {
+    public boolean removerQuarto(Quarto quartoRem) throws RQException {
 
-  return this.ctrlAdm.removerQuarto(quartoRem);
+        return this.ctrlAdm.removerQuarto(quartoRem);
 
- }
+    }
 
- public boolean removerServico(Servico servRem) throws RSException {
+    public void removerServico(Servico servRem) throws RSException {
 
-  return this.ctrlAdm.removerServico(servRem);
+        this.ctrlAdm.removerServico(servRem);
 
- }
+    }
 
- public void Reservar(Reserva reserva) throws CRException {
+    public void Reservar(Reserva reserva) throws CRException {
 
-  this.ctrlReservas.Reservar(reserva);
+        this.ctrlReservas.Reservar(reserva);
 
- }
+    }
 
- public Reserva procurarReserva(Quarto quarto) {
+    public Reserva procurarReserva(Quarto quarto) {
 
-  return this.ctrlReservas.procurarReserva(quarto);
+        return this.ctrlReservas.procurarReserva(quarto);
 
- }
+    }
 
- public Reserva procurarReserva(Cliente cliente) {
+    public Reserva procurarReserva(Cliente cliente) {
 
-  return this.ctrlReservas.procurarReserva(cliente);
+        return this.ctrlReservas.procurarReserva(cliente);
 
- }
+    }
 
- public Quarto procurarQuarto(int numero){
-     return this.ctrlReservas.procurarQuarto(numero);
- }
- 
- public boolean cancelarReserva(Reserva reserva) throws RRException {
+    public Quarto procurarQuarto(int numero) {
+        return this.ctrlReservas.procurarQuarto(numero);
+    }
 
-  return this.ctrlReservas.cancelarReserva(reserva);
+    public void cancelarReserva(Reserva reserva) throws RRException {
 
- }
+        this.ctrlReservas.cancelarReserva(reserva);
 
- public void checkIn(Reserva reserva) {
+    }
 
-  ctrlReservas.checkIn(reserva);
+    public void checkIn(Reserva reserva) {
 
- }
+        ctrlReservas.checkIn(reserva);
 
- public void checkOut(Reserva reserva) {
+    }
 
-  ctrlReservas.checkOut(reserva);
+    public void checkOut(Reserva reserva) {
 
- }
+        ctrlReservas.checkOut(reserva);
 
- public boolean cadastrarUsuario(Usuario u) throws CUException {
-  
-  return ctrlUsuario.cadastrarUsuario(u);
-  
- }
+    }
 
- public Usuario efetuarLogin(String login, String senha) {
+    public void cadastrarUsuario(Usuario u) throws CUException {
+
+        ctrlUsuario.cadastrarUsuario(u);
+
+    }
+
+    public Usuario efetuarLogin(String login, String senha) {
         usuario = ctrlUsuario.efetuarLogin(login, senha);
-         return usuario;
-  
- }
+        return usuario;
 
- public boolean removerUsuario(Usuario u) throws RUException {
-  
-  return ctrlUsuario.removerUsuario(u);
-  
- }
+    }
 
- public void contratarServico(Cliente cliente, Servico servico) {
+    public void removerUsuario(Usuario u) throws RUException {
 
-  this.ctrlCliente.contratarServico(cliente, servico);
-  
- }
+        ctrlUsuario.removerUsuario(u);
 
- public Conta consultarDespesas(Cliente cliente) {
+    }
 
-  return this.ctrlCliente.consultarDespesas(cliente);
-  
- }
+    public void contratarServico(Cliente cliente, Servico servico) {
+
+        this.ctrlCliente.contratarServico(cliente, servico);
+
+    }
+
+    public Conta consultarDespesas(Cliente cliente) {
+
+        return this.ctrlCliente.consultarDespesas(cliente);
+
+    }
+
+    public void salvar() {
+        ctrlAdm.salvar();
+        ctrlReservas.salvar();
+        ctrlUsuario.salvar();
+    }
 }

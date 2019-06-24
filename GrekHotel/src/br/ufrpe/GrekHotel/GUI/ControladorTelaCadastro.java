@@ -7,7 +7,6 @@ package br.ufrpe.GrekHotel.GUI;
 import br.ufrpe.GrekHotel.Excecoes.CUException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -43,15 +42,13 @@ public class ControladorTelaCadastro {
 
     @FXML
     private Button btnLogin;
-    
-    
+
     @FXML
-    public void cadastar(){
+    public void cadastar() {
         try {
             if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
                 Cliente atual;
                 atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
-
                 fachada.cadastrarUsuario(atual);
                 inputCPF.clear();
                 inputIdade.clear();
@@ -61,12 +58,12 @@ public class ControladorTelaCadastro {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Usuario cadastrado com sucesso!");
                 alerta.show();
-                
-            }else{
+
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                    alerta.setContentText("preencha todos os campos");
-                    alerta.setHeaderText("Erro ao cadastrar usuario");
-                    alerta.show();
+                alerta.setContentText("preencha todos os campos");
+                alerta.setHeaderText("Erro ao cadastrar usuario");
+                alerta.show();
             }
 
         } catch (CUException a) {
@@ -74,7 +71,7 @@ public class ControladorTelaCadastro {
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao cadastrar usuario");
             alerta.show();
-            
+
         } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("digite numeros em idade e CPF");

@@ -10,7 +10,6 @@ import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
-import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -78,44 +77,45 @@ public class ControladorTelaReservas {
         tblQuartos.refresh();
 
     }
-     public void verQuarto(){
-      //imgQrto.setImage( new Image(getClass().getResourceAsStream("endereço da imagem")));
-         if(tblQuartos.getSelectionModel().getSelectedItem() != null){
-             lblDescrQrto.setText(tblQuartos.getSelectionModel().getSelectedItem().getDescricao());
-        lblNomeQrto.setText("Quarto nº" + tblQuartos.getSelectionModel().getSelectedItem().getNumero()); 
-         }else{
+
+    public void verQuarto() {
+        //imgQrto.setImage( new Image(getClass().getResourceAsStream("endereço da imagem")));
+        if (tblQuartos.getSelectionModel().getSelectedItem() != null) {
+            lblDescrQrto.setText(tblQuartos.getSelectionModel().getSelectedItem().getDescricao());
+            lblNomeQrto.setText("Quarto nº" + tblQuartos.getSelectionModel().getSelectedItem().getNumero());
+        } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Selecione um quarto");
             alerta.show();
-         }
-          
+        }
+
     }
-     
-     public void reservar(){
-         if(tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null){
-             try{
-                fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue() , dataCheckOut.getValue() ));
-             }catch(CRException a){
+
+    public void reservar() {
+        if (tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null) {
+            try {
+                fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue(), dataCheckOut.getValue()));
+            } catch (CRException a) {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setHeaderText("erro ao reservar quarto");
                 alerta.setContentText(a.getMessage());
                 alerta.show();
-             }
-                 
-         }else{
+            }
+
+        } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos não preenchidos");
             alerta.setContentText("preencha todos os campos");
             alerta.show();
-         }
-                  
-     }
-    
-    
-    public void telaHome(){
-        GrekHotel.changeScreem("TelaHome");
-        
+        }
+
     }
+
+    public void telaHome() {
+        GrekHotel.changeScreem("TelaHome");
+
+    }
+
     @FXML
     void handle(ActionEvent event) {
 
