@@ -74,6 +74,13 @@ public class Sistema {
         this.ctrlAdm.removerServico(servRem);
 
     }
+    public void atualizarQuarto(Quarto desatualizado, Quarto atualizado) throws AQException{
+        this.ctrlAdm.atualizarQuarto(desatualizado, atualizado);
+    }
+    
+    public void atualizarServico(Servico desatualizado, Servico atualizado) throws ASException{
+        this.ctrlAdm.atualizarServico(desatualizado, atualizado);
+    }
 
     public void Reservar(Reserva reserva) throws CRException {
 

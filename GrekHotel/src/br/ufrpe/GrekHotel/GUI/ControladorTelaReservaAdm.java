@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
@@ -13,12 +14,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
  * @author Eduardo
  */
 public class ControladorTelaReservaAdm {
+    Sistema fachada = Sistema.getInstance();
 
     @FXML
     private TableView<Quarto> tblDisponibilidadeAdm;
@@ -51,7 +54,19 @@ public class ControladorTelaReservaAdm {
     private Button btnAttPg;
 
     public void initialize() {
+        //colQuartos
+        //colSituação
+        
+        
 
     }
+    public void atualizarPagina(){
+        
+    }
 
+    
+    public void home(){
+        GrekHotel.changeScreem("TelaAdmInicial");
+    }
+        
 }

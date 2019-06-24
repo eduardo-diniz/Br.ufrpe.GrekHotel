@@ -24,9 +24,9 @@ public class Quarto implements Serializable {
         this.diaria = diaria;
         this.numero = numero;
         this.situacao = 1;
-        /*
-		 * 1- Livre 2-Reservado 3- ocupado
-         */
+        
+		 // 1- Livre 2-Reservado 3- ocupado
+    
     }
 
     @Override

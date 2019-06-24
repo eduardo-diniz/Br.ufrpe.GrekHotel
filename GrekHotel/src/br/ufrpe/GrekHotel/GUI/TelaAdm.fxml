@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="611.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdm">
+<VBox prefHeight="611.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdm">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="593.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
       <children>
@@ -32,10 +32,10 @@
                   <TableColumn fx:id="colDescricaoCadQuarto" prefWidth="147.0" text="Descricao" />
               </columns>
             </TableView>
-            <Button fx:id="btnRemoverQuarto" layoutX="360.0" layoutY="476.0" mnemonicParsing="false" text="Remover Quarto" />
-            <Button fx:id="btnAtualizarQuarto" layoutX="358.0" layoutY="412.0" mnemonicParsing="false" text="Atualizar Quarto" />
-            <Button fx:id="btnAtualizarServico" layoutX="714.0" layoutY="412.0" mnemonicParsing="false" text="Atualizar Serviço" />
-            <Button fx:id="btnRemoverServico" layoutX="715.0" layoutY="476.0" mnemonicParsing="false" text="Remover Servico" />
+            <Button fx:id="btnRemoverQuarto" layoutX="360.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerQuarto" text="Remover Quarto" />
+            <Button fx:id="btnAtualizarQuarto" layoutX="358.0" layoutY="412.0" mnemonicParsing="false" onAction="#removerQuarto" text="Atualizar Quarto" />
+            <Button fx:id="btnAtualizarServico" layoutX="714.0" layoutY="412.0" mnemonicParsing="false" onAction="#atualizarServico" text="Atualizar Serviço" />
+            <Button fx:id="btnRemoverServico" layoutX="715.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerServico" text="Remover Servico" />
             <TableView fx:id="tblCadServico" layoutX="829.0" layoutY="359.0" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="colCadServico" prefWidth="102.0" text="Serviço" />
@@ -51,8 +51,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnCadQuarto" layoutX="324.0" layoutY="216.0" mnemonicParsing="false" text="Cadastrar Quarto" />
-            <Button fx:id="btnCadServico" layoutX="594.0" layoutY="216.0" mnemonicParsing="false" text="Cadastrar Serviço" />
+            <Button fx:id="btnCadQuarto" layoutX="324.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarQuarto" text="Cadastrar Quarto" />
+            <Button fx:id="btnCadServico" layoutX="594.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarServico" text="Cadastrar Serviço" />
       </children>
     </AnchorPane>
   </children>
