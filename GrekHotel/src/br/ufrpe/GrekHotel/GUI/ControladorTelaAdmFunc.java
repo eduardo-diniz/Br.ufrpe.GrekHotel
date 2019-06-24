@@ -73,6 +73,11 @@ public class ControladorTelaAdmFunc {
          
      }
      
+     public void telaHome(){
+           GrekHotel.changeScreem("TelaAdmInicial");
+         
+     }
+     
      public void cadastrarFuncionario(){
           try {
             if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
