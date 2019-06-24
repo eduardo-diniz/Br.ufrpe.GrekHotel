@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmFunc">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmFunc">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="btnHome" layoutX="932.0" layoutY="341.0" mnemonicParsing="false" onAction="#telaHome" prefHeight="33.0" prefWidth="64.0" text="Home" />
-            <Button fx:id="btnCadastroFeito" layoutX="274.0" layoutY="425.0" mnemonicParsing="false" onAction="#cadastar" prefHeight="25.0" prefWidth="84.0" text="Cadastrar">
+            <Button fx:id="btnCadastroFeito" layoutX="274.0" layoutY="425.0" mnemonicParsing="false" onAction="#cadastrarFuncionario" prefHeight="25.0" prefWidth="84.0" text="Cadastrar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -61,15 +61,15 @@
             <TableView fx:id="tblFuncionarios" layoutX="512.0" layoutY="128.0" prefHeight="266.0" prefWidth="349.0">
               <columns>
                 <TableColumn fx:id="colFuncion" prefWidth="176.0" sortable="false" text="Funcionários:" />
-                <TableColumn fx:id="colServFuncio" prefWidth="172.0" sortable="false" text="Serviço do funcionário:" />
+                <TableColumn fx:id="colServCpf" prefWidth="172.0" sortable="false" text="CPF do funcionário:" />
               </columns>
             </TableView>
-            <Button fx:id="btnRemover" layoutX="588.0" layoutY="425.0" mnemonicParsing="false" onAction="#cadastar" prefHeight="25.0" prefWidth="84.0" text="Remover">
+            <Button fx:id="btnRemover" layoutX="588.0" layoutY="425.0" mnemonicParsing="false" onAction="#removerFuncionario" prefHeight="25.0" prefWidth="84.0" text="Remover">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnAtualizar" layoutX="721.0" layoutY="425.0" mnemonicParsing="false" onAction="#cadastar" prefHeight="25.0" prefWidth="84.0" text="Atualizar">
+            <Button fx:id="btnAtualizar" layoutX="721.0" layoutY="425.0" mnemonicParsing="false" onAction="#atualizarFuncionario" prefHeight="25.0" prefWidth="84.0" text="Atualizar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -79,7 +79,6 @@
                   <Image url="@imagens/ImagemAdm.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnSair" layoutX="908.0" layoutY="386.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="112.0" text="Sair do Programa" />
             <Label layoutX="20.0" layoutY="21.0" text="Setor de cadastro e gerenciamento de funcionários">
                <font>
                   <Font name="System Bold" size="18.0" />

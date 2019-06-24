@@ -90,6 +90,9 @@ public class Sistema {
     public void atualizarServico(Servico desatualizado, Servico atualizado) throws ASException{
         this.ctrlAdm.atualizarServico(desatualizado, atualizado);
     }
+    public void atualizarUsuario(Usuario desatualizado, Usuario atualizado) throws AUException{
+        this.ctrlUsuario.atualizarUsuario(desatualizado, atualizado);
+    }
 
     public void Reservar(Reserva reserva) throws CRException {
 

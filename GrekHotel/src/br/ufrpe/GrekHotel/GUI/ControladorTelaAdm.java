@@ -50,6 +50,9 @@ public class ControladorTelaAdm {
 
     @FXML
     private TableColumn<Quarto, String> colDescricaoCadQuarto;
+    
+    @FXML
+    private Button btnHomeAdm;
 
     @FXML
     private Button btnRemoverQuarto;
@@ -98,7 +101,10 @@ public class ControladorTelaAdm {
         tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         tblCadServico.refresh();
     }
-    public void cadastrarQuarto() throws CQException{
+    public void home(){
+         GrekHotel.changeScreem("TelaAdmInicial");
+    }
+    public void cadastrarQuarto(){
         Quarto atual;
         try{
             if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
@@ -135,7 +141,7 @@ public class ControladorTelaAdm {
         }
          
     }
-    public void removerQuarto() throws RQException{
+    public void removerQuarto(){
         Quarto atualrmv;
        try{
            if(tblCadQuarto.getSelectionModel().getSelectedItem() != null){
@@ -161,7 +167,7 @@ public class ControladorTelaAdm {
             alerta.show();
        }
     }
-    public void atualizarQuarto() throws AQException{
+    public void atualizarQuarto(){
        Quarto antigo;
        Quarto novo;
        try{
@@ -202,7 +208,7 @@ public class ControladorTelaAdm {
             alerta.show();
         }  
     }
-    public void cadastrarServico() throws CSException{
+    public void cadastrarServico(){
         Servico atualSer;
         try{
             if(!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")){
@@ -238,7 +244,7 @@ public class ControladorTelaAdm {
         
         
     }
-    public void removerServico() throws RSException{
+    public void removerServico(){
         Servico atualSerrmv;
         try{
             if(tblCadServico.getSelectionModel().getSelectedItem() != null){
@@ -262,7 +268,7 @@ public class ControladorTelaAdm {
         
         
     }
-    public void atualizarServico() throws ASException{
+    public void atualizarServico(){
         Servico antigo;
         Servico novo;
         try{
