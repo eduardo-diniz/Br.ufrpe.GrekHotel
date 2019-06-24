@@ -51,9 +51,6 @@ public class ControladorTelaAdmFunc {
     private TextField inputIdade;
 
     @FXML
-    private ComboBox<Funcionario> boxSetorServCadastro;
-
-    @FXML
     private TableView<Funcionario> tblFuncionarios;
 
     @FXML

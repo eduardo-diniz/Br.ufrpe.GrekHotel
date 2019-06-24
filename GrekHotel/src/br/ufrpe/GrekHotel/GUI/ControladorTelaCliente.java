@@ -38,7 +38,10 @@ public class ControladorTelaCliente {
 
     @FXML
     private Button btnQuartos;
-
+    
+    @FXML
+    private Button btnCancelar;
+    
     @FXML
     private TableView<Visita> tblCliente;
 
