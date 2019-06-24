@@ -36,8 +36,16 @@ public class Conta implements Serializable {
             for(Servico s : compras){
                 if(s.getDescricao().equals("Hospedagem")){
                     s.setCusto(quartoNum.getDiaria() * dias);
+                    atualizarCusto();
                 }
             }
+        }
+        private void atualizarCusto(){
+            int custo = 0;
+            for(Servico s : compras){
+                custo += s.getCusto();
+            }
+            valorTotal = custo;
         }
 
 	public ArrayList<Servico> getCompras() {
