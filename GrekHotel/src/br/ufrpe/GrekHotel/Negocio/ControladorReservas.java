@@ -11,6 +11,7 @@ import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import java.time.LocalDateTime;
 import br.ufrpe.GrekHotel.Dados.RepReservas;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorReservas {
 
@@ -41,6 +42,10 @@ public class ControladorReservas {
 
     public Reserva procurarReserva(Cliente cliente) {
         return this.reserva.procurar(cliente);
+    }
+    
+    public List listarReservas(){
+        return reserva.listar();
     }
 
     public ArrayList listarQuartos() {

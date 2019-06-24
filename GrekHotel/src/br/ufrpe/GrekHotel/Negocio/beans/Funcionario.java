@@ -12,10 +12,14 @@ package br.ufrpe.GrekHotel.Negocio.beans;
 public class Funcionario extends Usuario {
 
     private String nome;
+    private int idade;
+    private long cpf;
 
-    public Funcionario(String login, String senha, String nome) {
+    public Funcionario(String login, String senha, String nome, int idade, long cpf) {
         super(login, senha);
         this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
     }
 
     @Override

@@ -8,6 +8,7 @@ package br.ufrpe.GrekHotel.Negocio;
 import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Dados.RepUsuarios;
 import br.ufrpe.GrekHotel.Negocio.beans.Usuario;
+import java.util.List;
 
 /**
  *
@@ -50,6 +51,10 @@ public class ControladorUsuario {
 
     public void salvar() {
         usuarios.salvar();
+    }
+    
+    public List listarFunc(){
+        return usuarios.listarFunc();
     }
 
 }

@@ -10,6 +10,7 @@ import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -54,6 +55,16 @@ public class ControladorTelaReservaAdm {
     private Button btnAttPg;
 
     public void initialize() {
+        
+        colQuartos.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        colSituação.setCellValueFactory(new PropertyValueFactory<>("situacao"));
+        tblDisponibilidadeAdm.setItems(FXCollections.observableList(fachada.listarQuartos()));
+        
+        colQuartosReservado.setCellValueFactory(new PropertyValueFactory<>("quarto"));
+        colNomeCliente.setCellValueFactory(new PropertyValueFactory<>("hospede"));
+        colCheckIn.setCellValueFactory(new PropertyValueFactory<>("checkInPrevisto"));
+        colCheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOutPrevisto"));
+        tblReservasAdm.setItems(FXCollections.observableList(fachada.listarReservas()));
         //colQuartos
         //colSituação
         

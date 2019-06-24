@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 ;
 
@@ -90,6 +92,10 @@ public class RepReservas {
 
         }
         return encontrado;
+    }
+    
+    public List listar(){
+        return Collections.unmodifiableList(reservas);
     }
 
     public void atualizar(Reserva desatualizado, Reserva atualizado) throws ARException {

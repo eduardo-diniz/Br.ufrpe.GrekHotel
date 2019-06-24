@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  *
@@ -37,7 +39,7 @@ public class RepUsuarios {
             try {
                 f.createNewFile();
                 usuarios = new ArrayList();
-                usuarios.add(new Funcionario("admin", "admin", "Administrador"));
+                usuarios.add(new Funcionario("admin", "admin", "Administrador", 0, 0));
                 salvar();
             } catch (IOException e) {
 
@@ -72,6 +74,16 @@ public class RepUsuarios {
             }
         }
         return encontrado;
+    }
+    
+    public List listarFunc(){
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        for(Usuario u : usuarios){
+            if(u instanceof Funcionario){
+                funcionarios.add((Funcionario) u);
+            }
+        }
+        return Collections.unmodifiableList(funcionarios);
     }
 
     public void remover(Usuario u) throws RUException {

@@ -31,7 +31,7 @@ public class Quarto implements Serializable {
 
     @Override
     public String toString() {
-        return descricao + ", diaria=" + diaria + ", numero=" + numero + "]";
+        return numero + "";
     }
 
     public String getDescricao() {

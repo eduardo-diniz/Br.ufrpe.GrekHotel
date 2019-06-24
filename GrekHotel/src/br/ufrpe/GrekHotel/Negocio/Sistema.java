@@ -12,6 +12,7 @@ package br.ufrpe.GrekHotel.Negocio;
 import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sistema {
 
@@ -51,6 +52,14 @@ public class Sistema {
 
     public ArrayList listarServicos() {
         return ctrlAdm.lista();
+    }
+    
+    public List listarFun(){
+        return ctrlUsuario.listarFunc();
+    }
+    
+    public List listarReservas(){
+        return ctrlReservas.listarReservas();
     }
 
     public void cadastrarQuarto(Quarto quar) throws CQException {
