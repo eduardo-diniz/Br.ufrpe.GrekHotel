@@ -55,7 +55,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="593.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="593.0" prefWidth="1080.0" style="-fx-background-color: 123;" VBox.vgrow="ALWAYS">
       <children>
             <TextField fx:id="fieldNumQuarto" layoutX="122.0" layoutY="135.0" promptText="01" />
             <TextField fx:id="fieldDiaria" layoutX="123.0" layoutY="190.0" promptText="320" />
@@ -95,7 +95,7 @@
                </font>
             </Label>
             <Button fx:id="btnCadQuarto" layoutX="324.0" layoutY="216.0" mnemonicParsing="false" text="Cadastrar Quarto" />
-            <Button layoutX="594.0" layoutY="216.0" mnemonicParsing="false" text="Cadastrar Serviço" />
+            <Button fx:id="btnCadServico" layoutX="594.0" layoutY="216.0" mnemonicParsing="false" text="Cadastrar Serviço" />
       </children>
     </AnchorPane>
   </children>
