@@ -31,6 +31,8 @@ public class GrekHotel extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
+        
+        primaryStage.setTitle("GREK HOTEL");
 
         Parent fxmlUser = FXMLLoader.load(getClass().getResource("TelaUser.fxml"));
         userScene = new Scene(fxmlUser, 1080, 610);
