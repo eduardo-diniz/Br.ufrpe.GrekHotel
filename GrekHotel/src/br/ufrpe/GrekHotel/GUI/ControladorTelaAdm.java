@@ -95,7 +95,7 @@ public class ControladorTelaAdm {
 
         colCadServico.setCellValueFactory((new PropertyValueFactory<>("descricao")));
         colCadValor.setCellValueFactory((new PropertyValueFactory<>("custo")));
-        tblCadQuarto.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
+        tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         tblCadServico.refresh();
     }
     public void cadastrarQuarto() throws CQException{
@@ -111,6 +111,7 @@ public class ControladorTelaAdm {
              areaDescrQuarto.clear();
              fieldDiaria.clear();
              fieldNumQuarto.clear();
+             tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
              Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
              alerta.setContentText("Quarto cadastrado com sucesso!");
              alerta.show();
@@ -138,6 +139,7 @@ public class ControladorTelaAdm {
            if(tblCadQuarto.getSelectionModel().getSelectedItem() != null){
             atualrmv = tblCadQuarto.getSelectionModel().getSelectedItem();
             fachada.removerQuarto(atualrmv);
+            tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
              alerta.setContentText("Quarto removido com sucesso!");
              alerta.show();
@@ -163,6 +165,7 @@ public class ControladorTelaAdm {
             if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
                 novo = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
                      fachada.atualizarQuarto(antigo, novo);
+                     tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
                      Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                      alerta.setContentText("Quarto atualizado com sucesso!");
                      alerta.show();
@@ -193,6 +196,7 @@ public class ControladorTelaAdm {
             if(!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")){
             atualSer = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
             fachada.cadastrarServico(atualSer);
+            tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
              Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
              alerta.setContentText("Serviço cadastrado com sucesso!");
              alerta.show();
@@ -222,6 +226,7 @@ public class ControladorTelaAdm {
             if(tblCadServico.getSelectionModel().getSelectedItem() != null){
             atualSerrmv = tblCadServico.getSelectionModel().getSelectedItem();
             fachada.removerServico(atualSerrmv);
+            tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         }else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
@@ -245,6 +250,7 @@ public class ControladorTelaAdm {
                 if(!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")){
                      novo = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
                      fachada.atualizarServico(antigo, novo);
+                     tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
                      Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                       alerta.setContentText("Serviço atualizado com sucesso!");
                       alerta.show();

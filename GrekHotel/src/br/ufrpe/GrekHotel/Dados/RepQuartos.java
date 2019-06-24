@@ -95,21 +95,16 @@ public class RepQuartos {
 
     }
 
-    public boolean remover(Quarto quartoRem) throws RQException {
-
-        boolean removido = false;
+    public void remover(Quarto quartoRem) throws RQException {
 
         if (this.quartos.contains(quartoRem)) {
 
-            removido = true;
             quartos.remove(quartoRem);
             salvar();
         } else {
             RQException rqe = new RQException("quarto não cadastrado");
             throw rqe;
         }
-
-        return removido;
 
     }
 

@@ -49,8 +49,8 @@ public class ControladorAdm {
         this.servico.cadastrar(serv);
     }
 
-    public boolean removerQuarto(Quarto quartoRem) throws RQException {
-        return this.quarto.remover(quartoRem);
+    public void removerQuarto(Quarto quartoRem) throws RQException {
+        this.quarto.remover(quartoRem);
     }
 
     public void removerServico(Servico servRem) throws RSException {

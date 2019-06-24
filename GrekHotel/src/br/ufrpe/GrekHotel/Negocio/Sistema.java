@@ -63,9 +63,9 @@ public class Sistema {
 
     }
 
-    public boolean removerQuarto(Quarto quartoRem) throws RQException {
+    public void removerQuarto(Quarto quartoRem) throws RQException {
 
-        return this.ctrlAdm.removerQuarto(quartoRem);
+        this.ctrlAdm.removerQuarto(quartoRem);
 
     }
 
