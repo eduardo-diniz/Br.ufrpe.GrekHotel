@@ -5,11 +5,13 @@
  */
 package br.ufrpe.GrekHotel.Negocio.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fight
  */
-public class Quarto {
+public class Quarto implements Serializable {
 
 	private String descricao;
 	private double diaria;

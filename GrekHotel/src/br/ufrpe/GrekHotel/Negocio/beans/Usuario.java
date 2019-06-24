@@ -5,11 +5,13 @@
  */
 package br.ufrpe.GrekHotel.Negocio.beans;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fight
  */
-public abstract class Usuario {
+public abstract class Usuario implements Serializable{
    private String login;
    private String senha;
 

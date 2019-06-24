@@ -10,9 +10,10 @@ package br.ufrpe.GrekHotel.Negocio.beans;
  * @author fight
  */
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Conta {
+public class Conta implements Serializable {
 	private Quarto quartoNum;
 	private ArrayList<Servico> compras;
 	private double valorTotal;
@@ -21,7 +22,7 @@ public class Conta {
 
 		this.quartoNum = quartoNum;
 		this.compras = new ArrayList<Servico>();
-		this.valorTotal = quartoNum.getDiaria();
+                novaCompra(new Servico("Hospedagem", quartoNum.getDiaria()));
 
 	}
 
@@ -31,6 +32,13 @@ public class Conta {
 		this.valorTotal += compra.getCusto();
 
 	}
+        public void atualizarHospedagem(int dias){
+            for(Servico s : compras){
+                if(s.getDescricao().equals("Hospedagem")){
+                    s.setCusto(quartoNum.getDiaria() * dias);
+                }
+            }
+        }
 
 	public ArrayList<Servico> getCompras() {
 		return compras;

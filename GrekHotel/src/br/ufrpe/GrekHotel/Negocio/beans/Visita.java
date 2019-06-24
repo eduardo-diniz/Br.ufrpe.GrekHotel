@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio.beans;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 
 
-public class Visita {
+public class Visita implements Serializable {
 	
 	private Quarto quarto;
 	private LocalDateTime checkIn;
@@ -25,6 +28,10 @@ public class Visita {
 		this.quarto = quarto;
 
 	}
+        public int getDays(){
+            Period p = Period.between(checkIn.toLocalDate(), LocalDate.now());
+            return p.getDays();
+        }
 
 
 	public Quarto getQuarto() {

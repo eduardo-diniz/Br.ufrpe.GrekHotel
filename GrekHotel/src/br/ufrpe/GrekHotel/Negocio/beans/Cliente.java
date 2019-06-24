@@ -56,6 +56,7 @@ public class Cliente extends Usuario {
     public ArrayList<Visita> getHistoricoVisita() {
         return historicoVisita;
     }
+    
 
     @Override
     public boolean equals(Object obj) {

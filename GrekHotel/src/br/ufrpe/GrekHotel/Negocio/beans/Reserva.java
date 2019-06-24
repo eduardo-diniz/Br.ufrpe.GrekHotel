@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package br.ufrpe.GrekHotel.Negocio.beans;
+import java.io.Serializable;
 import java.time.LocalDate;
-public class Reserva {
+
+public class Reserva implements Serializable {
 	
 	private Quarto quarto;
 	private Cliente hospede;
