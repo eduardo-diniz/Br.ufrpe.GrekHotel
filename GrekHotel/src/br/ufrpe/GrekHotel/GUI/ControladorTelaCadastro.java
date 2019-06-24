@@ -53,6 +53,15 @@ public class ControladorTelaCadastro {
                 atual = new Cliente(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
 
                 fachada.cadastrarUsuario(atual);
+                inputCPF.clear();
+                inputIdade.clear();
+                inputLoginCadastro.clear();
+                inputNome.clear();
+                inputSenhaCadastro.clear();
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setContentText("Usuario cadastrado com sucesso!");
+                alerta.show();
+                
             }else{
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                     alerta.setContentText("preencha todos os campos");
@@ -77,7 +86,7 @@ public class ControladorTelaCadastro {
     }
 
     public void telaHome() {
-        GrekHotel.changeScreem("TelaHome");
+        GrekHotel.changeScreem("TelaUser");
 
     }
 

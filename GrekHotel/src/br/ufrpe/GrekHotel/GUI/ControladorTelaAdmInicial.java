@@ -27,7 +27,7 @@ public class ControladorTelaAdmInicial {
     
     
     public void initialize() {
-         lblNomeAdm.setText(("Olá, " + fachada.getUsuario() + "bem vindxs"));
+         lblNomeAdm.setText(("Olá, " + fachada.getUsuario()+ "bem vindxs"));
 
     }
     

@@ -39,7 +39,7 @@ public class RepUsuarios {
             try {
                 f.createNewFile();
                 usuarios = new ArrayList();
-                usuarios.add(new Funcionario("admin", "admin"));
+                usuarios.add(new Funcionario("admin", "admin", "Administrador"));
                 salvar();
             } catch (IOException e) {
 

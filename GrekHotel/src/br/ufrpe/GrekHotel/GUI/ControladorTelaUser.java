@@ -41,18 +41,46 @@ public class ControladorTelaUser {
     //GrekHotel.changeScreem("TelaCadastro");
     
     }
-    @FXML
-    public void handle(){
+    //@FXML
+    /*public void handle(){
         
          if(!inputLogin.getText().equals("") && !inputSenha.getText().equals("")){          
              Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
                     if(local != null){
+                        inputLogin.clear();
+                        inputSenha.clear();
                         if(local instanceof Cliente){   
                           GrekHotel.changeScreem("TelaCliente");
                            
                         }else if(local instanceof Funcionario){
-                             GrekHotel.changeScreem("TelaAdm");
-                             System.out.println("entrou");
+                             GrekHotel.changeScreem("TelaAdmInicial");
+                        }
+                        
+                }else{
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("login ou senha inválidos");
+                    alerta.setHeaderText("falha no login");
+                    alerta.show();
+                }
+         }else{
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setContentText("campos vazios");
+                alerta.setHeaderText("falha no login");
+                alerta.show();
+         }
+    }*/
+    @FXML
+    public void login(){
+        if(!inputLogin.getText().equals("") && !inputSenha.getText().equals("")){          
+             Usuario local = fachada.efetuarLogin(inputLogin.getText(), inputSenha.getText());  
+                    if(local != null){
+                        inputLogin.clear();
+                        inputSenha.clear();
+                        if(local instanceof Cliente){   
+                          GrekHotel.changeScreem("TelaCliente");
+                           
+                        }else if(local instanceof Funcionario){
+                             GrekHotel.changeScreem("TelaAdmInicial");
                         }
                         
                 }else{
@@ -68,6 +96,7 @@ public class ControladorTelaUser {
                 alerta.show();
          }
     }
+    
 
     @FXML
     public void telaCadastro(){
