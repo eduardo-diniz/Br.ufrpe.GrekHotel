@@ -116,20 +116,20 @@ public class ControladorTelaCliente {
             posCan = fachada.procurarReserva((Cliente) fachada.getUsuario());
         if(posCan != null){
             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-                alerta.setHeaderText("Confirmação do cancelamento");
-                alerta.setContentText("Deseja mesmo cancelar a hospedagem");
+                alerta.setHeaderText("Confirmação do cancelamento.");
+                alerta.setContentText("Deseja mesmo cancelar a hospedagem?");
                 Optional<ButtonType> result = alerta.showAndWait();
                 if (result.get() == ButtonType.OK){
                     Alert ok = new Alert(Alert.AlertType.INFORMATION);
                     ok.setHeaderText("Confirmação de cancelamento");
-                    ok.setContentText("Hospodagem cancelada com sucesso");
+                    ok.setContentText("Hospodagem cancelada com sucesso.");
                     ok.show();
                     fachada.cancelarReserva(posCan);
                     
                     } else {
                     Alert ok = new Alert(Alert.AlertType.INFORMATION);
-                    ok.setHeaderText("Confirmação de cancelamento");
-                    ok.setContentText("Hospedagem não cancelada");
+                    ok.setHeaderText("Confirmação de cancelamento.");
+                    ok.setContentText("Hospedagem não cancelada.");
                     ok.show();
                           
                         }
