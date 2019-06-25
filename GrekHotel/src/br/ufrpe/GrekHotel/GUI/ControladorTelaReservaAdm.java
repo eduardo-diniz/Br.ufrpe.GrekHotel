@@ -57,9 +57,6 @@ public class ControladorTelaReservaAdm {
     private TableColumn<Reserva, LocalDate> colCheckOut;
 
     @FXML
-    private Button btnAttPg;
-
-    @FXML
     private Button btnCheckin;
 
     @FXML

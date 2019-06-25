@@ -56,11 +56,6 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnAttPg" layoutX="918.0" layoutY="403.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="148.0" text="Atualizar Página">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
             <Button fx:id="btnCheckin" layoutX="471.0" layoutY="361.0" mnemonicParsing="false" onAction="#checkin" prefHeight="38.0" prefWidth="100.0" text="Check-In" />
             <Button fx:id="btnCheckOut" layoutX="659.0" layoutY="362.0" mnemonicParsing="false" onAction="#checkout" prefHeight="38.0" prefWidth="100.0" text="Check-Out" />
          </children>
