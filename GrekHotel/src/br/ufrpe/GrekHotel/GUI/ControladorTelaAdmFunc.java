@@ -90,7 +90,7 @@ public class ControladorTelaAdmFunc {
                 inputNome.clear();
                 inputSenhaCadastro.clear();
                 tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setContentText("Funcionario cadastrado com sucesso!");
                 alerta.show();
 
@@ -122,7 +122,7 @@ public class ControladorTelaAdmFunc {
                  atualrmv = tblFuncionarios.getSelectionModel().getSelectedItem();
                  fachada.removerUsuario(atualrmv);
                  tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-                 Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                  alerta.setContentText("Funcionario removido com sucesso!");
                  alerta.show();
              }else{
@@ -155,7 +155,7 @@ public class ControladorTelaAdmFunc {
                       inputNome.clear();
                       inputSenhaCadastro.clear();
                       tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-                      Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                      Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                       alerta.setContentText("Funcionario atualizado com sucesso!");
                       alerta.show();
                  

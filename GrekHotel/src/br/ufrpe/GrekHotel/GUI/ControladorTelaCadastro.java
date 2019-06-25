@@ -55,7 +55,7 @@ public class ControladorTelaCadastro {
                 inputLoginCadastro.clear();
                 inputNome.clear();
                 inputSenhaCadastro.clear();
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setContentText("Usuario cadastrado com sucesso!");
                 alerta.show();
 

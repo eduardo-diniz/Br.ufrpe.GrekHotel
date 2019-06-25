@@ -5,18 +5,22 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import br.ufrpe.GrekHotel.Excecoes.RRException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Conta;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
+import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import br.ufrpe.GrekHotel.Negocio.beans.Visita;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -78,11 +82,11 @@ public class ControladorTelaCliente {
     @FXML
     private Button btnImprimirDespesas;
 
-    private Sistema fachada;
+    private Sistema fachada = Sistema.getInstance();
 
     public void initialize() {
 
-        fachada = Sistema.getInstance();
+       
         txtBemVindo.setText("Olá, " + fachada.getUsuario() + "bem vindxs");
 
         //Tabela de Serviços
@@ -105,6 +109,37 @@ public class ControladorTelaCliente {
 
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
 
+    }
+    public void cancelarHospedagem(){
+        Reserva posCan;
+        try{
+            posCan = fachada.procurarReserva((Cliente) fachada.getUsuario());
+        if(posCan != null){
+            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                alerta.setHeaderText("Confirmação do cancelamento");
+                alerta.setContentText("Deseja mesmo cancelar a hospedagem");
+                Optional<ButtonType> result = alerta.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    Alert ok = new Alert(Alert.AlertType.INFORMATION);
+                    ok.setHeaderText("Confirmação de cancelamento");
+                    ok.setContentText("Hospodagem cancelada com sucesso");
+                    ok.show();
+                    fachada.cancelarReserva(posCan);
+                    
+                    } else {
+                    Alert ok = new Alert(Alert.AlertType.INFORMATION);
+                    ok.setHeaderText("Confirmação de cancelamento");
+                    ok.setContentText("Hospedagem não cancelada");
+                    ok.show();
+                          
+                        }
+                
+        }
+            
+        }catch(RRException a){
+            //Gabriel
+            
+        }  
     }
 
     public void telaQuartos() {

@@ -115,7 +115,7 @@ public class ControladorTelaAdm {
              fieldDiaria.clear();
              fieldNumQuarto.clear();
              tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
              alerta.setContentText("Quarto cadastrado com sucesso!");
              alerta.show();
            
@@ -148,7 +148,7 @@ public class ControladorTelaAdm {
             atualrmv = tblCadQuarto.getSelectionModel().getSelectedItem();
             fachada.removerQuarto(atualrmv);
             tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
              alerta.setContentText("Quarto removido com sucesso!");
              alerta.show();
         }else{
@@ -177,7 +177,7 @@ public class ControladorTelaAdm {
                 novo = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
                      fachada.atualizarQuarto(antigo, novo);
                      tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                      alerta.setContentText("Quarto atualizado com sucesso!");
                      alerta.show();
             }else{
@@ -215,7 +215,7 @@ public class ControladorTelaAdm {
             atualSer = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
             fachada.cadastrarServico(atualSer);
             tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
-             Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
              alerta.setContentText("Serviço cadastrado com sucesso!");
              alerta.show();
              
@@ -278,7 +278,7 @@ public class ControladorTelaAdm {
                      novo = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
                      fachada.atualizarServico(antigo, novo);
                      tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
-                     Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                       alerta.setContentText("Serviço atualizado com sucesso!");
                       alerta.show();
                 }else{

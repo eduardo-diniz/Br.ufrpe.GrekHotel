@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="610.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaCliente">
+<VBox prefHeight="610.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaCliente">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
@@ -61,7 +61,7 @@
                </columnResizePolicy>
             </TableView>
             <Button fx:id="btnImprimirDespesas" layoutX="129.0" layoutY="551.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="145.0" text="Imprimir Despesas" />
-            <Button fx:id="btnCancelar" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Cancelar Hospedagem" />
+            <Button fx:id="btnCancelar" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#cancelarHospedagem" prefHeight="32.0" prefWidth="138.0" text="Cancelar Hospedagem" />
       </children>
     </AnchorPane>
   </children>
