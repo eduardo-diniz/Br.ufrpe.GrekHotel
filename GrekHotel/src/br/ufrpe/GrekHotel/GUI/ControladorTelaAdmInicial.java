@@ -30,7 +30,7 @@ public class ControladorTelaAdmInicial {
     }
 
     public void telaFuncionario() {
-        GrekHotel.changeScreem("TelaFuncionarios");
+        GrekHotel.changeScreem("TelaAdmFunc");
     }
 
     public void telaquartoservico() {
