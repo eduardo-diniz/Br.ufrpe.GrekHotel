@@ -122,33 +122,7 @@ public class ControladorTelaCliente {
     }
 
     @FXML
-    public void imprimirPdf(ActionEvent event) throws FileNotFoundException, DocumentException {
-
-        System.err.println("Nao pegou");
-        Document document = new Document();
-
-        try {
-            PdfWriter.getInstance(document, new FileOutputStream("documento.pdf"));
-
-            document.open();
-            document.add(new Paragraph("UMA STRING"));
-            //document.add(new Paragraph(toString(fachada.listarServicos()))
-
-        } catch (DocumentException | FileNotFoundException ex) {
-
-            System.out.println("br.ufrpe.GrekHotel.GUI.ControladorTelaUser.telaCadastro()");
-        } finally {
-
-            document.close();
-        }
-
-        try {
-
-            Desktop.getDesktop().open(new File("documento.pdf"));
-        } catch (IOException ex) {
-
-            System.err.println("sss");
-        }
+    public void imprimirPdf(ActionEvent event) {
 
     }
 
