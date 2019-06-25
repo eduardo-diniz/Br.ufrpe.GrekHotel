@@ -22,6 +22,14 @@ public class Funcionario extends Usuario {
         this.cpf = cpf;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public long getCpf() {
+        return cpf;
+    }
+
     @Override
     public String toString() {
         return nome;
