@@ -73,6 +73,8 @@ public class ControladorTelaUser {
     @FXML
     public void telaCadastro() {
 
+        GrekHotel.changeScreem("TelaCadastro");
+
     }
 
 }
