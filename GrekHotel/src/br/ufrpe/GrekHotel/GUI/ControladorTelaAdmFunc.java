@@ -133,7 +133,7 @@ public class ControladorTelaAdmFunc {
                  alerta.setContentText("Funcionario removido com sucesso!");
                  alerta.show();
              }else{
-                 Alert alerta = new Alert(Alert.AlertType.ERROR);
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao remover funcionario");
                 alerta.show();
@@ -141,7 +141,10 @@ public class ControladorTelaAdmFunc {
              }
              
          }catch(RUException a){
-             // Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao remover funcionario");
+            alerta.show();
              
          }
          
@@ -181,8 +184,16 @@ public class ControladorTelaAdmFunc {
          
          
      }catch(AUException a){
-         //Gabriel
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setContentText(a.getMessage());
+        alerta.setHeaderText("Erro ao atualizar o funcionario");
+        alerta.show();
+         
      }catch(NumberFormatException a){
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setContentText("Insira numeros válidos em idade e CPF");
+        alerta.setHeaderText("Erro ao atualizar o funcionario");
+        alerta.show();
          
      }
              
