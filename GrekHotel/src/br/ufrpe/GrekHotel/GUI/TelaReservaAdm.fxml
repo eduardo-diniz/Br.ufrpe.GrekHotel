@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="636.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="636.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="610.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
          <children>
@@ -23,7 +23,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <ImageView fitHeight="162.0" fitWidth="162.0" layoutX="815.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="162.0" fitWidth="162.0" layoutX="911.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Documents/NetBeansProjects/Br.ufrpe.GrekHotel/GrekHotel/src/br/ufrpe/GrekHotel/GUI/imagens/ImagemAdm.png" />
                </image>
@@ -33,7 +33,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnHome" layoutX="859.0" layoutY="373.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Home">
+            <Button fx:id="btnHome" layoutX="955.0" layoutY="364.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Home">
                <font>
                   <Font size="14.0" />
                </font>
@@ -51,16 +51,18 @@
                   <TableColumn fx:id="colCheckOut" prefWidth="126.0" text="checkout" />
                </columns>
             </TableView>
-            <Label layoutX="268.0" layoutY="345.0" prefHeight="38.0" prefWidth="201.0" text="Acompanhamento financeiro:">
+            <Label layoutX="73.0" layoutY="362.0" prefHeight="38.0" prefWidth="201.0" text="Acompanhamento financeiro:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnAttPg" layoutX="822.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="148.0" text="Atualizar Página">
+            <Button fx:id="btnAttPg" layoutX="918.0" layoutY="403.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="148.0" text="Atualizar Página">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
+            <Button fx:id="btnCheckin" layoutX="471.0" layoutY="361.0" mnemonicParsing="false" onAction="#checkin" prefHeight="38.0" prefWidth="100.0" text="Check-In" />
+            <Button fx:id="btnCheckOut" layoutX="659.0" layoutY="362.0" mnemonicParsing="false" onAction="#checkout" prefHeight="38.0" prefWidth="100.0" text="Check-Out" />
          </children>
     </AnchorPane>
   </children>

@@ -12,6 +12,7 @@ import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,6 +54,12 @@ public class ControladorTelaReservaAdm {
 
     @FXML
     private Button btnAttPg;
+      
+    @FXML
+    private Button btnCheckin;
+
+    @FXML
+    private Button btnCheckOut;
 
     public void initialize() {
         
@@ -74,10 +81,38 @@ public class ControladorTelaReservaAdm {
     public void atualizarPagina(){
         
     }
+    public void checkin(){
+        Reserva atualIn;
+      if(tblReservasAdm.getSelectionModel().getSelectedItem() != null){
+          atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
+          fachada.checkIn(atualIn);
+      }else{
+          Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("selecione uma reserva na tabela");
+            alerta.setHeaderText("falha na escolha da reserva");
+            alerta.show();
+          
+      }
+        
+    }
+    public void checkout(){
+        Reserva atualOut;
+      if(tblReservasAdm.getSelectionModel().getSelectedItem() != null){
+          atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
+          fachada.checkOut(atualOut);
+        
+    }else{
+           Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("selecione uma reserva na tabela");
+            alerta.setHeaderText("falha na escolha da reserva");
+            alerta.show();
+        }
+          
+      }
 
-    
-    public void home(){
+     
+    public void homeAdm(){
         GrekHotel.changeScreem("TelaAdmInicial");
     }
-        
+       
 }

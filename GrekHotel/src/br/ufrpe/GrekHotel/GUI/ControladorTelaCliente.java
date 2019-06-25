@@ -110,6 +110,7 @@ public class ControladorTelaCliente {
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
 
     }
+    
     public void cancelarHospedagem(){
         Reserva posCan;
         try{
