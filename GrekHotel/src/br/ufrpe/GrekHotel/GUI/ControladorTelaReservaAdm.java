@@ -9,6 +9,15 @@ import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -23,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Eduardo
  */
 public class ControladorTelaReservaAdm {
+
     Sistema fachada = Sistema.getInstance();
 
     @FXML
@@ -54,7 +64,7 @@ public class ControladorTelaReservaAdm {
 
     @FXML
     private Button btnAttPg;
-      
+
     @FXML
     private Button btnCheckin;
 
@@ -62,11 +72,11 @@ public class ControladorTelaReservaAdm {
     private Button btnCheckOut;
 
     public void initialize() {
-        
+
         colQuartos.setCellValueFactory(new PropertyValueFactory<>("numero"));
         colSituação.setCellValueFactory(new PropertyValueFactory<>("situacao"));
         tblDisponibilidadeAdm.setItems(FXCollections.observableList(fachada.listarQuartos()));
-        
+
         colQuartosReservado.setCellValueFactory(new PropertyValueFactory<>("quarto"));
         colNomeCliente.setCellValueFactory(new PropertyValueFactory<>("hospede"));
         colCheckIn.setCellValueFactory(new PropertyValueFactory<>("checkInPrevisto"));
@@ -74,45 +84,45 @@ public class ControladorTelaReservaAdm {
         tblReservasAdm.setItems(FXCollections.observableList(fachada.listarReservas()));
         //colQuartos
         //colSituação
-        
-        
 
     }
-    public void atualizarPagina(){
-        
+
+    public void atualizarPagina() {
+
     }
-    public void checkin(){
+
+    public void checkin() {
         Reserva atualIn;
-      if(tblReservasAdm.getSelectionModel().getSelectedItem() != null){
-          atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
-          fachada.checkIn(atualIn);
-      }else{
-          Alert alerta = new Alert(Alert.AlertType.ERROR);
+        if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
+            atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
+            fachada.checkIn(atualIn);
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("selecione uma reserva na tabela");
             alerta.setHeaderText("falha na escolha da reserva");
             alerta.show();
-          
-      }
-        
+
+        }
+
     }
-    public void checkout(){
+
+    public void checkout() {
         Reserva atualOut;
-      if(tblReservasAdm.getSelectionModel().getSelectedItem() != null){
-          atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
-          fachada.checkOut(atualOut);
-        
-    }else{
-           Alert alerta = new Alert(Alert.AlertType.ERROR);
+        if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
+            atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
+            fachada.checkOut(atualOut);
+
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("selecione uma reserva na tabela");
             alerta.setHeaderText("falha na escolha da reserva");
             alerta.show();
         }
-          
-      }
 
-     
-    public void homeAdm(){
+    }
+
+    public void homeAdm() {
         GrekHotel.changeScreem("TelaAdmInicial");
     }
-       
+
 }

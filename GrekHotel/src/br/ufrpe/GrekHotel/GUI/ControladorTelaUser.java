@@ -11,6 +11,15 @@ package br.ufrpe.GrekHotel.GUI;
  */
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.*;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -39,6 +48,7 @@ public class ControladorTelaUser {
 
         //o botao que direciona para a tela cadastrar deve chamar o seguinte metodo
         //GrekHotel.changeScreem("TelaCadastro");
+        btnCadastrar.setDisable(false);
     }
 
     @FXML
@@ -71,8 +81,6 @@ public class ControladorTelaUser {
 
     @FXML
     public void telaCadastro() {
-
-        GrekHotel.changeScreem("TelaCadastro");
 
     }
 

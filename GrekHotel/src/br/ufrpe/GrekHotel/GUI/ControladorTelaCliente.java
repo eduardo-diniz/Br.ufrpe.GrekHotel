@@ -13,10 +13,21 @@ import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import br.ufrpe.GrekHotel.Negocio.beans.Visita;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -42,10 +53,10 @@ public class ControladorTelaCliente {
 
     @FXML
     private Button btnQuartos;
-    
+
     @FXML
     private Button btnCancelar;
-    
+
     @FXML
     private TableView<Visita> tblCliente;
 
@@ -86,7 +97,6 @@ public class ControladorTelaCliente {
 
     public void initialize() {
 
-       
         txtBemVindo.setText("Olá, " + fachada.getUsuario() + "bem vindxs");
 
         //Tabela de Serviços
@@ -110,37 +120,68 @@ public class ControladorTelaCliente {
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
 
     }
-    
-    public void cancelarHospedagem(){
+
+    @FXML
+    public void imprimirPdf(ActionEvent event) throws FileNotFoundException, DocumentException {
+
+        System.err.println("Nao pegou");
+        Document document = new Document();
+
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("documento.pdf"));
+
+            document.open();
+            document.add(new Paragraph("UMA STRING"));
+            //document.add(new Paragraph(toString(fachada.listarServicos()))
+
+        } catch (DocumentException | FileNotFoundException ex) {
+
+            System.out.println("br.ufrpe.GrekHotel.GUI.ControladorTelaUser.telaCadastro()");
+        } finally {
+
+            document.close();
+        }
+
+        try {
+
+            Desktop.getDesktop().open(new File("documento.pdf"));
+        } catch (IOException ex) {
+
+            System.err.println("sss");
+        }
+
+    }
+
+    public void cancelarHospedagem() {
         Reserva posCan;
-        try{
+        try {
             posCan = fachada.procurarReserva((Cliente) fachada.getUsuario());
-        if(posCan != null){
-            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+            if (posCan != null) {
+                Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
                 alerta.setHeaderText("Confirmação do cancelamento.");
                 alerta.setContentText("Deseja mesmo cancelar a hospedagem?");
                 Optional<ButtonType> result = alerta.showAndWait();
-                if (result.get() == ButtonType.OK){
+                if (result.get() == ButtonType.OK) {
                     Alert ok = new Alert(Alert.AlertType.INFORMATION);
                     ok.setHeaderText("Confirmação de cancelamento");
                     ok.setContentText("Hospodagem cancelada com sucesso.");
                     ok.show();
                     fachada.cancelarReserva(posCan);
-                    
-                    } else {
+
+                } else {
                     Alert ok = new Alert(Alert.AlertType.INFORMATION);
                     ok.setHeaderText("Confirmação de cancelamento.");
                     ok.setContentText("Hospedagem não cancelada.");
                     ok.show();
-                          
-                        }
-                
-        }
-            
-        }catch(RRException a){
+
+                }
+
+            }
+
+        } catch (RRException a) {
             //Gabriel
-            
-        }  
+
+        }
     }
 
     public void telaQuartos() {
