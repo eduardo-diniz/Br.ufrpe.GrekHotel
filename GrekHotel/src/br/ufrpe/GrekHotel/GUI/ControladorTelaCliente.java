@@ -111,8 +111,10 @@ public class ControladorTelaCliente {
         colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("valorTotal")));
 
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
-//Ignorem por enquanto
-        if (Visita.class != null) {
+        //Ignorem por enquanto
+        Cliente c = (Cliente) fachada.getUsuario();
+        //para cancelar reserva fachada.procurarReserva(c) != null
+        if (fachada.procurarReserva(c).getVisita() != null) {
 
             btnContratarServico.setDisable(true);
         } else {
