@@ -11,6 +11,9 @@ import br.ufrpe.GrekHotel.Excecoes.RUException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Funcionario;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,7 +77,11 @@ public class ControladorTelaAdmFunc {
      }
      
      public void telaHome(){
-           GrekHotel.changeScreem("TelaAdmInicial");
+        try {
+            GrekHotel.changeScreem("TelaAdmInicial");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaAdmFunc.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
      }
      

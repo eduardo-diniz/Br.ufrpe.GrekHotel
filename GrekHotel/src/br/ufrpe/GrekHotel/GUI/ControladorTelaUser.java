@@ -11,6 +11,9 @@ package br.ufrpe.GrekHotel.GUI;
  */
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -50,10 +53,18 @@ public class ControladorTelaUser {
                 inputLogin.clear();
                 inputSenha.clear();
                 if (local instanceof Cliente) {
-                    GrekHotel.changeScreem("TelaCliente");
+                    try {
+                        GrekHotel.changeScreem("TelaCliente");
+                    } catch (IOException ex) {
+                        Logger.getLogger(ControladorTelaUser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                 } else if (local instanceof Funcionario) {
-                    GrekHotel.changeScreem("TelaAdmInicial");
+                    try {
+                        GrekHotel.changeScreem("TelaAdmInicial");
+                    } catch (IOException ex) {
+                        Logger.getLogger(ControladorTelaUser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             } else {
@@ -73,7 +84,11 @@ public class ControladorTelaUser {
     @FXML
     public void telaCadastro() {
 
-        GrekHotel.changeScreem("TelaCadastro");
+        try {
+            GrekHotel.changeScreem("TelaCadastro");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

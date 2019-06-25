@@ -9,7 +9,10 @@ import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -113,7 +116,11 @@ public class ControladorTelaReservaAdm {
     }
 
     public void homeAdm() {
-        GrekHotel.changeScreem("TelaAdmInicial");
+        try {
+            GrekHotel.changeScreem("TelaAdmInicial");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaReservaAdm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

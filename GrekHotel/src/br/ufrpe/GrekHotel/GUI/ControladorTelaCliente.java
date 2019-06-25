@@ -13,9 +13,12 @@ import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import br.ufrpe.GrekHotel.Negocio.beans.Visita;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -149,13 +152,21 @@ public class ControladorTelaCliente {
     }
 
     public void telaQuartos() {
-        GrekHotel.changeScreem("TelaReservas");
+        try {
+            GrekHotel.changeScreem("TelaReservas");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public void sair() {
         fachada.setUsuario(null);
-        GrekHotel.changeScreem("TelaUser");
+        try {
+            GrekHotel.changeScreem("TelaUser");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void contratarServico() {

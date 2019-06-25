@@ -1,6 +1,9 @@
 package br.ufrpe.GrekHotel.GUI;
 
 import br.ufrpe.GrekHotel.Negocio.Sistema;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,23 +33,39 @@ public class ControladorTelaAdmInicial {
     }
 
     public void telaFuncionario() {
-        GrekHotel.changeScreem("TelaAdmFunc");
+        try {
+            GrekHotel.changeScreem("TelaFuncAdm");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaAdmInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void telaquartoservico() {
 
-        GrekHotel.changeScreem("TelaAdm");
+        try {
+            GrekHotel.changeScreem("TelaAdm");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaAdmInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public void telaVerificarReservas() {
 
-        GrekHotel.changeScreem("TelaReservaAdm");
+        try {
+            GrekHotel.changeScreem("TelaReservaAdm");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaAdmInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public void sair() {
         fachada.setUsuario(null);
-        GrekHotel.changeScreem("TelaUser");
+        try {
+            GrekHotel.changeScreem("TelaUser");
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorTelaAdmInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
