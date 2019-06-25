@@ -112,7 +112,7 @@ public class ControladorTelaReservas {
     }
 
     public void telaHome() {
-        GrekHotel.changeScreem("TelaHome");
+        GrekHotel.changeScreem("TelaCliente");
 
     }
 
