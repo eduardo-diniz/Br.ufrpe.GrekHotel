@@ -32,7 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
- * @author Eduar
+ * @author Eduardo
  */
 public class ControladorTelaCliente {
 
@@ -111,13 +111,34 @@ public class ControladorTelaCliente {
         colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("valorTotal")));
 
         tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
+//Ignorem por enquanto
+        if (Visita.class != null) {
+
+            btnContratarServico.setDisable(true);
+        } else {
+
+            btnContratarServico.setDisable(false);
+        }
+
+//        if (fachada.checkIn()) {
+//
+//            btnCancelar.setDisable(true);
+//        } else {
+//            btnCancelar.setDisable(false);
+//
+//        }
+//        
+    }
+
+        @FXML
+        public void imprimirPdf
+        (ActionEvent event
+        
+        ) {
 
     }
 
-    @FXML
-    public void imprimirPdf(ActionEvent event) {
-
-    }
+    
 
     public void cancelarHospedagem() {
         Reserva posCan;
