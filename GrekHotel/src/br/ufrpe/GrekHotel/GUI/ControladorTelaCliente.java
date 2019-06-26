@@ -198,6 +198,7 @@ public class ControladorTelaCliente {
                     ok.setContentText("Hospodagem cancelada com sucesso.");
                     ok.show();
                     fachada.cancelarReserva(posCan);
+                    //
 
                 } else {
                     Alert ok = new Alert(Alert.AlertType.INFORMATION);
