@@ -12,29 +12,29 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="inputLogin" layoutX="481.0" layoutY="323.0" prefHeight="25.0" prefWidth="175.0" promptText="Leandro Nota Boa">
+            <TextField fx:id="inputLogin" layoutX="483.0" layoutY="289.0" prefHeight="25.0" prefWidth="175.0" promptText="Leandro Nota Boa">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="inputSenha" layoutX="481.0" layoutY="366.0" prefHeight="25.0" prefWidth="175.0" promptText="**************">
+            <PasswordField fx:id="inputSenha" layoutX="483.0" layoutY="332.0" prefHeight="25.0" prefWidth="175.0" promptText="**************">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Label layoutX="421.0" layoutY="325.0" prefHeight="25.0" prefWidth="52.0" text="Login:">
+            <Button fx:id="btnLogin" layoutX="606.0" layoutY="375.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="52.0" text="Entrar" />
+            <Label layoutX="423.0" layoutY="291.0" prefHeight="25.0" prefWidth="52.0" text="Login:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="421.0" layoutY="369.0" prefHeight="25.0" prefWidth="52.0" text="Senha:">
+            <Label layoutX="423.0" layoutY="335.0" prefHeight="25.0" prefWidth="52.0" text="Senha:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogin" layoutX="604.0" layoutY="409.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="52.0" text="Entrar" />
-            <Button fx:id="btnCadastrar" layoutX="481.0" layoutY="409.0" mnemonicParsing="false" onAction="#telaCadastro" prefHeight="36.0" prefWidth="68.0" text="Cadastrar" />
-            <Label layoutX="484.0" layoutY="233.0" prefHeight="46.0" prefWidth="105.0" text="Bem vindo">
+            <Button fx:id="btnCadastrar" layoutX="483.0" layoutY="375.0" mnemonicParsing="false" onAction="#telaCadastro" prefHeight="36.0" prefWidth="68.0" text="Cadastrar" />
+            <Label layoutX="486.0" layoutY="199.0" prefHeight="46.0" prefWidth="105.0" text="Bem vindo">
                <font>
                   <Font size="22.0" />
                </font>

@@ -11,42 +11,42 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnHome" layoutX="705.0" layoutY="347.0" mnemonicParsing="false" onAction="#telaHome" prefHeight="33.0" prefWidth="64.0" text="Home" />
-            <Button fx:id="btnCadastroFeito" layoutX="443.0" layoutY="410.0" mnemonicParsing="false" onAction="#cadastar" prefHeight="46.0" prefWidth="106.0" text="Cadastrar">
+            <Button fx:id="btnHome" layoutX="710.0" layoutY="357.0" mnemonicParsing="false" onAction="#telaHome" prefHeight="33.0" prefWidth="64.0" text="Home" />
+            <Label layoutX="430.0" layoutY="201.0" prefHeight="33.0" prefWidth="42.0" text="Idade">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="430.0" layoutY="244.0" prefHeight="46.0" prefWidth="42.0" text="Login:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="430.0" layoutY="351.0" prefHeight="33.0" prefWidth="42.0" text="Senha:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="434.0" layoutY="302.0" prefHeight="33.0" prefWidth="35.0" text="CPF:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="inputNome" layoutX="486.0" layoutY="147.0" prefHeight="33.0" prefWidth="168.0" promptText="Leandro Marques" />
+            <TextField fx:id="inputIdade" layoutX="486.0" layoutY="201.0" prefHeight="33.0" prefWidth="168.0" promptText="30" />
+            <TextField fx:id="inputLoginCadastro" layoutX="486.0" layoutY="250.0" prefHeight="33.0" prefWidth="168.0" promptText="Leandro Marques" />
+            <TextField fx:id="inputCPF" layoutX="486.0" layoutY="303.0" prefHeight="33.0" prefWidth="168.0" promptText="11122233300" />
+            <TextField fx:id="inputSenhaCadastro" layoutX="486.0" layoutY="357.0" prefHeight="33.0" prefWidth="168.0" promptText="********" />
+            <Button fx:id="btnCadastroFeito" layoutX="508.0" layoutY="420.0" mnemonicParsing="false" onAction="#cadastar" prefHeight="46.0" prefWidth="106.0" text="Cadastrar">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label layoutX="365.0" layoutY="191.0" prefHeight="33.0" prefWidth="42.0" text="Idade">
+            <Label layoutX="427.0" layoutY="149.0" prefHeight="33.0" prefWidth="42.0" text="Nome:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="365.0" layoutY="234.0" prefHeight="46.0" prefWidth="42.0" text="Login:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="365.0" layoutY="341.0" prefHeight="33.0" prefWidth="42.0" text="Senha:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="369.0" layoutY="292.0" prefHeight="33.0" prefWidth="35.0" text="CPF:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="inputNome" layoutX="421.0" layoutY="137.0" prefHeight="33.0" prefWidth="168.0" promptText="Leandro Marques" />
-            <TextField fx:id="inputLoginCadastro" layoutX="421.0" layoutY="240.0" prefHeight="33.0" prefWidth="168.0" promptText="Leandro Marques" />
-            <TextField fx:id="inputCPF" layoutX="421.0" layoutY="293.0" prefHeight="33.0" prefWidth="168.0" promptText="11122233300" />
-            <TextField fx:id="inputSenhaCadastro" layoutX="421.0" layoutY="347.0" prefHeight="33.0" prefWidth="168.0" promptText="********" />
-            <Label layoutX="362.0" layoutY="139.0" prefHeight="33.0" prefWidth="42.0" text="Nome:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="inputIdade" layoutX="421.0" layoutY="191.0" prefHeight="33.0" prefWidth="168.0" promptText="30" />
       </children>
     </AnchorPane>
   </children>
