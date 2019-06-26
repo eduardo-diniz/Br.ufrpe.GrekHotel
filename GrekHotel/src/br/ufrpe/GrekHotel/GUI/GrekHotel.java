@@ -107,7 +107,7 @@ public class GrekHotel extends Application {
                 break;
             case "TelaCliente":
                 try {
-                    Parent fxmlCliente = FXMLLoader.load(GrekHotel.class.getResource("TelaCliente.fxml"));
+                    Parent fxmlCliente = FXMLLoader.load(GrekHotel.class.getResource("TelaCliente.fxml")); 
                     clienteScene = new Scene(fxmlCliente, 1080, 610);
                 } catch (IOException pyke) {
                 }
