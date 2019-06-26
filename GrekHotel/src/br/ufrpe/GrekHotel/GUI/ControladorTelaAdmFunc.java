@@ -30,6 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author Eduardo
  */
 public class ControladorTelaAdmFunc {
+
     Sistema fachada = Sistema.getInstance();
 
     @FXML
@@ -68,25 +69,24 @@ public class ControladorTelaAdmFunc {
     @FXML
     private Button btnAtualizar;
 
-     
-     public void initialize(){
-         colFuncion.setCellValueFactory((new PropertyValueFactory<>("nome")));
-         colServCpf.setCellValueFactory((new PropertyValueFactory<>("cpf")));
-         tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-         
-     }
-     
-     public void telaHome(){
+    public void initialize() {
+        colFuncion.setCellValueFactory((new PropertyValueFactory<>("nome")));
+        colServCpf.setCellValueFactory((new PropertyValueFactory<>("cpf")));
+        tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
+
+    }
+
+    public void telaHome() {
         try {
             GrekHotel.changeScreem("TelaAdmInicial");
         } catch (IOException ex) {
             Logger.getLogger(ControladorTelaAdmFunc.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-     }
-     
-     public void cadastrarFuncionario(){
-          try {
+
+    }
+
+    public void cadastrarFuncionario() {
+        try {
             if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
                 Funcionario atual;
                 atual = new Funcionario(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
@@ -103,7 +103,7 @@ public class ControladorTelaAdmFunc {
 
             } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("preencha todos os campos");
+                alerta.setContentText("Preencha todos os campos");
                 alerta.setHeaderText("Erro ao cadastrar funcionario");
                 alerta.show();
             }
@@ -116,87 +116,87 @@ public class ControladorTelaAdmFunc {
 
         } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("digite numeros em idade e CPF");
+            alerta.setContentText("Digite numeros em idade e CPF");
             alerta.setHeaderText("Erro ao cadastrar funcionario");
             alerta.show();
         }
-         
-     }
-     public void removerFuncionario(){
-         Funcionario atualrmv;
-         try{
-             if(tblFuncionarios.getSelectionModel().getSelectedItem() != null){
-                 atualrmv = tblFuncionarios.getSelectionModel().getSelectedItem();
-                 fachada.removerUsuario(atualrmv);
-                 tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                 alerta.setContentText("Funcionario removido com sucesso!");
-                 alerta.show();
-             }else{
+
+    }
+
+    public void removerFuncionario() {
+        Funcionario atualrmv;
+        try {
+            if (tblFuncionarios.getSelectionModel().getSelectedItem() != null) {
+                atualrmv = tblFuncionarios.getSelectionModel().getSelectedItem();
+                fachada.removerUsuario(atualrmv);
+                tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Funcionario removido com sucesso!");
+                alerta.show();
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao remover funcionario");
                 alerta.show();
-                 
-             }
-             
-         }catch(RUException a){
+
+            }
+
+        } catch (RUException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao remover funcionario");
             alerta.show();
-             
-         }
-         
-         
-     }
-     public void atualizarFuncionario(){
-         Funcionario antigo;
-         Funcionario novo;
-         try{
-             if(tblFuncionarios.getSelectionModel().getSelectedItem() != null){
-                 antigo = tblFuncionarios.getSelectionModel().getSelectedItem();
-                  if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
-                      novo = new Funcionario(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
-                      fachada.atualizarUsuario(antigo, novo);
-                      inputCPF.clear();
-                      inputIdade.clear();
-                      inputLoginCadastro.clear();
-                      inputNome.clear();
-                      inputSenhaCadastro.clear();
-                      tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
-                      Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                      alerta.setContentText("Funcionario atualizado com sucesso!");
-                      alerta.show();
-                 
-             }else{
+
+        }
+
+    }
+
+    public void atualizarFuncionario() {
+        Funcionario antigo;
+        Funcionario novo;
+        try {
+            if (tblFuncionarios.getSelectionModel().getSelectedItem() != null) {
+                antigo = tblFuncionarios.getSelectionModel().getSelectedItem();
+                if (!inputLoginCadastro.getText().equals("") && !inputSenhaCadastro.getText().equals("") && !inputNome.getText().equals("") && !inputIdade.getText().equals("") && !inputCPF.getText().equals("")) {
+                    novo = new Funcionario(inputLoginCadastro.getText(), inputSenhaCadastro.getText(), inputNome.getText(), Integer.parseInt(inputIdade.getText()), Long.parseLong(inputCPF.getText()));
+                    fachada.atualizarUsuario(antigo, novo);
+                    inputCPF.clear();
+                    inputIdade.clear();
+                    inputLoginCadastro.clear();
+                    inputNome.clear();
+                    inputSenhaCadastro.clear();
+                    tblFuncionarios.setItems(FXCollections.observableArrayList(fachada.listarFun()));
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                    alerta.setContentText("Funcionario atualizado com sucesso!");
+                    alerta.show();
+
+                } else {
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("Preencha todos os campos");
+                    alerta.setHeaderText("Erro ao atualizar o funcionario");
+                    alerta.show();
+                }
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("Preencha todos os campos");
-                alerta.setHeaderText("Erro ao atualizar o funcionario");
-                alerta.show();
-                  }
-         }else{
-                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao atualizar o funcionario");
                 alerta.show();
-             }
-         
-         
-     }catch(AUException a){
-        Alert alerta = new Alert(Alert.AlertType.ERROR);
-        alerta.setContentText(a.getMessage());
-        alerta.setHeaderText("Erro ao atualizar o funcionario");
-        alerta.show();
-         
-     }catch(NumberFormatException a){
-        Alert alerta = new Alert(Alert.AlertType.ERROR);
-        alerta.setContentText("Insira numeros válidos em idade e CPF");
-        alerta.setHeaderText("Erro ao atualizar o funcionario");
-        alerta.show();
-         
-     }
-             
-     }
-    
+            }
+
+        } catch (AUException a) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("Erro ao atualizar o funcionario");
+            alerta.show();
+
+        } catch (NumberFormatException a) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("Insira numeros válidos em idade e CPF");
+            alerta.setHeaderText("Erro ao atualizar o funcionario");
+            alerta.show();
+
+        }
+
+    }
+
 }

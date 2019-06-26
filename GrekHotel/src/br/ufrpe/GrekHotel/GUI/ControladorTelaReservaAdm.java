@@ -75,7 +75,6 @@ public class ControladorTelaReservaAdm {
         colCheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOutPrevisto"));
         tblReservasAdm.setItems(FXCollections.observableList(fachada.listarReservas()));
 
-
     }
 
     public void atualizarPagina() {
@@ -87,14 +86,14 @@ public class ControladorTelaReservaAdm {
         if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
             atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
             fachada.checkIn(atualIn);
-             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setContentText("Informação sobre o Check-In");
             alerta.setHeaderText("Check-In realizado com sucesso");
             alerta.show();
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("selecione uma reserva na tabela");
-            alerta.setHeaderText("falha na escolha da reserva");
+            alerta.setContentText("Selecione uma reserva na tabela");
+            alerta.setHeaderText("Falha na escolha da reserva");
             alerta.show();
 
         }
@@ -104,25 +103,24 @@ public class ControladorTelaReservaAdm {
     public void checkout() {
         Reserva atualOut;
         if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
-            try{
+            try {
                 atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
                 fachada.checkOut(atualOut);
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setContentText("Informação sobre o Check-Out");
                 alerta.setHeaderText("Check-Out realizado com sucesso");
                 alerta.show();
-            }catch(RRException e){
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText(e.getMessage());
-            alerta.setHeaderText("falha ao fazer chechout");
-            alerta.show();
+            } catch (RRException e) {
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setContentText(e.getMessage());
+                alerta.setHeaderText("Falha ao fazer chechout");
+                alerta.show();
             }
-            
 
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("selecione uma reserva na tabela");
-            alerta.setHeaderText("falha na escolha da reserva");
+            alerta.setContentText("Selecione uma reserva na tabela");
+            alerta.setHeaderText("Falha na escolha da reserva");
             alerta.show();
         }
 

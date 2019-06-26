@@ -97,11 +97,11 @@ public class ControladorTelaReservas {
     public void reservar() {
         if (tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null) {
             try {
-             fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue(), dataCheckOut.getValue()));
-             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setContentText("Confirmação da reserva");
-            alerta.setHeaderText("Reserva realizada com sucesso");
-            alerta.show();
+                fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue(), dataCheckOut.getValue()));
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Confirmação da reserva");
+                alerta.setHeaderText("Reserva realizada com sucesso");
+                alerta.show();
             } catch (CRException a) {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setHeaderText("Erro ao reservar quarto");
@@ -112,7 +112,7 @@ public class ControladorTelaReservas {
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos não preenchidos");
-            alerta.setContentText("preencha todos os campos");
+            alerta.setContentText("Preencha todos os campos");
             alerta.show();
         }
 
@@ -134,12 +134,12 @@ public class ControladorTelaReservas {
 
             lblValorDiaria.setText("R$: " + boxQuartosUser.getValue().getDiaria());
         }
-        
-        
+
+
          if (event.getSource().equals(btnReservar)){
-             
-             
-             
+
+
+
          }*/
     }
 

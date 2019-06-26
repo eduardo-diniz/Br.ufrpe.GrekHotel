@@ -45,7 +45,7 @@ public class ControladorTelaUser {
 
         //o botao que direciona para a tela cadastrar deve chamar o seguinte metodo
         //GrekHotel.changeScreem("TelaCadastro");
-       // btnCadastrar.setDisable(false);
+        // btnCadastrar.setDisable(false);
     }
 
     @FXML
@@ -74,14 +74,14 @@ public class ControladorTelaUser {
 
             } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("login ou senha inválidos");
-                alerta.setHeaderText("falha no login");
+                alerta.setContentText("Login ou senha inválidos");
+                alerta.setHeaderText("Falha no login");
                 alerta.show();
             }
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("campos vazios");
-            alerta.setHeaderText("falha no login");
+            alerta.setContentText("Campos vazios");
+            alerta.setHeaderText("Falha no login");
             alerta.show();
         }
     }

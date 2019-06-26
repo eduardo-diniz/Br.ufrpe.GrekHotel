@@ -94,11 +94,14 @@ public class ControladorTelaCliente {
     @FXML
     private Button mudarSenha;
 
+    @FXML
+    private Label txtValorTotal;
+
     private Sistema fachada = Sistema.getInstance();
 
     public void initialize() {
 
-        txtBemVindo.setText("Olá, " + fachada.getUsuario() + "bem vindxs");
+        txtBemVindo.setText("Olá, " + fachada.getUsuario() + " seja bem vindx");
 
         //Tabela de Serviços
         colValorservico.setCellValueFactory(new PropertyValueFactory<>("custo"));
@@ -117,11 +120,10 @@ public class ControladorTelaCliente {
         //Tabela de informações sobre a despesa
         colDespesasServico.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("custo")));
-        if(c.getDespesa() !=null){
+        if (c.getDespesa() != null) {
             tblDespesas.setItems(FXCollections.observableArrayList(c.getDespesa().getCompras()));
         }
-        
-        
+
         if (fachada.procurarReserva(c) != null && fachada.procurarReserva(c).getVisita() != null) {
 
             btnContratarServico.setDisable(false);
@@ -137,10 +139,10 @@ public class ControladorTelaCliente {
             btnCancelar.setDisable(true);
 
         }
-        
-        if(fachada.procurarReserva(c) != null){
+
+        if (fachada.procurarReserva(c) != null) {
             btnQuartos.setDisable(true);
-        }else{
+        } else {
             btnQuartos.setDisable(false);
         }
 
@@ -210,7 +212,7 @@ public class ControladorTelaCliente {
         } catch (RRException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
-            alerta.setHeaderText("falha ao remover reserva");
+            alerta.setHeaderText("Falha ao remover reserva");
             alerta.show();
 
         }
@@ -237,10 +239,12 @@ public class ControladorTelaCliente {
     public void contratarServico() {
         if (tblServicos.getSelectionModel().getSelectedItem() != null) {
             fachada.contratarServico((Cliente) fachada.getUsuario(), tblServicos.getSelectionModel().getSelectedItem());
+            txtValorTotal.setText("....");
+
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("selecione um serviço na tabela");
-            alerta.setHeaderText("falha na escolha de serviço");
+            alerta.setContentText("Selecione um serviço na tabela");
+            alerta.setHeaderText("Falha na escolha de serviço");
             alerta.show();
         }
     }

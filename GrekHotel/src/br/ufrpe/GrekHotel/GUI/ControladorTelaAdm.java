@@ -53,7 +53,7 @@ public class ControladorTelaAdm {
 
     @FXML
     private TableColumn<Quarto, String> colDescricaoCadQuarto;
-    
+
     @FXML
     private Button btnHomeAdm;
 
@@ -104,219 +104,220 @@ public class ControladorTelaAdm {
         tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         tblCadServico.refresh();
     }
-    public void home(){
+
+    public void home() {
         try {
             GrekHotel.changeScreem("TelaAdmInicial");
         } catch (IOException ex) {
             Logger.getLogger(ControladorTelaAdm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void cadastrarQuarto(){
+
+    public void cadastrarQuarto() {
         Quarto atual;
-        try{
-            if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
+        try {
+            if (!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")) {
                 atual = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
-             fachada.cadastrarQuarto(atual);
-             areaDescrQuarto.clear();
-             fieldDiaria.clear();
-             fieldNumQuarto.clear();
-             tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-             alerta.setContentText("Quarto cadastrado com sucesso!");
-             alerta.show();
-           
-            
-        }else{
+                fachada.cadastrarQuarto(atual);
+                areaDescrQuarto.clear();
+                fieldDiaria.clear();
+                fieldNumQuarto.clear();
+                tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Quarto cadastrado com sucesso!");
+                alerta.show();
+
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Preencha todos os campos");
                 alerta.setHeaderText("Erro ao cadastrar quarto");
                 alerta.show();
-                
+
             }
-            
-        }catch(CQException a){
+
+        } catch (CQException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao cadastrar quarto");
             alerta.show();
-        }catch(NumberFormatException a){
+        } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setContentText("digite números válidos em diária e número");
+            alerta.setContentText("Digite números válidos em diária e número");
             alerta.setHeaderText("Erro ao cadastrar quarto");
             alerta.show();
         }
-         
+
     }
-    public void removerQuarto(){
+
+    public void removerQuarto() {
         Quarto atualrmv;
-       try{
-           if(tblCadQuarto.getSelectionModel().getSelectedItem() != null){
-            atualrmv = tblCadQuarto.getSelectionModel().getSelectedItem();
-            fachada.removerQuarto(atualrmv);
-            tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-             alerta.setContentText("Quarto removido com sucesso!");
-             alerta.show();
-        }else{
+        try {
+            if (tblCadQuarto.getSelectionModel().getSelectedItem() != null) {
+                atualrmv = tblCadQuarto.getSelectionModel().getSelectedItem();
+                fachada.removerQuarto(atualrmv);
+                tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Quarto removido com sucesso!");
+                alerta.show();
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao remover quarto");
                 alerta.show();
-               
-           }
-        
-           
-       }catch(RQException a){
+
+            }
+
+        } catch (RQException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao remover quarto");
             alerta.show();
-       }
+        }
     }
-    public void atualizarQuarto(){
-       Quarto antigo;
-       Quarto novo;
-       try{
-           if(tblCadQuarto.getSelectionModel().getSelectedItem() != null){
-            antigo = tblCadQuarto.getSelectionModel().getSelectedItem();
-            if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
-                novo = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
-                     fachada.atualizarQuarto(antigo, novo);
-                     tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
-                     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                     alerta.setContentText("Quarto atualizado com sucesso!");
-                     alerta.show();
-            }else{
-                  Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("Preencha todos os campos");
-                alerta.setHeaderText("Erro ao cadastrar quarto");
+
+    public void atualizarQuarto() {
+        Quarto antigo;
+        Quarto novo;
+        try {
+            if (tblCadQuarto.getSelectionModel().getSelectedItem() != null) {
+                antigo = tblCadQuarto.getSelectionModel().getSelectedItem();
+                if (!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")) {
+                    novo = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
+                    fachada.atualizarQuarto(antigo, novo);
+                    tblCadQuarto.setItems(FXCollections.observableList(fachada.listarQuartos()));
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                    alerta.setContentText("Quarto atualizado com sucesso!");
+                    alerta.show();
+                } else {
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("Preencha todos os campos");
+                    alerta.setHeaderText("Erro ao cadastrar quarto");
+                    alerta.show();
+
+                }
+            } else {
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setContentText("Item nao selecionado");
+                alerta.setHeaderText("Erro ao remover quarto");
                 alerta.show();
-                
+
             }
-           }else{
-               Alert alerta = new Alert(Alert.AlertType.ERROR);
-               alerta.setContentText("Item nao selecionado");
-               alerta.setHeaderText("Erro ao remover quarto");
-               alerta.show();
-               
-           }
-        
-        }catch(AQException a){
+
+        } catch (AQException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao atualizar quarto");
             alerta.show();
-            
-        }catch(NumberFormatException a){
+
+        } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("digite números válidos em diária e número");
             alerta.setHeaderText("Erro ao atualizar quarto");
             alerta.show();
-        }  
+        }
     }
-    public void cadastrarServico(){
+
+    public void cadastrarServico() {
         Servico atualSer;
-        try{
-            if(!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")){
-            atualSer = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
-            fachada.cadastrarServico(atualSer);
-            tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
-             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-             alerta.setContentText("Serviço cadastrado com sucesso!");
-             alerta.show();
-             
-            
-        }else{
+        try {
+            if (!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")) {
+                atualSer = new Servico(fieldServico.getText(), Double.parseDouble(fieldValorServico.getText()));
+                fachada.cadastrarServico(atualSer);
+                tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Serviço cadastrado com sucesso!");
+                alerta.show();
+
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Preencha todos os campos");
                 alerta.setHeaderText("Erro ao cadastrar serviço");
                 alerta.show();
-                
+
             }
-            
-        }catch(CSException a){
+
+        } catch (CSException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao cadastrar serviço");
             alerta.show();
-            
-        }catch(NumberFormatException a){
+
+        } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("digite números válidos em diária e númer");
             alerta.setHeaderText("Erro ao cadastrar serviço");
             alerta.show();
-            
+
         }
-        
-        
+
     }
-    public void removerServico(){
+
+    public void removerServico() {
         Servico atualSerrmv;
-        try{
-            if(tblCadServico.getSelectionModel().getSelectedItem() != null){
-            atualSerrmv = tblCadServico.getSelectionModel().getSelectedItem();
-            fachada.removerServico(atualSerrmv);
-            tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
-        }else {
+        try {
+            if (tblCadServico.getSelectionModel().getSelectedItem() != null) {
+                atualSerrmv = tblCadServico.getSelectionModel().getSelectedItem();
+                fachada.removerServico(atualSerrmv);
+                tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao remover quarto");
                 alerta.show();
-                
+
             }
-            
-        }catch(RSException a){
+
+        } catch (RSException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao remover quarto");
             alerta.show();
         }
-        
-        
+
     }
-    public void atualizarServico(){
+
+    public void atualizarServico() {
         Servico antigo;
         Servico novo;
-        try{
-            if(tblCadServico.getSelectionModel().getSelectedItem() != null){
-             antigo = tblCadServico.getSelectionModel().getSelectedItem();
-                if(!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")){
-                     novo = new Servico(fieldServico.getText() , Double.parseDouble(fieldValorServico.getText()));
-                     fachada.atualizarServico(antigo, novo);
-                     tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
-                     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                      alerta.setContentText("Serviço atualizado com sucesso!");
-                      alerta.show();
-                }else{
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setContentText("Preencha todos os campos");
-                alerta.setHeaderText("Erro ao atualizar serviço");
-                alerta.show();
-                      
-                    }
-                }else {
+        try {
+            if (tblCadServico.getSelectionModel().getSelectedItem() != null) {
+                antigo = tblCadServico.getSelectionModel().getSelectedItem();
+                if (!fieldServico.getText().equals("") && !fieldValorServico.getText().equals("")) {
+                    novo = new Servico(fieldServico.getText(), Double.parseDouble(fieldValorServico.getText()));
+                    fachada.atualizarServico(antigo, novo);
+                    tblCadServico.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
+                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                    alerta.setContentText("Serviço atualizado com sucesso!");
+                    alerta.show();
+                } else {
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setContentText("Preencha todos os campos");
+                    alerta.setHeaderText("Erro ao atualizar serviço");
+                    alerta.show();
+
+                }
+            } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setContentText("Item nao selecionado");
                 alerta.setHeaderText("Erro ao atualizar serviço");
                 alerta.show();
-                
-                    }
-            
-        }catch(ASException a){
+
+            }
+
+        } catch (ASException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(a.getMessage());
             alerta.setHeaderText("Erro ao atualizar serviço");
             alerta.show();
-            
-        }catch(NumberFormatException a){
+
+        } catch (NumberFormatException a) {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("digite um número válido em valor");
             alerta.setHeaderText("Erro ao cadastrar serviço");
             alerta.show();
-            
+
         }
-        
-        
+
     }
 
 }
