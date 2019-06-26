@@ -80,7 +80,7 @@ public class GrekHotel extends Application {
                     Parent fxmlCadastro = FXMLLoader.load(GrekHotel.class.getResource("TelaCadastro.fxml"));
                     cadastroScene = new Scene(fxmlCadastro, 1080, 610);
 
-                } catch (IOException e) {
+                } catch (IOException katarina) {
 
                 }
 
@@ -90,7 +90,7 @@ public class GrekHotel extends Application {
                 try {
                     Parent fxmlReservas = FXMLLoader.load(GrekHotel.class.getResource("TelaReservas.fxml"));
                     reservaScene = new Scene(fxmlReservas, 1080, 610);
-                } catch (IOException e) {
+                } catch (IOException caitlyn) {
                 }
                 stage.setScene(reservaScene);
                 break;

@@ -28,6 +28,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -85,6 +86,13 @@ public class ControladorTelaCliente {
 
     @FXML
     private Button btnImprimirDespesas;
+    
+    @FXML
+    private Button mudarLogin;
+
+    @FXML
+    private Button mudarSenha;
+
 
     private Sistema fachada = Sistema.getInstance();
 
@@ -139,6 +147,34 @@ public class ControladorTelaCliente {
         ) {
 
     }
+        public void alterarLogin(){
+            
+            TextInputDialog mudancaLogin = new TextInputDialog();
+            mudancaLogin.setTitle("Mudança de Login");
+            mudancaLogin.setHeaderText("Alteração do login");
+            mudancaLogin.setContentText("Por favor, digite seu novo login:");
+            
+            Optional<String> resultadoLogin = mudancaLogin.showAndWait();
+            if(resultadoLogin.isPresent() && !resultadoLogin.get().equals("")){
+                fachada.getUsuario().setLogin(resultadoLogin.get());
+            }else{
+                
+            }
+        }
+        
+        public void alterarSenha(){
+            TextInputDialog mudancaLogin = new TextInputDialog();
+            mudancaLogin.setTitle("Mudança de Senha");
+            mudancaLogin.setHeaderText("Alteração do senha");
+            mudancaLogin.setContentText("Por favor, digite sua nova senha:");
+            Optional<String> resultadoSenha = mudancaLogin.showAndWait();
+            if(resultadoSenha.isPresent() && !resultadoSenha.get().equals("")){
+                fachada.getUsuario().setSenha(resultadoSenha.get());
+            }else{
+                
+            }
+            
+        }
 
     
 
