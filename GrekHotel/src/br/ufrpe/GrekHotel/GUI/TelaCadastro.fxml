@@ -49,6 +49,5 @@
             <TextField fx:id="inputIdade" layoutX="421.0" layoutY="191.0" prefHeight="33.0" prefWidth="168.0" promptText="30" />
       </children>
     </AnchorPane>
-      <TextField fx:id="inputNome1" prefHeight="25.0" prefWidth="189.0" promptText="Leandro Marques" />
   </children>
 </VBox>

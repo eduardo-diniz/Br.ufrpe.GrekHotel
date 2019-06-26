@@ -58,7 +58,9 @@ public class ControladorTelaUser {
                 if (local instanceof Cliente) {
                     try {
                         GrekHotel.changeScreem("TelaCliente");
+
                     } catch (IOException ex) {
+
                         Logger.getLogger(ControladorTelaUser.class.getName()).log(Level.SEVERE, null, ex);
                     }
 

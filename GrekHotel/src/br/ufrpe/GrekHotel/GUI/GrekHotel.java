@@ -48,7 +48,7 @@ public class GrekHotel extends Application {
 //        Parent fxmlAdm = FXMLLoader.load(getClass().getResource("TelaAdm.fxml"));
 //        admScene = new Scene(fxmlAdm, 1080, 610);
 //        Parent fxmlCliente = FXMLLoader.load(getClass().getResource("TelaCliente.fxml"));
-//        clienteScene = new Scene(fxmlCliente, 1080, 610);
+        //       clienteScene = new Scene(fxmlCliente, 1080, 610);
 //        Parent fxmladmReservaScene = FXMLLoader.load(getClass().getResource("TelaReservaAdm.fxml"));
 ////        admReservaScene = new Scene(fxmladmReservaScene, 1080, 610);
 //        Parent fxmltelaAdmInicial = FXMLLoader.load(getClass().getResource("TelaAdmInicial.fxml"));
@@ -102,19 +102,23 @@ public class GrekHotel extends Application {
                 } catch (IOException sivir) {
 
                 }
-
                 stage.setScene(admScene);
                 break;
             case "TelaCliente":
+
                 try {
-                    Parent fxmlCliente = FXMLLoader.load(GrekHotel.class.getResource("TelaCliente.fxml")); 
+
+                    Parent fxmlCliente = FXMLLoader.load(GrekHotel.class.getResource("TelaCliente.fxml"));
                     clienteScene = new Scene(fxmlCliente, 1080, 610);
                 } catch (IOException pyke) {
+
                 }
                 stage.setScene(clienteScene);
                 break;
             case "TelaReservaAdm":
+
                 try {
+
                     Parent fxmladmReservaScene = FXMLLoader.load(GrekHotel.class.getResource("TelaReservaAdm.fxml"));
                     admReservaScene = new Scene(fxmladmReservaScene, 1080, 610);
                 } catch (IOException morgana) {

@@ -86,13 +86,12 @@ public class ControladorTelaCliente {
 
     @FXML
     private Button btnImprimirDespesas;
-    
+
     @FXML
     private Button mudarLogin;
 
     @FXML
     private Button mudarSenha;
-
 
     private Sistema fachada = Sistema.getInstance();
 
@@ -122,13 +121,13 @@ public class ControladorTelaCliente {
         //Ignorem por enquanto
         Cliente c = (Cliente) fachada.getUsuario();
         //para cancelar reserva fachada.procurarReserva(c) != null
-        if (fachada.procurarReserva(c).getVisita() != null) {
+        /*if (fachada.procurarReserva(c).getVisita() != null) {
 
             btnContratarServico.setDisable(true);
         } else {
 
             btnContratarServico.setDisable(false);
-        }
+        }*/
 
 //        if (fachada.checkIn()) {
 //
@@ -137,46 +136,43 @@ public class ControladorTelaCliente {
 //            btnCancelar.setDisable(false);
 //
 //        }
-//        
+//
     }
 
-        @FXML
-        public void imprimirPdf
-        (ActionEvent event
-        
-        ) {
+    @FXML
+    public void imprimirPdf(ActionEvent event
+    ) {
 
     }
-        public void alterarLogin(){
-            
-            TextInputDialog mudancaLogin = new TextInputDialog();
-            mudancaLogin.setTitle("Mudança de Login");
-            mudancaLogin.setHeaderText("Alteração do login");
-            mudancaLogin.setContentText("Por favor, digite seu novo login:");
-            
-            Optional<String> resultadoLogin = mudancaLogin.showAndWait();
-            if(resultadoLogin.isPresent() && !resultadoLogin.get().equals("")){
-                fachada.getUsuario().setLogin(resultadoLogin.get());
-            }else{
-                
-            }
+
+    public void alterarLogin() {
+
+        TextInputDialog mudancaLogin = new TextInputDialog();
+        mudancaLogin.setTitle("Mudança de Login");
+        mudancaLogin.setHeaderText("Alteração do login");
+        mudancaLogin.setContentText("Por favor, digite seu novo login:");
+
+        Optional<String> resultadoLogin = mudancaLogin.showAndWait();
+        if (resultadoLogin.isPresent() && !resultadoLogin.get().equals("")) {
+            fachada.getUsuario().setLogin(resultadoLogin.get());
+        } else {
+
         }
-        
-        public void alterarSenha(){
-            TextInputDialog mudancaLogin = new TextInputDialog();
-            mudancaLogin.setTitle("Mudança de Senha");
-            mudancaLogin.setHeaderText("Alteração do senha");
-            mudancaLogin.setContentText("Por favor, digite sua nova senha:");
-            Optional<String> resultadoSenha = mudancaLogin.showAndWait();
-            if(resultadoSenha.isPresent() && !resultadoSenha.get().equals("")){
-                fachada.getUsuario().setSenha(resultadoSenha.get());
-            }else{
-                
-            }
-            
+    }
+
+    public void alterarSenha() {
+        TextInputDialog mudancaLogin = new TextInputDialog();
+        mudancaLogin.setTitle("Mudança de Senha");
+        mudancaLogin.setHeaderText("Alteração do senha");
+        mudancaLogin.setContentText("Por favor, digite sua nova senha:");
+        Optional<String> resultadoSenha = mudancaLogin.showAndWait();
+        if (resultadoSenha.isPresent() && !resultadoSenha.get().equals("")) {
+            fachada.getUsuario().setSenha(resultadoSenha.get());
+        } else {
+
         }
 
-    
+    }
 
     public void cancelarHospedagem() {
         Reserva posCan;
