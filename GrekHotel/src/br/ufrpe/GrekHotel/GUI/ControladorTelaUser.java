@@ -45,7 +45,11 @@ public class ControladorTelaUser {
 
         //o botao que direciona para a tela cadastrar deve chamar o seguinte metodo
         //GrekHotel.changeScreem("TelaCadastro");
+<<<<<<< HEAD
         // btnCadastrar.setDisable(false);
+=======
+        btnCadastrar.setDisable(false);
+>>>>>>> parent of 5977673... Correção de Erros 9.2(Alerts)
     }
 
     @FXML

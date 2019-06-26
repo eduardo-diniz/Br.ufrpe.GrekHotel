@@ -98,13 +98,16 @@ public class ControladorTelaReservas {
         if (tblQuartos.getSelectionModel().getSelectedItem() != null && dataCheckIn.getValue() != null && dataCheckOut.getValue() != null) {
             try {
                 fachada.Reservar(new Reserva(tblQuartos.getSelectionModel().getSelectedItem(), (Cliente) fachada.getUsuario(), dataCheckIn.getValue(), dataCheckOut.getValue()));
+<<<<<<< HEAD
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setContentText("Confirmação da reserva");
                 alerta.setHeaderText("Reserva realizada com sucesso");
                 alerta.show();
+=======
+>>>>>>> parent of 5977673... Correção de Erros 9.2(Alerts)
             } catch (CRException a) {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setHeaderText("Erro ao reservar quarto");
+                alerta.setHeaderText("erro ao reservar quarto");
                 alerta.setContentText(a.getMessage());
                 alerta.show();
             }

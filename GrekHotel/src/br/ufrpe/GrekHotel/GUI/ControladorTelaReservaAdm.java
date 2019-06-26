@@ -86,10 +86,13 @@ public class ControladorTelaReservaAdm {
         if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
             atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
             fachada.checkIn(atualIn);
+<<<<<<< HEAD
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setContentText("Informação sobre o Check-In");
             alerta.setHeaderText("Check-In realizado com sucesso");
             alerta.show();
+=======
+>>>>>>> parent of 5977673... Correção de Erros 9.2(Alerts)
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("Selecione uma reserva na tabela");
@@ -106,6 +109,7 @@ public class ControladorTelaReservaAdm {
             try {
                 atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
                 fachada.checkOut(atualOut);
+<<<<<<< HEAD
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION);
                 alerta.setContentText("Informação sobre o Check-Out");
                 alerta.setHeaderText("Check-Out realizado com sucesso");
@@ -115,6 +119,13 @@ public class ControladorTelaReservaAdm {
                 alerta.setContentText(e.getMessage());
                 alerta.setHeaderText("Falha ao fazer chechout");
                 alerta.show();
+=======
+            }catch(RRException e){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(e.getMessage());
+            alerta.setHeaderText("falha ao fazer chechout");
+            alerta.show();
+>>>>>>> parent of 5977673... Correção de Erros 9.2(Alerts)
             }
 
         } else {
