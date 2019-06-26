@@ -40,6 +40,10 @@ public class Reserva implements Serializable {
     public Cliente getCliente() {
         return this.hospede;
     }
+    
+    public Cliente getHospede(){
+        return this.hospede;
+    }
 
     public void setCheckInPrevisto(LocalDate checkIn) {
         this.checkInPrevisto = checkIn;
@@ -74,8 +78,7 @@ public class Reserva implements Serializable {
         if (obj instanceof Reserva) {
             Reserva a = (Reserva) obj;
 
-            if (this.quarto.equals(a.getQuarto()) && this.hospede.equals(a.getCliente())
-                    && this.checkInPrevisto.equals(a.getCheckInPrevisto()) && this.checkOutPrevisto.equals(a.getCheckOutPrevisto()) && this.visita.equals(a.getVisita())) {
+            if (this.quarto.equals(a.getQuarto())) {
                 resultado = true;
             }
 

@@ -115,8 +115,8 @@ public class RepReservas {
     public void remove(Reserva reserva) throws RRException {
 
         if (this.reservas.contains(reserva)) {
-            reservas.remove(reserva);
             reserva.getQuarto().setSituacao(1);
+            reservas.remove(reserva);
             salvar();
         } else {
             RRException rre = new RRException("reserva não existe");

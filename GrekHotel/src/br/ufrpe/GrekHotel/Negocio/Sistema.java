@@ -11,6 +11,7 @@ package br.ufrpe.GrekHotel.Negocio;
  */
 import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,8 +129,7 @@ public class Sistema {
 
     }
 
-    public void checkOut(Reserva reserva) {
-
+    public void checkOut(Reserva reserva) throws RRException{
         ctrlReservas.checkOut(reserva);
 
     }

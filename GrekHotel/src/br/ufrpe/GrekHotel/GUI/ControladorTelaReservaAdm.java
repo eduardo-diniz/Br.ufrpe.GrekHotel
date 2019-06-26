@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.GUI;
 
+import br.ufrpe.GrekHotel.Excecoes.RRException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
@@ -73,8 +74,7 @@ public class ControladorTelaReservaAdm {
         colCheckIn.setCellValueFactory(new PropertyValueFactory<>("checkInPrevisto"));
         colCheckOut.setCellValueFactory(new PropertyValueFactory<>("checkOutPrevisto"));
         tblReservasAdm.setItems(FXCollections.observableList(fachada.listarReservas()));
-        //colQuartos
-        //colSituação
+
 
     }
 
@@ -100,8 +100,13 @@ public class ControladorTelaReservaAdm {
     public void checkout() {
         Reserva atualOut;
         if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
-            atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
-            fachada.checkOut(atualOut);
+            try{
+                atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
+                fachada.checkOut(atualOut);
+            }catch(RRException e){
+                //gabigol
+            }
+            
 
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);

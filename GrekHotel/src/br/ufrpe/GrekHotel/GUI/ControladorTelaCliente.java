@@ -15,6 +15,7 @@ import br.ufrpe.GrekHotel.Negocio.beans.Servico;
 import br.ufrpe.GrekHotel.Negocio.beans.Visita;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.logging.Level;
@@ -61,10 +62,10 @@ public class ControladorTelaCliente {
     private TableColumn<Visita, Conta> colValoresCliente;
 
     @FXML
-    private TableColumn<Visita, LocalDate> colDatasClienteIn;
+    private TableColumn<Visita, LocalDateTime> colDatasClienteIn;
 
     @FXML
-    private TableColumn<Visita, LocalDate> colDatasClienteOut;
+    private TableColumn<Visita, LocalDateTime> colDatasClienteOut;
 
     @FXML
     private TableView<Servico> tblServicos;
@@ -76,13 +77,13 @@ public class ControladorTelaCliente {
     private TableColumn<Servico, Double> colValorservico;
 
     @FXML
-    private TableView<Conta> tblDespesas;
+    private TableView<Servico> tblDespesas;
 
     @FXML
-    private TableColumn<Conta, ArrayList<Servico>> colDespesasServico;
+    private TableColumn<Servico, String> colDespesasServico;
 
     @FXML
-    private TableColumn<Conta, Double> colDespesasValor;
+    private TableColumn<Servico, Double> colDespesasValor;
 
     @FXML
     private Button btnImprimirDespesas;
@@ -104,39 +105,45 @@ public class ControladorTelaCliente {
         colServico.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tblServicos.setItems(FXCollections.observableArrayList(fachada.listarServicos()));
         tblServicos.refresh();
-
-        //Tabela de Informações sobre a Visita
+        Cliente c = (Cliente) fachada.getUsuario();
+        //Tabela de Informações sobre o historico
         colQuartosCliente.setCellValueFactory(new PropertyValueFactory<>("quarto"));
         colValoresCliente.setCellValueFactory(new PropertyValueFactory<>("despesa"));
         colDatasClienteIn.setCellValueFactory((new PropertyValueFactory<>("checkIn")));
         colDatasClienteOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
-        // tblServicos.setItems(FXCollections.observableArrayList(s.);
+        tblCliente.setItems(FXCollections.observableArrayList(c.getHistoricoVisita()));
         tblServicos.refresh();
 
         //Tabela de informações sobre a despesa
-        colDespesasServico.setCellValueFactory(new PropertyValueFactory<>("compras"));
-        colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("valorTotal")));
-
-        tblDespesas.setItems(FXCollections.observableArrayList(fachada.listarQuartos()));
-        //Ignorem por enquanto
-        Cliente c = (Cliente) fachada.getUsuario();
-        //para cancelar reserva fachada.procurarReserva(c) != null
-        /*if (fachada.procurarReserva(c).getVisita() != null) {
-
-            btnContratarServico.setDisable(true);
-        } else {
+        colDespesasServico.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        colDespesasValor.setCellValueFactory((new PropertyValueFactory<>("custo")));
+        if(c.getDespesa() !=null){
+            tblDespesas.setItems(FXCollections.observableArrayList(c.getDespesa().getCompras()));
+        }
+        
+        
+        if (fachada.procurarReserva(c) != null && fachada.procurarReserva(c).getVisita() != null) {
 
             btnContratarServico.setDisable(false);
-        }*/
+        } else {
 
-//        if (fachada.checkIn()) {
-//
-//            btnCancelar.setDisable(true);
-//        } else {
-//            btnCancelar.setDisable(false);
-//
-//        }
-//
+            btnContratarServico.setDisable(true);
+        }
+
+        if (fachada.procurarReserva(c) != null && fachada.procurarReserva(c).getVisita() == null) {
+
+            btnCancelar.setDisable(false);
+        } else {
+            btnCancelar.setDisable(true);
+
+        }
+        
+        if(fachada.procurarReserva(c) != null){
+            btnQuartos.setDisable(true);
+        }else{
+            btnQuartos.setDisable(false);
+        }
+
     }
 
     @FXML

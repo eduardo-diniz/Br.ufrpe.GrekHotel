@@ -61,4 +61,11 @@ public class Conta implements Serializable {
     public double getValorTotal() {
         return valorTotal;
     }
+
+    @Override
+    public String toString() {
+        return "" + valorTotal;
+    }
+    
+    
 }

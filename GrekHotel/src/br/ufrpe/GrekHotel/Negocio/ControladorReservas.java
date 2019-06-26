@@ -68,13 +68,17 @@ public class ControladorReservas {
 
     public void checkIn(Reserva reserva) {
         Conta despesa = new Conta(reserva.getQuarto());
+        reserva.getQuarto().setSituacao(3);
         reserva.getCliente().setDespesa(despesa);
         reserva.setVisita(new Visita(reserva.getQuarto(), LocalDateTime.now(), despesa));
 
     }
 
-    public void checkOut(Reserva reserva) {
+    public void checkOut(Reserva reserva) throws RRException{
         reserva.getVisita().setCheckOut(LocalDateTime.now());
+        reserva.getCliente().getHistoricoVisita().add(reserva.getVisita());
+        reserva.getCliente().setDespesa(null);
+        this.reserva.remove(reserva);
 
     }
 

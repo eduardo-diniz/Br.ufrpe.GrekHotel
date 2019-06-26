@@ -117,7 +117,6 @@ public class ControladorTelaAdm {
             if(!areaDescrQuarto.getText().equals("") && !fieldDiaria.getText().equals("") && !fieldNumQuarto.getText().equals("")){
                 atual = new Quarto(areaDescrQuarto.getText(), Double.parseDouble(fieldDiaria.getText()), Integer.parseInt(fieldNumQuarto.getText()));
              fachada.cadastrarQuarto(atual);
-                System.out.println(atual);
              areaDescrQuarto.clear();
              fieldDiaria.clear();
              fieldNumQuarto.clear();
