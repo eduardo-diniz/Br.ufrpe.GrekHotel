@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmFunc">
+<VBox prefHeight="400.0" prefWidth="640.0" styleClass="bodybg" stylesheets="@aplicacao.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmFunc">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
          <children>
@@ -42,6 +42,7 @@
                </font>
             </Label>
             <TextField fx:id="inputNome" layoutX="221.0" layoutY="134.0" prefHeight="25.0" prefWidth="189.0" promptText="Leandro Marques" />
+            <TextField fx:id="inputIdade" layoutX="221.0" layoutY="180.0" prefHeight="25.0" prefWidth="189.0" promptText="30" />
             <TextField fx:id="inputLoginCadastro" layoutX="221.0" layoutY="223.0" prefHeight="25.0" prefWidth="189.0" promptText="Leandro Marques" />
             <TextField fx:id="inputCPF" layoutX="221.0" layoutY="268.0" prefHeight="25.0" prefWidth="189.0" promptText="11122233300" />
             <TextField fx:id="inputSenhaCadastro" layoutX="224.0" layoutY="318.0" prefHeight="25.0" prefWidth="189.0" promptText="********" />
@@ -50,7 +51,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="inputIdade" layoutX="221.0" layoutY="180.0" prefHeight="25.0" prefWidth="189.0" promptText="30" />
             <TableView fx:id="tblFuncionarios" layoutX="512.0" layoutY="128.0" prefHeight="266.0" prefWidth="349.0">
               <columns>
                 <TableColumn fx:id="colFuncion" prefWidth="176.0" sortable="false" text="Funcionários:" />

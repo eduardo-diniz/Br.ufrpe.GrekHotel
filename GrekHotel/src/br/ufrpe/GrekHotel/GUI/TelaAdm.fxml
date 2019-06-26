@@ -10,21 +10,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="611.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdm">
+<VBox prefHeight="611.0" prefWidth="1080.0" styleClass="bodybg" stylesheets="@aplicacao.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdm">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="593.0" prefWidth="1080.0" VBox.vgrow="ALWAYS">
       <children>
             <TextField fx:id="fieldNumQuarto" layoutX="122.0" layoutY="135.0" promptText="01" />
             <TextField fx:id="fieldDiaria" layoutX="123.0" layoutY="190.0" promptText="320" />
+            <TextArea fx:id="areaDescrQuarto" layoutX="122.0" layoutY="232.0" prefHeight="97.0" prefWidth="167.0" promptText="Quarto com TV+Netflix, Cama De Casal, Banheira, E inclui 15 mil RIOTPOINTS" />
+            <Button fx:id="btnCadQuarto" layoutX="324.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarQuarto" text="Cadastrar Quarto" />
             <Label layoutX="129.0" layoutY="81.0" text="Cadastrar Quarto">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="53.0" layoutY="135.0" text="Numero:" />
             <Label layoutX="60.0" layoutY="190.0" text="Diaria:" />
             <Label layoutX="50.0" layoutY="256.0" text="Descrição:" />
-            <TextArea fx:id="areaDescrQuarto" layoutX="122.0" layoutY="232.0" prefHeight="97.0" prefWidth="167.0" promptText="Quarto com TV+Netflix, Cama De Casal, Banheira, E inclui 15 mil RIOTPOINTS" />
             <TableView fx:id="tblCadQuarto" layoutX="25.0" layoutY="359.0" prefHeight="200.0" prefWidth="305.0">
               <columns>
                 <TableColumn fx:id="colNumeroCadQuarto" prefWidth="78.0" text="Numero" />
@@ -32,27 +33,26 @@
                   <TableColumn fx:id="colDescricaoCadQuarto" prefWidth="147.0" text="Descricao" />
               </columns>
             </TableView>
-            <Button fx:id="btnRemoverQuarto" layoutX="360.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerQuarto" text="Remover Quarto" />
+            <Button fx:id="btnRemoverQuarto" layoutX="358.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerQuarto" text="Remover Quarto" />
             <Button fx:id="btnAtualizarQuarto" layoutX="358.0" layoutY="412.0" mnemonicParsing="false" onAction="#atualizarQuarto" text="Atualizar Quarto" />
             <Button fx:id="btnAtualizarServico" layoutX="714.0" layoutY="412.0" mnemonicParsing="false" onAction="#atualizarServico" text="Atualizar Serviço" />
-            <Button fx:id="btnRemoverServico" layoutX="715.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerServico" text="Remover Servico" />
+            <Button fx:id="btnRemoverServico" layoutX="714.0" layoutY="476.0" mnemonicParsing="false" onAction="#removerServico" text="Remover Servico" />
             <TableView fx:id="tblCadServico" layoutX="829.0" layoutY="359.0" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="colCadServico" prefWidth="102.0" text="Serviço" />
                 <TableColumn fx:id="colCadValor" prefWidth="97.0" text="Valor" />
               </columns>
             </TableView>
-            <TextField fx:id="fieldServico" layoutX="839.0" layoutY="173.0" promptText="Massagem" />
-            <TextField fx:id="fieldValorServico" layoutX="839.0" layoutY="228.0" promptText="100" />
-            <Label layoutX="781.0" layoutY="177.0" text="Serviço" />
-            <Label layoutX="734.0" layoutY="232.0" text="Valor do Serviço" />
-            <Label layoutX="845.0" layoutY="122.0" text="Cadastrar Serviço">
+            <TextField fx:id="fieldServico" layoutX="846.0" layoutY="159.0" promptText="Massagem" />
+            <TextField fx:id="fieldValorServico" layoutX="846.0" layoutY="214.0" promptText="100" />
+            <Button fx:id="btnCadServico" layoutX="594.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarServico" text="Cadastrar Serviço" />
+            <Label layoutX="788.0" layoutY="163.0" text="Serviço" />
+            <Label layoutX="741.0" layoutY="218.0" text="Valor do Serviço" />
+            <Label layoutX="847.0" layoutY="95.0" text="Cadastrar Serviço">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnCadQuarto" layoutX="324.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarQuarto" text="Cadastrar Quarto" />
-            <Button fx:id="btnCadServico" layoutX="594.0" layoutY="216.0" mnemonicParsing="false" onAction="#cadastrarServico" text="Cadastrar Serviço" />
             <Button fx:id="btnHomeAdm" layoutX="540.0" layoutY="534.0" mnemonicParsing="false" onAction="#home" text="Home" />
       </children>
     </AnchorPane>

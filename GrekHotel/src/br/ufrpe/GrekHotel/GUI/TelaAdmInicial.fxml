@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="611.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmInicial">
+<VBox prefHeight="611.0" prefWidth="1080.0" styleClass="bodybg" stylesheets="@aplicacao.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaAdmInicial">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="btnSair" layoutX="458.0" layoutY="459.0" mnemonicParsing="false" onAction="#sair" prefHeight="34.0" prefWidth="59.0" text="Sair" />
-            <Button fx:id="btnTelaReserva" layoutX="425.0" layoutY="351.0" mnemonicParsing="false" onAction="#telaVerificarReservas" prefHeight="54.0" prefWidth="129.0" text="Verificar Reservas" />
-            <Button fx:id="btnTelaQrtServ" layoutX="424.0" layoutY="270.0" mnemonicParsing="false" onAction="#telaquartoservico" prefHeight="54.0" prefWidth="129.0" text=" Quarto/Serviço" />
-            <Button fx:id="btnTelaFuncionario" layoutX="425.0" layoutY="182.0" mnemonicParsing="false" onAction="#telaFuncionario" prefHeight="54.0" prefWidth="129.0" text="Funcionarios" />
-            <Label fx:id="lblNomeAdm" layoutX="394.0" layoutY="95.0" text="Bem vindo, ________">
+            <Button fx:id="btnSair" layoutX="509.0" layoutY="474.0" mnemonicParsing="false" onAction="#sair" prefHeight="34.0" prefWidth="59.0" text="Sair" />
+            <Button fx:id="btnTelaReserva" layoutX="476.0" layoutY="366.0" mnemonicParsing="false" onAction="#telaVerificarReservas" prefHeight="54.0" prefWidth="129.0" text="Verificar Reservas" />
+            <Button fx:id="btnTelaQrtServ" layoutX="475.0" layoutY="285.0" mnemonicParsing="false" onAction="#telaquartoservico" prefHeight="54.0" prefWidth="129.0" text=" Quarto/Serviço" />
+            <Button fx:id="btnTelaFuncionario" layoutX="476.0" layoutY="197.0" mnemonicParsing="false" onAction="#telaFuncionario" prefHeight="54.0" prefWidth="129.0" text="Funcionarios" />
+            <Label fx:id="lblNomeAdm" layoutX="434.0" layoutY="103.0" text="Bem vindo, ________">
                <font>
                   <Font size="25.0" />
                </font>

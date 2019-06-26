@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="685.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaReservas">
+<VBox prefHeight="685.0" prefWidth="1080.0" styleClass="bodybg" stylesheets="@aplicacao.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.GrekHotel.GUI.ControladorTelaReservas">
   <children>
       <ListView prefHeight="0.0" prefWidth="640.0" />
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="674.0" prefWidth="1085.0" VBox.vgrow="ALWAYS">
@@ -25,7 +25,7 @@
             <DatePicker fx:id="dataCheckOut" layoutX="682.0" layoutY="423.0" promptText="Check out" />
             <Button fx:id="btnReservar" layoutX="913.0" layoutY="400.0" mnemonicParsing="false" onAction="#reservar" prefHeight="31.0" prefWidth="82.0" text="Reservar" />
             <Label fx:id="lblDescrQrto" layoutX="475.0" layoutY="480.0" prefHeight="69.0" prefWidth="165.0" text="Simples, confortável e econômico pro seu bolso." textAlignment="CENTER" wrapText="true" />
-            <TableView fx:id="tblQuartos" layoutX="24.0" layoutY="284.0" prefHeight="330.0" prefWidth="304.0">
+            <TableView fx:id="tblQuartos" layoutX="24.0" layoutY="283.0" prefHeight="330.0" prefWidth="304.0">
               <columns>
                 <TableColumn fx:id="colQuarto" prefWidth="147.0" text="Quarto" />
                 <TableColumn fx:id="colValor" prefWidth="156.0" text="Valor" />
