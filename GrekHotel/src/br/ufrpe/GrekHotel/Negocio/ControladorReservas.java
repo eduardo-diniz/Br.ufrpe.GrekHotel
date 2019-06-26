@@ -10,6 +10,7 @@ import br.ufrpe.GrekHotel.Negocio.beans.*;
 import br.ufrpe.GrekHotel.Dados.RepQuartos;
 import java.time.LocalDateTime;
 import br.ufrpe.GrekHotel.Dados.RepReservas;
+import static br.ufrpe.GrekHotel.Negocio.beans.Situacao.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class ControladorReservas {
 
     public void checkIn(Reserva reserva) {
         Conta despesa = new Conta(reserva.getQuarto());
-        reserva.getQuarto().setSituacao(3);
+        reserva.getQuarto().setSituacao(OCUPADO);
         reserva.getCliente().setDespesa(despesa);
         reserva.setVisita(new Visita(reserva.getQuarto(), LocalDateTime.now(), despesa));
 

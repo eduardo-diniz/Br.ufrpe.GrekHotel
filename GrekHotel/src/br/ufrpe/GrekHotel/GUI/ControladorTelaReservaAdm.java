@@ -104,7 +104,10 @@ public class ControladorTelaReservaAdm {
                 atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
                 fachada.checkOut(atualOut);
             }catch(RRException e){
-                //gabigol
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(e.getMessage());
+            alerta.setHeaderText("falha ao fazer chechout");
+            alerta.show();
             }
             
 

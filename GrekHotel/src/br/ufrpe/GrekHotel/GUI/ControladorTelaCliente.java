@@ -208,7 +208,10 @@ public class ControladorTelaCliente {
             }
 
         } catch (RRException a) {
-            //Gabriel
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText(a.getMessage());
+            alerta.setHeaderText("falha ao remover reserva");
+            alerta.show();
 
         }
     }

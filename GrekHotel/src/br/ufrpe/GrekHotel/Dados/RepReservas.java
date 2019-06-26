@@ -9,6 +9,7 @@ import br.ufrpe.GrekHotel.Excecoes.*;
 import br.ufrpe.GrekHotel.Negocio.beans.Reserva;
 import br.ufrpe.GrekHotel.Negocio.beans.Quarto;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
+import static br.ufrpe.GrekHotel.Negocio.beans.Situacao.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -56,9 +57,9 @@ public class RepReservas {
     }
 
     public void cadastrar(Reserva reserv) throws CRException {
-        if (reserv.getQuarto().getSituacao() == 1) {
+        if (reserv.getQuarto().getSituacao().equals(LIVRE)) {
             if (!this.reservas.contains(reserv)) {
-                reserv.getQuarto().setSituacao(2);
+                reserv.getQuarto().setSituacao(RESERVADO);
                 reservas.add(reserv);
                 salvar();
             } else {
@@ -115,7 +116,7 @@ public class RepReservas {
     public void remove(Reserva reserva) throws RRException {
 
         if (this.reservas.contains(reserva)) {
-            reserva.getQuarto().setSituacao(1);
+            reserva.getQuarto().setSituacao(LIVRE);
             reservas.remove(reserva);
             salvar();
         } else {

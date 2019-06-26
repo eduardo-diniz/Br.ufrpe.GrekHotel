@@ -5,6 +5,7 @@
  */
 package br.ufrpe.GrekHotel.Negocio.beans;
 
+import static br.ufrpe.GrekHotel.Negocio.beans.Situacao.*;
 import java.io.Serializable;
 
 /**
@@ -16,14 +17,14 @@ public class Quarto implements Serializable {
     private String descricao;
     private double diaria;
     private int numero;
-    private int situacao;
+    private Situacao situacao;
 
     public Quarto(String descricao, double diaria, int numero) {
 
         this.descricao = descricao;
         this.diaria = diaria;
         this.numero = numero;
-        this.situacao = 1;
+        this.situacao = LIVRE;
         
 		 // 1- Livre 2-Reservado 3- ocupado
     
@@ -54,11 +55,11 @@ public class Quarto implements Serializable {
         return numero;
     }
 
-    public int getSituacao() {
+    public Situacao getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(int situacao) {
+    public void setSituacao(Situacao situacao) {
         this.situacao = situacao;
     }
 
