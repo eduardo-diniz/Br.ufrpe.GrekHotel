@@ -8,11 +8,13 @@ import br.ufrpe.GrekHotel.Excecoes.CUException;
 import br.ufrpe.GrekHotel.Negocio.Sistema;
 import br.ufrpe.GrekHotel.Negocio.beans.Cliente;
 import java.io.IOException;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
 public class ControladorTelaCadastro {
@@ -58,9 +60,30 @@ public class ControladorTelaCadastro {
                 inputLoginCadastro.clear();
                 inputNome.clear();
                 inputSenhaCadastro.clear();
-                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                alerta.setContentText("Usuario cadastrado com sucesso!");
-                alerta.show();
+                   Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+                alerta.setHeaderText("Confirmação do cadastro");
+                alerta.setContentText("Cadastro realizado com sucesso");
+                Optional<ButtonType> resultado = alerta.showAndWait();
+                if (resultado.get() == ButtonType.OK) {
+                    Alert safe = new Alert(Alert.AlertType.INFORMATION);
+                    //safe.setHeaderText("Confirmação do cadastro");
+                    //safe.setContentText("Cadastro realizado com sucesso");
+                    //safe.show();
+                     try {
+                    GrekHotel.changeScreem("TelaUser");
+                      } catch (IOException ex) {
+                             Logger.getLogger(ControladorTelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                    
+
+                } else {
+                    Alert ok = new Alert(Alert.AlertType.INFORMATION);
+                    ok.setHeaderText("Confirmação de cancelamento.");
+                    ok.setContentText("Hospedagem não cancelada.");
+                    ok.show();
+
+                }
+                
 
             } else {
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -93,5 +116,7 @@ public class ControladorTelaCadastro {
         }
 
     }
+
+   
 
 }

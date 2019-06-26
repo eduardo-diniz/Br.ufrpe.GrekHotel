@@ -87,6 +87,10 @@ public class ControladorTelaReservaAdm {
         if (tblReservasAdm.getSelectionModel().getSelectedItem() != null) {
             atualIn = tblReservasAdm.getSelectionModel().getSelectedItem();
             fachada.checkIn(atualIn);
+             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setContentText("Informação sobre o Check-In");
+            alerta.setHeaderText("Check-In realizado com sucesso");
+            alerta.show();
         } else {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText("selecione uma reserva na tabela");
@@ -103,6 +107,10 @@ public class ControladorTelaReservaAdm {
             try{
                 atualOut = tblReservasAdm.getSelectionModel().getSelectedItem();
                 fachada.checkOut(atualOut);
+                Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                alerta.setContentText("Informação sobre o Check-Out");
+                alerta.setHeaderText("Check-Out realizado com sucesso");
+                alerta.show();
             }catch(RRException e){
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setContentText(e.getMessage());
